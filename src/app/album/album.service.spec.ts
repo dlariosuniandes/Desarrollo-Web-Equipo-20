@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AlbumService } from './album.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AlbumService', () => {
   let service: AlbumService;
@@ -8,7 +10,12 @@ describe('AlbumService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers:[AlbumService]
+      providers:[
+        AlbumService,
+        HttpClientTestingModule,
+        HttpClient,
+        HttpHandler
+      ]
     });
     service = TestBed.inject(AlbumService);
   });
@@ -19,7 +26,7 @@ describe('AlbumService', () => {
 
   it('existe un atributo de tipo HTTP',() =>
   {
-    expect(service.verifiarHttp()).toBeFalse();
+    expect(service.verifiarHttp()).toBeTrue()
   })
 
 });

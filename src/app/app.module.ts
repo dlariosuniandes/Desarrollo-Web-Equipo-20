@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AlbumModule } from './album/album.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AlbumModule } from './album/album.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AlbumModule
+    AlbumModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
