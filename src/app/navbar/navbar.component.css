@@ -1,0 +1,29 @@
+#tituloPagina {
+    color: #000066;
+}
+
+.navbarColor {
+    background-color: #DAE8FC;
+}
+
+.navbarTextColor {
+    color: #487E99;
+}
+
+.navbarTextColor>li>a {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.bi-cart {
+    font-size: 2em;
+    margin-right: 20px;
+}
+
+.bi-person-circle {
+    font-size: 2em;
+    margin-left: 20px;
+}
