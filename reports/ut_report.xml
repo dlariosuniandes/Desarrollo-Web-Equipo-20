@@ -1,22 +1,36 @@
 <testExecutions version="1">
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="39"/>
+  </file>
   <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="8"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="9"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="102">
+      <failure message="Error">Error: Expected undefined to be defined.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/album/album.service.spec.ts:36:37)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+
+Error: Expected false to be true.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/album/album.service.spec.ts:37:59)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+</failure>
+    </testCase>
     <testCase name="AlbumService Se deberia crear el servicio" duration="2"/>
   </file>
-  <file path="src/app/sidebar/sidebar.component.spec.ts">
-    <testCase name="SidebarComponent should create" duration="29"/>
-  </file>
-  <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent should create" duration="7"/>
-  </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should have as title 'front'" duration="11"/>
-    <testCase name="AppComponent should create the app" duration="4"/>
-  </file>
-  <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="13"/>
+    <testCase name="AppComponent should create the app" duration="12"/>
+    <testCase name="AppComponent should have as title 'front'" duration="6"/>
   </file>
   <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="6"/>
+    <testCase name="FooterComponent should create" duration="7"/>
+  </file>
+  <file path="src/app/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="21"/>
+  </file>
+  <file path="src/app/album/album-list/album-list.component.spec.ts">
+    <testCase name="AlbumListComponent should create" duration="5"/>
   </file>
 </testExecutions>

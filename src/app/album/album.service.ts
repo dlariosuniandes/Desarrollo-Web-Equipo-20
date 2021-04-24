@@ -20,7 +20,7 @@ export class AlbumService {
     }
   }
 
-  obtenerAlbums()
+  obtenerAlbums():any
   {
 
   }
