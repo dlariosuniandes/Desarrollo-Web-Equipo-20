@@ -1,0 +1,41 @@
+<testExecutions version="1">
+  <file path="src/app/artists/list/list.component.spec.ts">
+    <testCase name="ListComponent should have a title musician" duration="333"/>
+    <testCase name="ListComponent should create" duration="30"/>
+    <testCase name="ListComponent should have a musician card" duration="19"/>
+    <testCase name="ListComponent should have a band card" duration="13"/>
+    <testCase name="ListComponent should have a title tag for bands" duration="11"/>
+    <testCase name="ListComponent should return formatted date" duration="8"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="8"/>
+  </file>
+  <file path="src/app/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="12"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="112"/>
+    <testCase name="AppComponent should have as title 'front'" duration="9"/>
+    <testCase name="AppComponent should render title" duration="154">
+      <failure message="Error">TypeError: Cannot read property 'textContent' of null
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/app.component.spec.ts:33:51)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/artists/artists.service.spec.ts">
+    <testCase name="ArtistsService should return 10 bands" duration="9"/>
+    <testCase name="ArtistsService should create service" duration="1"/>
+    <testCase name="ArtistsService should return 10 musicians" duration="1"/>
+  </file>
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="44"/>
+  </file>
+</testExecutions>
