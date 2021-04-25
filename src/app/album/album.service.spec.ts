@@ -15,9 +15,7 @@ describe('AlbumService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers:[
-        AlbumService,
-        HttpClient,
-        HttpHandler
+        AlbumService
       ],
       imports: [HttpClientTestingModule]
     });
