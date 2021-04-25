@@ -50,7 +50,7 @@ describe('AlbumService', () => {
     service = new AlbumService(serviceSpy as any);
     serviceSpy.get.and.returnValue(of([]))
     service.obtenerAlbums().subscribe();
-    expect(serviceSpy.get.calls.allArgs()[0][0]).toBe(environment.backUrl+'/Albums')
+    expect(serviceSpy.get.calls.allArgs()[0][0]).toBe(environment.backUrl+'Albums')
   })
 
 });

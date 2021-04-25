@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Album } from './album';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumService {
   
+  private urlBack = environment.backUrl + 'Albums'
   constructor(private http: HttpClient) { }
 
   verifiarHttp()
@@ -24,6 +26,6 @@ export class AlbumService {
 
   obtenerAlbums():Observable<Album[]>
   {
-    return this.http.get<Album[]>('');
+    return this.http.get<Album[]>(this.urlBack);
   }
 }
