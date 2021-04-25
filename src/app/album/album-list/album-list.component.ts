@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlbumService } from '../album.service';
 
 @Component({
   selector: 'app-album-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicioAlbum: AlbumService) { }
 
   ngOnInit(): void {
   }
 
+  startSub()
+  {
+  }
 }

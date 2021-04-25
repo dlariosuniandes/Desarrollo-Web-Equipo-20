@@ -6,7 +6,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import faker from 'faker'
-import { Album, GENRE } from './album';
+import { Album } from './album';
 
 describe('AlbumService', () => {
   let service: AlbumService;
