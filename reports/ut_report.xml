@@ -1,40 +1,34 @@
 <testExecutions version="1">
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="35"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="29"/>
+    <testCase name="AppComponent should have as title 'front'" duration="11"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="5"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="7"/>
+    <testCase name="AlbumService Se deberia crear el servicio" duration="2"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="3"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="2"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="2"/>
+  </file>
   <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub" duration="73">
+    <testCase name="AlbumListComponent should create" duration="4"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina las variables sub y albums" duration="114">
       <failure message="Error">Error: Expected undefined to be defined.
-    at &lt;Jasmine&gt;
-    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/album/album-list/album-list.component.spec.ts:50:27)
-    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
-    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
-
-Error: Expected undefined to be defined.
     at &lt;Jasmine&gt;
     at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/album/album-list/album-list.component.spec.ts:51:30)
     at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
     at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
 </failure>
     </testCase>
-    <testCase name="AlbumListComponent should create" duration="5"/>
-    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="10"/>
-  </file>
-  <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService Se deberia crear el servicio" duration="2"/>
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="1"/>
-    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="2"/>
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="2"/>
-    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="5"/>
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="5"/>
   </file>
   <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="14"/>
-  </file>
-  <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should have as title 'front'" duration="46"/>
-    <testCase name="AppComponent should create the app" duration="10"/>
-  </file>
-  <file path="src/app/sidebar/sidebar.component.spec.ts">
-    <testCase name="SidebarComponent should create" duration="10"/>
-  </file>
-  <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="5"/>
+    <testCase name="NavbarComponent should create" duration="4"/>
   </file>
 </testExecutions>

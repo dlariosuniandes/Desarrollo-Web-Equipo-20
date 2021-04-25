@@ -15,10 +15,11 @@ export class AlbumListComponent implements OnInit {
   constructor(private servicioAlbum: AlbumService) { }
 
   ngOnInit(): void {
+    this.sub = this.startSub()
   }
 
   startSub(): Subscription
   {
-    return this.servicioAlbum.obtenerAlbums().subscribe()
+    return this.servicioAlbum.obtenerAlbums().subscribe(alb => this.albums = alb);
   }
 }

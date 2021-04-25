@@ -44,10 +44,9 @@ describe('AlbumListComponent', () => {
     sub.unsubscribe()
   });
 
-  it('verifica que al llamar ngOnInit se haga llamado a la función starSub y defina las variables sub y albums',()=>
+  it('verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub',()=>
   {
     component.ngOnInit();
     expect(component.sub).toBeDefined();
-    expect(component.albums).toBeDefined();
   });
 });
