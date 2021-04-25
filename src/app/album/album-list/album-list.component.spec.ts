@@ -1,6 +1,7 @@
 import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Subscription } from 'rxjs';
 
 import { AlbumListComponent } from './album-list.component';
 
@@ -28,4 +29,9 @@ describe('AlbumListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('verifica que la función startSub retorne un elemento de tipo subscription',()=>
+  {
+    expect(component.startSub instanceof Subscription).toBe(true);
+  })
 });
