@@ -10,7 +10,7 @@ import { Album } from './album';
 
 describe('AlbumService', () => {
   let service: AlbumService;
-  let serviceSpy: {get: jasmine.Spy};
+  let mockHttp: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,13 +20,12 @@ describe('AlbumService', () => {
       imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(AlbumService)
-    serviceSpy = jasmine.createSpyObj('HttpClient',['get']);
+    mockHttp = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => 
   {
     service = null;
-    serviceSpy = null;
   })
 
   it('Se deberia crear el servicio', () => {
@@ -46,32 +45,28 @@ describe('AlbumService', () => {
 
   it('la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente',()=>
   {
-    service = null;
-    service = new AlbumService(serviceSpy as any);
-    serviceSpy.get.and.returnValue(of([]))
-    const sub = service.obtenerAlbums().subscribe();
-    expect(serviceSpy.get.calls.allArgs()[0][0]).toBe(environment.backUrl+'Albums')
+    const sub = service.obtenerAlbums().subscribe()
+    const req = mockHttp.expectOne(environment.backUrl+'Albums');
+    expect(req.request.method).toBe('GET')
     sub.unsubscribe();
   })
 
 
   it('la subscripcion retorna el arreglo mock de albumes',()=>
   {
-    service = null;
-    service = new AlbumService(serviceSpy as any);
+    
     let arrayMock = []
     for (let i = 1; i < 10; i++) {
       let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.random.number({'min':0,'max':3}),faker.random.number({'min':0,'max':4}))
       arrayMock.push(albumMock);
     }
-   
-
-    serviceSpy.get.and.returnValue(of(arrayMock))
     const sub = service.obtenerAlbums().subscribe(al =>
       {
         expect(al).toBe(arrayMock);
       }
       );
+    const req = mockHttp.expectOne(environment.backUrl+'Albums')
+    req.flush(arrayMock)
     sub.unsubscribe();
   })
 
