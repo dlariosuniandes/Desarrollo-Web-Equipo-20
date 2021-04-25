@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AlbumService } from '../album.service';
+import { Album } from '../album';
 
 @Component({
   selector: 'app-album-list',
@@ -9,6 +10,8 @@ import { AlbumService } from '../album.service';
 })
 export class AlbumListComponent implements OnInit {
 
+  sub: Subscription;
+  albums: Array<Album>
   constructor(private servicioAlbum: AlbumService) { }
 
   ngOnInit(): void {
