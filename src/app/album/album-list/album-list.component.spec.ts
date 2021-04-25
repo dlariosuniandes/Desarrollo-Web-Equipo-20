@@ -32,6 +32,6 @@ describe('AlbumListComponent', () => {
 
   it('verifica que la función startSub retorne un elemento de tipo subscription',()=>
   {
-    expect(component.startSub instanceof Subscription).toBe(true);
+    expect(component.startSub() instanceof Subscription).toBe(true);
   })
 });

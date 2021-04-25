@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AlbumService } from '../album.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class AlbumListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  startSub()
+  startSub(): Subscription
   {
+    return this.servicioAlbum.obtenerAlbums().subscribe()
   }
 }
