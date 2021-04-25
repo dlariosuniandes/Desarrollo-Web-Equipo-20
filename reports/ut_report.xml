@@ -1,27 +1,42 @@
 <testExecutions version="1">
   <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="23"/>
-    <testCase name="AlbumListComponent should create" duration="5"/>
-    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="4"/>
-  </file>
-  <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should have as title 'front'" duration="39"/>
-    <testCase name="AppComponent should create the app" duration="10"/>
-  </file>
-  <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService Se deberia crear el servicio" duration="1"/>
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="1"/>
-    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="7"/>
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="2"/>
-    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="1"/>
-  </file>
-  <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="3"/>
+    <testCase name="AlbumListComponent should create" duration="43"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="6"/>
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="12"/>
+    <testCase name="AlbumListComponent a" duration="124">
+      <failure message="Error">Expected undefined to be [ Album({ name: 'Rae', cover: 'http://placeimg.com/640/480', releaseDate: Date(Wed Aug 12 2020 15:56:43 GMT-0500 (hora estándar de Colombia)), description: 'In quas maiores sed quo nisi. Voluptatibus quia accusamus voluptatum aut error nulla. Perferendis aut perferendis quia. Sint eum iusto repellendus et doloremque perspiciatis quos. Et necessitatibus odio vel fugit sit. A porro nisi sunt.', genre: 1, recordLabel: 1 }), Album({ name: 'Earlene', cover: 'http://placeimg.com/640/480', releaseDate: Date(Sun Jan 24 2021 13:37:57 GMT-0500 (hora estándar de Colombia)), description: 'Enim sequi ducimus laborum.
+Et at aut totam consequatur laboriosam modi.
+Excepturi et ea ea velit incidunt.
+Odit ut nostrum est explicabo.', genre: 0, recordLabel: 1 }), Album({ name: 'Milan', cover: 'http://placeimg.com/640/480', releaseDate: Date(Thu Nov 12 2020 22:17:15 GMT-0500 (hora estándar de Colombia)), description: 'Eum architecto rem nobis et neque dignissimos. Ex illum eum ipsa commodi. Aut fuga as .... Tip: To check for deep equality, use .toEqual() instead of .toBe().
+Error: Expected undefined to be [ Album({ name: 'Rae', cover: 'http://placeimg.com/640/480', releaseDate: Date(Wed Aug 12 2020 15:56:43 GMT-0500 (hora estándar de Colombia)), description: 'In quas maiores sed quo nisi. Voluptatibus quia accusamus voluptatum aut error nulla. Perferendis aut perferendis quia. Sint eum iusto repellendus et doloremque perspiciatis quos. Et necessitatibus odio vel fugit sit. A porro nisi sunt.', genre: 1, recordLabel: 1 }), Album({ name: 'Earlene', cover: 'http://placeimg.com/640/480', releaseDate: Date(Sun Jan 24 2021 13:37:57 GMT-0500 (hora estándar de Colombia)), description: 'Enim sequi ducimus laborum.
+Et at aut totam consequatur laboriosam modi.
+Excepturi et ea ea velit incidunt.
+Odit ut nostrum est explicabo.', genre: 0, recordLabel: 1 }), Album({ name: 'Milan', cover: 'http://placeimg.com/640/480', releaseDate: Date(Thu Nov 12 2020 22:17:15 GMT-0500 (hora estándar de Colombia)), description: 'Eum architecto rem nobis et neque dignissimos. Ex illum eum ipsa commodi. Aut fuga as .... Tip: To check for deep equality, use .toEqual() instead of .toBe().
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/album/album-list/album-list.component.spec.ts:69:30)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+</failure>
+    </testCase>
   </file>
   <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="5"/>
+    <testCase name="NavbarComponent should create" duration="17"/>
   </file>
   <file path="src/app/sidebar/sidebar.component.spec.ts">
-    <testCase name="SidebarComponent should create" duration="6"/>
+    <testCase name="SidebarComponent should create" duration="18"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="AlbumService Se deberia crear el servicio" duration="6"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="2"/>
+    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="6"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="2"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="2"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'front'" duration="23"/>
+    <testCase name="AppComponent should create the app" duration="11"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="5"/>
   </file>
 </testExecutions>
