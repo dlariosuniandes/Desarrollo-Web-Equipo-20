@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Album } from './album';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +22,8 @@ export class AlbumService {
     }
   }
 
-  obtenerAlbums():any
+  obtenerAlbums():Observable<Album[]>
   {
-
+    return this.http.get<Album[]>('');
   }
 }
