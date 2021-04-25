@@ -69,4 +69,19 @@ describe('AlbumListComponent', () => {
     expect(component.albums).toBe(arrayMock);
     mockHttp.verify();
   });
+
+  it('Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums',()=>
+  {
+    let arrayMock = []
+    for (let i = 1; i < 10; i++) {
+      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.random.number({'min':0,'max':3}),faker.random.number({'min':0,'max':4}))
+      arrayMock.push(albumMock);
+    }
+
+    mockHttp = TestBed.inject(HttpTestingController)
+    const req = mockHttp.expectOne(environment.backUrl+'Albums');
+    req.flush(arrayMock)
+    expect(component.albums).toBe(arrayMock);
+    mockHttp.verify();
+  });
 });

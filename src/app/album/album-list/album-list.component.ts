@@ -22,4 +22,9 @@ export class AlbumListComponent implements OnInit {
   {
     return this.servicioAlbum.obtenerAlbums().subscribe(al => this.albums = al);
   }
+
+  detallarAlbum()
+  {
+    return 
+  }
 }
