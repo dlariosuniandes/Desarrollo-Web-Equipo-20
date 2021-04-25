@@ -20,6 +20,6 @@ export class AlbumListComponent implements OnInit {
 
   startSub(): Subscription
   {
-    return this.servicioAlbum.obtenerAlbums().subscribe();
+    return this.servicioAlbum.obtenerAlbums().subscribe(al => this.albums = al);
   }
 }
