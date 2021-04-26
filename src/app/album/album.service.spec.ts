@@ -6,7 +6,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import faker from 'faker'
-import { Album } from './album';
+import { Album, Track } from './album';
 
 describe('AlbumService', () => {
   let service: AlbumService;
@@ -54,15 +54,19 @@ describe('AlbumService', () => {
 
   it('la subscripcion retorna el arreglo mock de albumes',()=>
   {
-    
+    let arrayTrackMock = []
+    for(let j = 1; j<10;j++)
+    {
+      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+    }
     let arrayMock = []
     for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}))
+      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock)
       arrayMock.push(albumMock);
     }
     const sub = service.obtenerAlbums().subscribe(al =>
       {
-        expect(al).toBe(arrayMock);
+        expect(al).toEqual(arrayMock);
       }
       );
     const req = mockHttp.expectOne(environment.backUrl+'Albums')

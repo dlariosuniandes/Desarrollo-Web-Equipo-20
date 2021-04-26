@@ -6,7 +6,7 @@ import { AlbumListComponent } from './album-list.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
 import faker from 'faker'
-import { Album } from '../album';
+import { Album, Track } from '../album';
 
 describe('AlbumListComponent', () => {
   let component: AlbumListComponent;
@@ -15,6 +15,7 @@ describe('AlbumListComponent', () => {
   let debElement: DebugElement;
   let htmlElement: HTMLElement;
   let arrayMock: Array<Album>
+  let arrayTrackMock: Array<Track>
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AlbumListComponent],
@@ -31,8 +32,13 @@ describe('AlbumListComponent', () => {
     debElement = fixture.debugElement;
     htmlElement = debElement.nativeElement;
      arrayMock = []
+     arrayTrackMock = []
+    for(let j = 1; j<10;j++)
+    {
+      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+    }
     for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}))
+      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}), arrayTrackMock)
       arrayMock.push(albumMock);
     }
 
@@ -68,7 +74,7 @@ describe('AlbumListComponent', () => {
     mockHttp = TestBed.inject(HttpTestingController)
     const req = mockHttp.expectOne(environment.backUrl+'Albums');
     req.flush(arrayMock)
-    expect(component.albums).toBe(arrayMock);
+    expect(component.albums).toEqual(arrayMock);
     mockHttp.verify();
   });
 
@@ -77,7 +83,7 @@ describe('AlbumListComponent', () => {
     mockHttp = TestBed.inject(HttpTestingController)
     const req = mockHttp.expectOne(environment.backUrl+'Albums');
     req.flush(arrayMock)
-    expect(component.albums).toBe(arrayMock);
+    expect(component.albums).toEqual(arrayMock);
     mockHttp.verify();
   });
 
@@ -97,9 +103,13 @@ describe('AlbumListComponent', () => {
     mockHttp = TestBed.inject(HttpTestingController);
     const req = mockHttp.expectOne(environment.backUrl+'Albums');
     req.flush(arrayMock);
-    fixture.detectChanges();
-    htmlElement.querySelector('button').click();
     let spy = spyOn(component,'detallarAlbum');
-    expect(spy.calls.count()).toBe(1)
+    fixture.detectChanges();
+    for (let i = 0; i < arrayMock.length; i++) {
+      htmlElement.querySelector(`#buttonAlbum${i}`).parentNode.querySelector('button').click();
+    }
+
+    console.log(htmlElement.innerHTML)
+    expect(spy.calls.count()).toBe(arrayMock.length)
   })
 });

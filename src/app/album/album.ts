@@ -15,9 +15,42 @@ export enum RECORD_LABEL
     FANIA
 }
 
+export class Track
+{
+    constructor(private name:string, private duration:string)
+    {
+    }
+
+    darNombre()
+    {
+        return this.name;
+    }
+    darDuracion()
+    {
+        return this.duration;
+    }
+    cambiarDuracion(duracion:string):void
+    {
+        this.duration = duracion
+    }
+    cambiarNombre(nomb:string):void{
+        this.name = nomb;
+    }
+}
+
+
 export class Album{
     
-    constructor(private name: string, private cover: string, private releaseDate: Date, private description: string, private genre: GENRE, private recordLabel: RECORD_LABEL )
+    constructor(
+        private name: string, 
+        private cover: string, 
+        private releaseDate: Date, 
+        private description: string, 
+        private genre: GENRE, 
+        private recordLabel: RECORD_LABEL,
+        private tracks: Array<Track>,
+        // private coments: Array<Comment>
+        )
     {
     }
 
@@ -49,6 +82,16 @@ export class Album{
     darSelloDisco():RECORD_LABEL
     {
         return this.recordLabel;
+    }
+
+    darTracks()
+    {
+        return this.tracks;
+    }
+
+    cambiarTracks(newTracks: Array<Track>):void
+    {
+        this.tracks = newTracks;
     }
 
     cambiarNombre(nombre:string):void
