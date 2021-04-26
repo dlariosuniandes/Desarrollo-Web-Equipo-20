@@ -108,8 +108,17 @@ describe('AlbumListComponent', () => {
     for (let i = 0; i < arrayMock.length; i++) {
       htmlElement.querySelector(`#buttonAlbum${i}`).parentNode.querySelector('button').click();
     }
-
-    console.log(htmlElement.innerHTML)
     expect(spy.calls.count()).toBe(arrayMock.length)
+  })
+
+  it('verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum y se envie por parametro la posición del arreglo', ()=>
+  {
+    mockHttp = TestBed.inject(HttpTestingController);
+    const req = mockHttp.expectOne(environment.backUrl+'Albums');
+    req.flush(arrayMock);
+    let spy = spyOn(component,'detallarAlbum');
+    fixture.detectChanges();
+    htmlElement.querySelector(`#buttonAlbum${4}`).parentNode.querySelector('button').click();
+    expect(spy.calls.first.arguments).toBe(4)
   })
 });

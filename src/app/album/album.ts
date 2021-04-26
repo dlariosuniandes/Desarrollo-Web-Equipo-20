@@ -49,6 +49,7 @@ export class Album{
         private genre: GENRE, 
         private recordLabel: RECORD_LABEL,
         private tracks: Array<Track>,
+        // private performers: Array<Performer>
         // private coments: Array<Comment>
         )
     {
