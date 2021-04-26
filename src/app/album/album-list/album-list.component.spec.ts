@@ -1,4 +1,3 @@
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subscription } from 'rxjs';
@@ -33,7 +32,7 @@ describe('AlbumListComponent', () => {
     htmlElement = debElement.nativeElement;
      arrayMock = []
     for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.random.number({'min':0,'max':3}),faker.random.number({'min':0,'max':4}))
+      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}))
       arrayMock.push(albumMock);
     }
 
@@ -91,5 +90,16 @@ describe('AlbumListComponent', () => {
     fixture.detectChanges();
     const numCards = htmlElement.querySelector('#iterablecard').childElementCount;
     expect(numCards).toBe(arrayMock.length);
+  })
+
+  it('verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum ', ()=>
+  {
+    mockHttp = TestBed.inject(HttpTestingController);
+    const req = mockHttp.expectOne(environment.backUrl+'Albums');
+    req.flush(arrayMock);
+    fixture.detectChanges();
+    htmlElement.querySelector('button').click();
+    let spy = spyOn(component,'detallarAlbum');
+    expect(spy.calls.count()).toBe(1)
   })
 });

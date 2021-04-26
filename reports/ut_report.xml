@@ -1,30 +1,38 @@
 <testExecutions version="1">
-  <file path="src/app/sidebar/sidebar.component.spec.ts">
-    <testCase name="SidebarComponent should create" duration="45"/>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'front'" duration="69"/>
+    <testCase name="AppComponent should create the app" duration="13"/>
   </file>
-  <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="13"/>
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="6"/>
   </file>
   <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="6"/>
+    <testCase name="FooterComponent should create" duration="5"/>
   </file>
-  <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent should create" duration="11"/>
-    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="6"/>
-    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="6"/>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="9"/>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="6"/>
-    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="8"/>
+  <file path="src/app/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="5"/>
   </file>
   <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService Se deberia crear el servicio" duration="2"/>
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="3"/>
-    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="1"/>
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="2"/>
-    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="3"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="4"/>
+    <testCase name="AlbumService Se deberia crear el servicio" duration="1"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="2"/>
+    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="7"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="3"/>
   </file>
-  <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should have as title 'front'" duration="31"/>
-    <testCase name="AppComponent should create the app" duration="16"/>
+  <file path="src/app/album/album-list/album-list.component.spec.ts">
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="9"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="6"/>
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallar con parametro i " duration="77">
+      <failure message="Error">Error: Expected 0 to be 10.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/album/album-list/album-list.component.spec.ts:105:31)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+</failure>
+    </testCase>
+    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="12"/>
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="7"/>
+    <testCase name="AlbumListComponent should create" duration="7"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="6"/>
   </file>
 </testExecutions>
