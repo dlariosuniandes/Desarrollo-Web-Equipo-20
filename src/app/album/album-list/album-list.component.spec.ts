@@ -119,6 +119,6 @@ describe('AlbumListComponent', () => {
     let spy = spyOn(component,'detallarAlbum');
     fixture.detectChanges();
     htmlElement.querySelector(`#buttonAlbum${4}`).parentNode.querySelector('button').click();
-    expect(spy.calls.first.arguments).toBe(4)
+    expect(spy.calls.first().args[0]).toBe(4)
   })
 });
