@@ -87,7 +87,9 @@ describe('AlbumListComponent', () => {
     mockHttp = TestBed.inject(HttpTestingController);
     const req = mockHttp.expectOne(environment.backUrl+'Albums');
     req.flush(arrayMock);
-    const numCards = htmlElement.querySelector('#iterablecard').childNodes.length;
+
+    fixture.detectChanges();
+    const numCards = htmlElement.querySelector('#iterablecard').childElementCount;
     expect(numCards).toBe(arrayMock.length);
   })
 });

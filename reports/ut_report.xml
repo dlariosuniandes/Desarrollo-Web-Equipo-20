@@ -1,37 +1,30 @@
 <testExecutions version="1">
-  <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="30"/>
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="45"/>
   </file>
   <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="16"/>
+    <testCase name="NavbarComponent should create" duration="13"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="6"/>
   </file>
   <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="10"/>
-    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="8"/>
-    <testCase name="AlbumListComponent should create" duration="5"/>
-    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="65">
-      <failure message="Error">Error: Expected 1 to be 9.
-    at &lt;Jasmine&gt;
-    at UserContext.&lt;anonymous&gt; (http://localhost:9877/_karma_webpack_/src/app/album/album-list/album-list.component.spec.ts:91:22)
-    at ZoneDelegate.invoke (http://localhost:9877/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
-    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9877/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
-</failure>
-    </testCase>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="7"/>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="7"/>
+    <testCase name="AlbumListComponent should create" duration="11"/>
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="6"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="6"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="9"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="6"/>
+    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="8"/>
   </file>
   <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="2"/>
-    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="1"/>
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="1"/>
     <testCase name="AlbumService Se deberia crear el servicio" duration="2"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="3"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="1"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="2"/>
     <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="3"/>
   </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="31"/>
-    <testCase name="AppComponent should have as title 'front'" duration="10"/>
-  </file>
-  <file path="src/app/sidebar/sidebar.component.spec.ts">
-    <testCase name="SidebarComponent should create" duration="5"/>
+    <testCase name="AppComponent should have as title 'front'" duration="31"/>
+    <testCase name="AppComponent should create the app" duration="16"/>
   </file>
 </testExecutions>
