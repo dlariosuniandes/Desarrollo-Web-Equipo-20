@@ -15,7 +15,7 @@ describe('AlbumListComponent', () => {
   let mockHttp: HttpTestingController
   let debElement: DebugElement;
   let htmlElement: HTMLElement;
-
+  let arrayMock: Array<Album>
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AlbumListComponent],
@@ -29,6 +29,13 @@ describe('AlbumListComponent', () => {
     fixture = TestBed.createComponent(AlbumListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    debElement = fixture.debugElement;
+    htmlElement = debElement.nativeElement;
+     arrayMock = []
+    for (let i = 1; i < 10; i++) {
+      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.random.number({'min':0,'max':3}),faker.random.number({'min':0,'max':4}))
+      arrayMock.push(albumMock);
+    }
 
   });
 
@@ -57,11 +64,7 @@ describe('AlbumListComponent', () => {
 
   it('Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums',()=>
   {
-    let arrayMock = []
-    for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.random.number({'min':0,'max':3}),faker.random.number({'min':0,'max':4}))
-      arrayMock.push(albumMock);
-    }
+
 
     mockHttp = TestBed.inject(HttpTestingController)
     const req = mockHttp.expectOne(environment.backUrl+'Albums');
@@ -72,16 +75,19 @@ describe('AlbumListComponent', () => {
 
   it('Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums',()=>
   {
-    let arrayMock = []
-    for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.random.number({'min':0,'max':3}),faker.random.number({'min':0,'max':4}))
-      arrayMock.push(albumMock);
-    }
-
     mockHttp = TestBed.inject(HttpTestingController)
     const req = mockHttp.expectOne(environment.backUrl+'Albums');
     req.flush(arrayMock)
     expect(component.albums).toBe(arrayMock);
     mockHttp.verify();
   });
+
+  it('verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock ', ()=>
+  {
+    mockHttp = TestBed.inject(HttpTestingController);
+    const req = mockHttp.expectOne(environment.backUrl+'Albums');
+    req.flush(arrayMock);
+    const numCards = htmlElement.querySelector('#iterablecard').childNodes.length;
+    expect(numCards).toBe(arrayMock.length);
+  })
 });
