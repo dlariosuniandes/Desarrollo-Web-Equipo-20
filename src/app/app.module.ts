@@ -11,7 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CollectorModule } from './collector/collector.module';
 
 import { AlbumModule } from './album/album.module';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
