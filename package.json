@@ -23,6 +23,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.1",
     "exec-sh": "^0.3.4",
+    "faker": "^5.5.3",
     "jquery": "^3.5.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
