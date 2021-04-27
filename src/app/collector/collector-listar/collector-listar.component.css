@@ -1,0 +1,13 @@
+
+.card-header :nth-of-type(n+1) {
+  background-color: rgb(196, 196, 207);
+  color: rgb(34, 34, 78);
+  padding: 3px 1px;
+  border-radius: 4px;
+}
+
+.nota {
+  font-weight: 800;
+  font-family: sans-serif;
+  color: grey;
+}
