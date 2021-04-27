@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { CollectorModule } from './collector/collector.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CollectorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

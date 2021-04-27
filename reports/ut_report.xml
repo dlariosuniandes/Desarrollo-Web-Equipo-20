@@ -1,0 +1,23 @@
+<testExecutions version="1">
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'front'" duration="89"/>
+    <testCase name="AppComponent should create the app" duration="19"/>
+  </file>
+  <file path="src/app/collector/collector.service.spec.ts">
+    <testCase name="Service: Collector getPost() should return 2 records" duration="14"/>
+  </file>
+  <file path="src/app/collector/collector-listar/collector-listar.component.spec.ts">
+    <testCase name="CollectorListarComponent Should have an p element with name " duration="121"/>
+    <testCase name="CollectorListarComponent should create" duration="16"/>
+    <testCase name="CollectorListarComponent should capture button index" duration="18"/>
+  </file>
+  <file path="src/app/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="33"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="32"/>
+  </file>
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="35"/>
+  </file>
+</testExecutions>
