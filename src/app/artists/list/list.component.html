@@ -1,0 +1,26 @@
+<div class="component-container">
+    <div class="list-container">
+        <div class="list-title musician">
+            <p>Musicos</p>
+        </div>
+        <div *ngFor="let artist of artists" class="col-4 card musician-card">
+            <img src={{artist.image}} class='artist-image'>
+            <p class="artist-name">{{ artist.name }}</p>
+            <p class="artist-year">{{ this.formatDate(artist.birthDate) }}</p>
+            <p class="artist-description">{{ artist.description }}</p>
+            <button type="button" class="btn btn-primary">Ver detalles</button>
+        </div>
+    </div>
+    <div class="list-container">
+        <div class="list-title band">
+            <p>Bandas</p>
+        </div>
+        <div *ngFor="let band of bands" class="col-4 card band-card">
+            <img src={{band.image}} class='artist-image'>
+            <p class="artist-name">{{ band.name }}</p>
+            <p class="artist-year">{{ this.formatDate(band.creationDate) }}</p>
+            <p class="artist-description">{{ band.description }}</p>
+            <button type="button" class="btn btn-primary">Ver detalles</button>
+        </div>
+    </div>
+</div>

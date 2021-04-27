@@ -1,0 +1,65 @@
+.component-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-title {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+}
+
+.list-title p {
+    font-size: 3vw;
+}
+
+.list-container {
+    padding: 5%;
+}
+
+.musician-card {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding: 5%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 30vw;
+}
+
+.band-card {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding: 5%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 30vw;
+}
+
+.artist-name {
+    font-weight: 800;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.artist-year {
+    font-weight: 400;
+    font-family: sans-serif;
+    margin: 0;
+    color: grey;
+}
+
+.artist-description {
+    font-weight: 400;
+    font-family: sans-serif;
+    margin: 0 0 10px 0;
+    color: grey;
+    font-size: small;
+}
+
+.artist-image {
+    height: 50%;
+    object-fit: cover;
+    object-position: top;
+}
