@@ -1,4 +1,7 @@
 import { CollectorAlbum } from './collectorAlbum';
+import { Artist } from './collectorAlbum';
+import { Comment } from './comentario/comment';
+
 export class Collector {
 
   constructor(
@@ -6,9 +9,9 @@ export class Collector {
     private name: string,
     private telephone: number,
     private email: string,
-    //public comments: Array<Comment>,
-    //public favoritePerformers: Array<Performer>,
-    //public collectorAlbums: Array<CollectorAlbum>
+    private comments: Array<Comment>,
+    private favoritePerformers: Array<Artist>,
+    private collectorAlbums: Array<CollectorAlbum>
   ){
   }
 

@@ -1,9 +1,19 @@
 export class CollectorAlbum {
   constructor(
-    public id: number,
-    public price: number,
-    public status: string
-
+    private price: number,
+    private status: string
   ){
+  }
+  darPrecio(){
+    return this.price;
+  }
+  darEstado(){
+    return this.status;
+  }
+  cambiarPrecio(precio:number): void {
+    this.price = precio;
+  }
+  cambiarEstado(estado:string): void {
+    this.status = status;
   }
 }

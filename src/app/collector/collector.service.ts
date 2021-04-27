@@ -17,7 +17,7 @@ export class CollectorService {
       map(collectors=>{
         let arrCollectors: Collector[]=[]
         for(let col of collectors){
-          arrCollectors.push(new Collector(col['name'],col['telephone'],col['email']))
+          arrCollectors.push(new Collector(col['name'],col['telephone'],col['email']),[],[],[])
         };
         return arrCollectors
       })
