@@ -1,6 +1,8 @@
+import { Artist } from '../artists/artist';
+import { Comment } from '../comentario/comment';
 import { CollectorAlbum } from './collectorAlbum';
-import { Artist } from './collectorAlbum';
-import { Comment } from './comentario/comment';
+import { Album } from '../album/album';
+
 
 export class Collector {
 
@@ -27,6 +29,36 @@ export class Collector {
 
   darEmail():string {
     return this.email;
+  }
+
+  darComentarios()
+  {
+    return this.comments;
+  }
+
+  darArtistasFavoritos()
+  {
+    return this.favoritePerformers
+  }
+
+  darAlbumesColeccionista()
+  {
+    return this.collectorAlbums;
+  }
+
+  cambiarComentarios(coment:Array<Comment>)
+  {
+    this.comments = coment;
+  }
+
+  cambiarArtistasFavoritos(artists:Array<Artist>)
+  {
+    this.favoritePerformers = artists;
+  }
+
+  cambiarAlbumesColeccionista(albums: Array<CollectorAlbum>)
+  {
+    this.collectorAlbums = albums;
   }
 
 

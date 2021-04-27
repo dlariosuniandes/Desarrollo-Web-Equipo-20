@@ -1,49 +1,32 @@
-
-
-
-<div class="accordion" id="accordionCollectors" >
-  <div class="card" *ngFor="let b of collectors; let i = index">
-    <h2 class="card-header" id="headingOneA">
-      <button
-        id= "but{{i}}"
-        class="btn btn-lg btn-block align-middle"
-        type="button"
-        data-toggle="collapse"
-        [attr.data-target]="'#collapseOne'+i"
-        aria-expanded="true"
-        [attr.aria-controls]="'collapseOne'+i"
-        (click)="collectorDetail(i)"
-        >
+<div class="accordion" id="accordionCollectors">
+    <div class="card" *ngFor="let b of collectors; let i = index">
+        <h2 class="card-header" id="headingOneA">
+            <button id="but{{i}}" class="btn btn-lg btn-block align-middle" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'+i" aria-expanded="true" [attr.aria-controls]="'collapseOne'+i" (click)="collectorDetail(i)">
 
         <div class="container container-fluid">
           <div class="row">
             <div class="col col-1"><img src="../../assets/images/user.svg" width="50" height="50" class="d-inline-block" alt=""></div>
             <div class="col col-6"><p align="center">{{b.darNombre()}}</p></div>
-            <div class="col col-5"><p align="center"></p></div>
+            <div class="col col-5"><p align="center">{{b.darArtistasFavoritos()[0].name}}</p></div>
           </div>
         </div>
       </button>
-    </h2>
-    <div id="collapseOne{{i}}"
-        class="collapse"
-        aria-labelledby="headingOneA"
-        data-parent="#accordionCollectors">
-      <div class="card-body">
-        <strong></strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
+        </h2>
+        <div id="collapseOne{{i}}" class="collapse" aria-labelledby="headingOneA" data-parent="#accordionCollectors">
+            <div class="card-body">
+                <strong></strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You
+                can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="container container-fluid">
-  <div class="row">
-    <div class="col-2"></div>
-  </div>
-  <div class="row">
-    <div class="col-3"><img src="../../assets/images/disc.svg" width="50" height="50" class="d-inline-block" alt=""></div>
-    <div class="nota col-6 aling-center">Te interesa hacer parte de esta comunidad de amantes de la musica? Registrate aqui y que comience el intercambio</div>
-  </div>
+    <div class="row">
+        <div class="col-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"><img src="../../assets/images/disc.svg" width="50" height="50" class="d-inline-block" alt=""></div>
+        <div class="nota col-6 aling-center">Te interesa hacer parte de esta comunidad de amantes de la musica? Registrate aqui y que comience el intercambio</div>
+    </div>
 
 </div>
-
-
-
