@@ -1,4 +1,5 @@
 import { Artist } from './artist';
+import { Album } from '../album/album';
 
 export class Band extends Artist {
   creationDate: Date;
@@ -9,7 +10,7 @@ export class Band extends Artist {
     description: string,
     id: number,
     image: string,
-    albums: any,
+    albums: Array<Album>,
     performerPrizes: any
   ) {
     super(name, description, id, image, albums, performerPrizes);

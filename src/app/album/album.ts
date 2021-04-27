@@ -1,3 +1,5 @@
+import { Artist } from '../artists/artist';
+import { Comment } from '../comentario/comment';
 export enum GENRE
 {
     CLASSICAL,
@@ -49,8 +51,8 @@ export class Album{
         private genre: GENRE, 
         private recordLabel: RECORD_LABEL,
         private tracks: Array<Track>,
-        // private performers: Array<Performer>
-        // private coments: Array<Comment>
+        private performers: Array<Artist>,
+        private comments: Array<Comment>
         )
     {
     }
@@ -90,6 +92,16 @@ export class Album{
         return this.tracks;
     }
 
+    darArtistas()
+    {
+        return this.performers;
+    }
+
+    darComentarios()
+    {
+        return this.comments;
+    }
+
     cambiarTracks(newTracks: Array<Track>):void
     {
         this.tracks = newTracks;
@@ -122,6 +134,16 @@ export class Album{
     cambiarSelloDisco(selloDisco: RECORD_LABEL)
     {
         this.recordLabel = selloDisco;
+    }
+
+    cambiarArtistas(newArtists:Array<Artist>)
+    {
+        this.performers = newArtists;
+    }
+
+    cambiarComentarios(newComments:Array<Comment>)
+    {
+        this.comments = newComments;
     }
 
 

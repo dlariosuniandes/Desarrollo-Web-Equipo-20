@@ -1,3 +1,5 @@
+import { Album } from '../album/album';
+
 export class Artist {
   name: string;
   description: string;
@@ -11,7 +13,7 @@ export class Artist {
     description: string,
     id: number,
     image:string,
-    albums: any,
+    albums: Array<Album>,
     performerPrizes: any
   ) {
     this.name = name;

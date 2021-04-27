@@ -7,6 +7,8 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import faker from 'faker'
 import { Album, Track } from './album';
+import { Band } from '../artists/band';
+import { Comment } from '../comentario/comment';
 
 describe('AlbumService', () => {
   let service: AlbumService;
@@ -55,15 +57,17 @@ describe('AlbumService', () => {
   it('la subscripcion retorna el arreglo mock de albumes',()=>
   {
     let arrayTrackMock = []
-    for(let j = 1; j<10;j++)
+    for(let n = 1; n<10;n++)
     {
       arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
     }
+
     let arrayMock = []
     for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock)
+      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock,[],[])
       arrayMock.push(albumMock);
     }
+
     const sub = service.obtenerAlbums().subscribe(al =>
       {
         expect(al).toEqual(arrayMock);
