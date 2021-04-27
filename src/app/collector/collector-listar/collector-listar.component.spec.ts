@@ -46,8 +46,8 @@ describe('CollectorListarComponent', () => {
     expect(component).toBeTruthy();
   });
   it("Should have an p element with name ", () => {
-    expect(debug.query(By.css("p")).nativeElement.innerText).toContain(
-      component.collectors[0].darNombre())
+    expect(debug.query(By.css("p")).nativeElement.innerText).toContain(component.collectors[0].darNombre());
+      
   });
   it('should capture button index', () => {
     let spy = spyOn(component,"collectorDetail");
