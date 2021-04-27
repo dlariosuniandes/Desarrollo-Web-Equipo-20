@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ArtistsModule } from './artists/artists.module'
+import { HttpClientModule } from '@angular/common/http';
 
 import { CollectorModule } from './collector/collector.module';
 
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ArtistsModule,
     CollectorModule,
     AlbumModule,
     HttpClientModule
