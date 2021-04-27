@@ -38,6 +38,9 @@ describe('Service: Collector', () => {
         faker.name.findName(),
         faker.phone.phoneNumber(),
         faker.internet.email(),
+        [],
+        [],
+        []
 
       );
       mockPosts.push(collector);

@@ -31,6 +31,9 @@ describe('CollectorListarComponent', () => {
         faker.name.findName(),
         faker.phone.phoneNumber(),
         faker.internet.email(),
+        [],
+        [],
+        []
       )
     ];
     fixture.detectChanges();
