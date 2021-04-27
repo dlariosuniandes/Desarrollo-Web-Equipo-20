@@ -7,7 +7,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+
 import { CollectorModule } from './collector/collector.module';
+
+import { AlbumModule } from './album/album.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { CollectorModule } from './collector/collector.module';
     BrowserModule,
     AppRoutingModule,
     CollectorModule,
+    AlbumModule,
     HttpClientModule
   ],
   providers: [],
