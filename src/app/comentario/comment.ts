@@ -1,6 +1,7 @@
 export class Comment
 {
     constructor(
+        private id: number,
         private description: string,
         private rating: number
     )
@@ -16,14 +17,14 @@ export class Comment
     {
         return this.rating;
     }
-    
-    cambiarDescripcion(descrp:string):void
-    {
-        this.description = descrp
-    }
 
-    cambiarRating(rate:number):void
-    {
-        this.rating = rate;
-    }
+    // cambiarDescripcion(descrp:string):void
+    // {
+    //     this.description = descrp
+    // }
+
+    // cambiarRating(rate:number):void
+    // {
+    //     this.rating = rate;
+    // }
 }

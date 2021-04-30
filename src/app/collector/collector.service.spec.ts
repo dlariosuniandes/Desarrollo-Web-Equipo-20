@@ -35,6 +35,7 @@ describe('Service: Collector', () => {
     for (let i =  1; i < 3; i++) {
       let collector = new Collector(
 
+        faker.datatype.number(),
         faker.name.findName(),
         faker.phone.phoneNumber(),
         faker.internet.email(),

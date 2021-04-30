@@ -21,6 +21,7 @@ export class CollectorService {
         for(let col of collectors){
           arrCollectors.push(
             new Collector(
+              col['id'],
               col['name'],
               col['telephone'],
               col['email'],

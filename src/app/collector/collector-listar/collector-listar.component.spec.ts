@@ -7,6 +7,7 @@ import { CollectorListarComponent } from './collector-listar.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import faker from "faker";
 import { Collector } from "../collector";
+import { Band } from 'src/app/artists/band';
 
 describe('CollectorListarComponent', () => {
   let component: CollectorListarComponent;
@@ -28,12 +29,13 @@ describe('CollectorListarComponent', () => {
     component.collectors = [
       new Collector(
 
+        faker.datatype.number(),
         faker.name.findName(),
         faker.phone.phoneNumber(),
         faker.internet.email(),
         [],
         [],
-        []
+        [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.lorem.text())]
       )
     ];
     fixture.detectChanges();
@@ -47,7 +49,7 @@ describe('CollectorListarComponent', () => {
   });
   it("Should have an p element with name ", () => {
     expect(debug.query(By.css("p")).nativeElement.innerText).toContain(component.collectors[0].darNombre());
-      
+
   });
   it('should capture button index', () => {
     let spy = spyOn(component,"collectorDetail");

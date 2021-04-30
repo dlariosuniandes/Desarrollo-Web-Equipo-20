@@ -1,53 +1,53 @@
 <testExecutions version="1">
-  <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="26"/>
-    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="2"/>
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="3"/>
-    <testCase name="AlbumService Se deberia crear el servicio" duration="1"/>
-    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="7"/>
-  </file>
-  <file path="src/app/sidebar/sidebar.component.spec.ts">
-    <testCase name="SidebarComponent should create" duration="24"/>
-  </file>
-  <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="13"/>
-    <testCase name="AlbumListComponent should create" duration="8"/>
-    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="6"/>
-    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum " duration="20"/>
-    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum y se envie por parametro la posición del arreglo" duration="11"/>
-    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="5"/>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="5"/>
-    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="8"/>
-  </file>
-  <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="7"/>
-  </file>
-  <file path="src/app/collector/collector.service.spec.ts">
-    <testCase name="Service: Collector getPost() should return 2 records" duration="3"/>
+  <file path="src/app/artists/list/list.component.spec.ts">
+    <testCase name="ListComponent should have a band card" duration="196"/>
+    <testCase name="ListComponent should have a title tag for bands" duration="57"/>
+    <testCase name="ListComponent should have a musician card" duration="23"/>
+    <testCase name="ListComponent should have a title musician" duration="26"/>
+    <testCase name="ListComponent should return formatted date" duration="21"/>
+    <testCase name="ListComponent should create" duration="17"/>
   </file>
   <file path="src/app/artists/artists.service.spec.ts">
-    <testCase name="ArtistsService should return 10 bands" duration="2"/>
-    <testCase name="ArtistsService should create service" duration="1"/>
-    <testCase name="ArtistsService should return 10 musicians" duration="2"/>
+    <testCase name="ArtistsService should return 10 bands" duration="10"/>
+    <testCase name="ArtistsService should return 10 musicians" duration="11"/>
+    <testCase name="ArtistsService should create service" duration="13"/>
   </file>
-  <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="18"/>
-    <testCase name="AppComponent should have as title 'front'" duration="8"/>
+  <file path="src/app/collector/collector.service.spec.ts">
+    <testCase name="Service: Collector getPost() should return 2 records" duration="14"/>
   </file>
   <file path="src/app/collector/collector-listar/collector-listar.component.spec.ts">
-    <testCase name="CollectorListarComponent should capture button index" duration="16"/>
-    <testCase name="CollectorListarComponent should create" duration="7"/>
-    <testCase name="CollectorListarComponent Should have an p element with name " duration="7"/>
+    <testCase name="CollectorListarComponent should capture button index" duration="121"/>
+    <testCase name="CollectorListarComponent Should have an p element with name " duration="66"/>
+    <testCase name="CollectorListarComponent should create" duration="51"/>
   </file>
-  <file path="src/app/artists/list/list.component.spec.ts">
-    <testCase name="ListComponent should have a title musician" duration="16"/>
-    <testCase name="ListComponent should have a musician card" duration="5"/>
-    <testCase name="ListComponent should create" duration="4"/>
-    <testCase name="ListComponent should return formatted date" duration="4"/>
-    <testCase name="ListComponent should have a title tag for bands" duration="6"/>
-    <testCase name="ListComponent should have a band card" duration="5"/>
+  <file path="src/app/album/album-list/album-list.component.spec.ts">
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="22"/>
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum y se envie por parametro la posición del arreglo" duration="29"/>
+    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="29"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="25"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="18"/>
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="13"/>
+    <testCase name="AlbumListComponent should create" duration="12"/>
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum " duration="19"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'front'" duration="66"/>
+    <testCase name="AppComponent should create the app" duration="34"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="10"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="6"/>
+    <testCase name="AlbumService Se deberia crear el servicio" duration="6"/>
+    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="16"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="4"/>
+  </file>
+  <file path="src/app/sidebar/sidebar.component.spec.ts">
+    <testCase name="SidebarComponent should create" duration="10"/>
   </file>
   <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="6"/>
+    <testCase name="NavbarComponent should create" duration="11"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="18"/>
   </file>
 </testExecutions>
