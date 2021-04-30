@@ -13,7 +13,7 @@ import { Comment } from '../comentario/comment';
   providedIn: 'root'
 })
 export class AlbumService {
-  
+
   private urlBack = environment.backUrl + 'Albums'
   constructor(private http: HttpClient) { }
 
@@ -32,7 +32,7 @@ export class AlbumService {
   obtenerAlbums():Observable<Album[]>
   {
     return this.http.get<Album[]>(this.urlBack).pipe(map(albumArray=>{
-      
+
         let newArray = albumArray.map(albumi =>
             {
               let tracks:Array<Track> = [];
@@ -50,7 +50,7 @@ export class AlbumService {
                     performers.push(new Band(x['creationDate'],x['name'],x['description'],x['id'],x['image']))
                   }
                 });
-                albumi['comments'].forEach(x=> comments.push(new Comment(x['description'],x['rating'])))
+                albumi['comments'].forEach(x=> comments.push(new Comment(x['id'],x['description'],x['rating'])))
               return albumi = new Album(
                 albumi['id'],
                 albumi['name'],
