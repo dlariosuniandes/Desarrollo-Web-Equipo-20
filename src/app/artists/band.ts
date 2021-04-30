@@ -10,8 +10,8 @@ export class Band extends Artist {
     description: string,
     id: number,
     image: string,
-    albums: Array<Album>,
-    performerPrizes: any
+    albums?: Array<Album>,
+    performerPrizes?: any
   ) {
     super(name, description, id, image, albums, performerPrizes);
     this.creationDate = new Date(creationDate);

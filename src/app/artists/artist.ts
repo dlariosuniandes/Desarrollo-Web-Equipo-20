@@ -13,8 +13,8 @@ export class Artist {
     description: string,
     id: number,
     image:string,
-    albums: Array<Album>,
-    performerPrizes: any
+    albums?: Array<Album>,
+    performerPrizes?: any
   ) {
     this.name = name;
     this.description = description;

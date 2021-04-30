@@ -43,15 +43,16 @@ export class AlbumService {
                 {
                   if (x['birthDate'])
                   {
-                    performers.push(new Musician(x['birthDate'],x['name'],x['description'],x['id'],x['image'],[],[]))
+                    performers.push(new Musician(x['birthDate'],x['name'],x['description'],x['id'],x['image']))
                   }
                   else
                   {
-                    performers.push(new Band(x['creationDate'],x['name'],x['description'],x['id'],x['image'],[],[]))
+                    performers.push(new Band(x['creationDate'],x['name'],x['description'],x['id'],x['image']))
                   }
                 });
                 albumi['comments'].forEach(x=> comments.push(new Comment(x['description'],x['rating'])))
               return albumi = new Album(
+                albumi['id'],
                 albumi['name'],
                 albumi['cover'],
                 albumi['releaseDate'],

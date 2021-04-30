@@ -31,19 +31,20 @@ export class Track
     {
         return this.duration;
     }
-    cambiarDuracion(duracion:string):void
-    {
-        this.duration = duracion
-    }
-    cambiarNombre(nomb:string):void{
-        this.name = nomb;
-    }
+    // cambiarDuracion(duracion:string):void
+    // {
+    //     this.duration = duracion
+    // }
+    // cambiarNombre(nomb:string):void{
+    //     this.name = nomb;
+    // }
 }
 
 
 export class Album{
     
     constructor(
+        private id: number,
         private name: string, 
         private cover: string, 
         private releaseDate: Date, 
@@ -51,10 +52,15 @@ export class Album{
         private genre: GENRE, 
         private recordLabel: RECORD_LABEL,
         private tracks: Array<Track>,
-        private performers: Array<Artist>,
-        private comments: Array<Comment>
+        private performers?: Array<Artist>,
+        private comments?: Array<Comment>
         )
     {
+    }
+
+    darId()
+    {
+        return this.id
     }
 
     darNombre():string
@@ -102,49 +108,49 @@ export class Album{
         return this.comments;
     }
 
-    cambiarTracks(newTracks: Array<Track>):void
-    {
-        this.tracks = newTracks;
-    }
+    // cambiarTracks(newTracks: Array<Track>):void
+    // {
+    //     this.tracks = newTracks;
+    // }
 
-    cambiarNombre(nombre:string):void
-    {
-        this.name = nombre;
-    }
+    // cambiarNombre(nombre:string):void
+    // {
+    //     this.name = nombre;
+    // }
 
-    cambiarPortada(portada:string):void
-    {
-        this.cover = portada;
-    }
+    // cambiarPortada(portada:string):void
+    // {
+    //     this.cover = portada;
+    // }
 
-    cambiarFecha(fecha:Date)
-    {
-        this.releaseDate = fecha;
-    }
+    // cambiarFecha(fecha:Date)
+    // {
+    //     this.releaseDate = fecha;
+    // }
 
-    cambiarDescripcion(descr: string)
-    {
-        this.description = descr
-    }
+    // cambiarDescripcion(descr: string)
+    // {
+    //     this.description = descr
+    // }
 
-    cambiarGenero(genre: GENRE)
-    {
-        this.genre = genre;
-    }
-    cambiarSelloDisco(selloDisco: RECORD_LABEL)
-    {
-        this.recordLabel = selloDisco;
-    }
+    // cambiarGenero(genre: GENRE)
+    // {
+    //     this.genre = genre;
+    // }
+    // cambiarSelloDisco(selloDisco: RECORD_LABEL)
+    // {
+    //     this.recordLabel = selloDisco;
+    // }
 
-    cambiarArtistas(newArtists:Array<Artist>)
-    {
-        this.performers = newArtists;
-    }
+    // cambiarArtistas(newArtists:Array<Artist>)
+    // {
+    //     this.performers = newArtists;
+    // }
 
-    cambiarComentarios(newComments:Array<Comment>)
-    {
-        this.comments = newComments;
-    }
+    // cambiarComentarios(newComments:Array<Comment>)
+    // {
+    //     this.comments = newComments;
+    // }
 
 
 }

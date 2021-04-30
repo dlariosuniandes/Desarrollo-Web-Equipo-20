@@ -64,7 +64,7 @@ describe('AlbumService', () => {
 
     let arrayMock = []
     for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock,[],[])
+      let albumMock = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock,[],[])
       arrayMock.push(albumMock);
     }
 
