@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Album, Track } from './album';
 import { environment } from '../../environments/environment';
-import { Artist } from '../artists/artist';
-import { Musician } from '../artists/musician';
-import { Band } from '../artists/band';
+import { Performer } from '../perfomer/performer';
+import { Musician } from '../perfomer/musician';
+import { Band } from '../perfomer/band';
 import { Comment } from '../comentario/comment';
 
 @Injectable({
@@ -36,7 +36,7 @@ export class AlbumService {
         let newArray = albumArray.map(albumi =>
             {
               let tracks:Array<Track> = [];
-              let performers:Array<Artist> = []
+              let performers:Array<Performer> = []
               let comments: Array<Comment> = [];
               albumi['tracks'].forEach(x => tracks.push(new Track(x['name'],x['duration'])));
               albumi['performers'].forEach(x=>

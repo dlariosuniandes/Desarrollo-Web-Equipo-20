@@ -1,4 +1,4 @@
-import { Artist } from '../artists/artist';
+import { Performer } from '../perfomer/performer';
 import { Comment } from '../comentario/comment';
 export enum GENRE
 {
@@ -52,8 +52,8 @@ export class Album{
         private genre: GENRE, 
         private recordLabel: RECORD_LABEL,
         private tracks: Array<Track>,
-        private performers?: Array<Artist>,
-        private comments?: Array<Comment>
+        private performers: Array<Performer>,
+        private comments: Array<Comment>
         )
     {
     }

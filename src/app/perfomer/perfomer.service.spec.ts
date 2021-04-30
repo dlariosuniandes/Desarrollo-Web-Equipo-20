@@ -5,23 +5,23 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 
-import { ArtistsService } from './artists.service';
+import { PerformerService } from './perfomer.service';
 import { Musician } from './musician';
 import faker from 'faker';
 import { Band } from './band';
 
 describe('ArtistsService', () => {
-  let service: ArtistsService;
+  let service: PerformerService;
   let injector: TestBed;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ArtistsService],
+      providers: [PerformerService],
     });
     injector = getTestBed();
-    service = injector.get(ArtistsService);
+    service = injector.get(PerformerService);
     httpMock = injector.get(HttpTestingController);
   });
 

@@ -1,7 +1,7 @@
-import { Artist } from './artist';
+import { Performer } from './performer';
 import { Album } from '../album/album';
 
-export class Musician extends Artist {
+export class Musician extends Performer {
   birthDate: Date;
 
   public constructor(
@@ -15,5 +15,20 @@ export class Musician extends Artist {
   ) {
     super(name, description, id, image, albums, performerPrizes);
     this.birthDate = new Date(birthDate);
+  }
+
+  public getName(): string{
+    return this.name
+  }
+
+  public getBirthDate(): Date{
+    return this.birthDate
+  }
+  public getDescription(): string{
+    return this.description
+  }
+
+  public getImage(): string{
+    return this.image
   }
 }

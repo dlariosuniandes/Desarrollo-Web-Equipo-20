@@ -22,7 +22,7 @@ describe('ListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
-    component.artists = [
+    component.musicians = [
       new Musician(
         new Date(),
         'Test',

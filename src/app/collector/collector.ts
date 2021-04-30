@@ -1,4 +1,4 @@
-import { Artist } from '../artists/artist';
+import { Performer } from '../perfomer/performer';
 import { Comment } from '../comentario/comment';
 import { CollectorAlbum } from './collectorAlbum';
 import { Album } from '../album/album';
@@ -11,9 +11,9 @@ export class Collector {
     private name: string,
     private telephone: number,
     private email: string,
-    private comments?: Array<Comment>,
-    private favoritePerformers?: Array<Artist>,
-    private collectorAlbums?: Array<CollectorAlbum>
+    private comments: Array<Comment>,
+    private favoritePerformers: Array<Performer>,
+    private collectorAlbums: Array<CollectorAlbum>
   ){
   }
 
@@ -45,8 +45,6 @@ export class Collector {
   {
     return this.collectorAlbums;
   }
-
-
 
 
   // cambiarNombre(nombre: string):void {

@@ -11,4 +11,4 @@ import { ListComponent } from './list/list.component';
   ],
   exports:[ListComponent]
 })
-export class ArtistsModule { }
+export class PerformerModule { }

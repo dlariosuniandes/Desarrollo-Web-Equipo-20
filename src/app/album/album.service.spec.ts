@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import faker from 'faker'
 import { Album, Track } from './album';
-import { Band } from '../artists/band';
+import { Band } from '../perfomer/band';
 import { Comment } from '../comentario/comment';
 
 describe('AlbumService', () => {
