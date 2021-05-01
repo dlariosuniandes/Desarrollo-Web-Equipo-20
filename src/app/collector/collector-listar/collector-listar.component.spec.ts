@@ -7,7 +7,7 @@ import { CollectorListarComponent } from './collector-listar.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import faker from "faker";
 import { Collector } from "../collector";
-import { Band } from 'src/app/artists/band';
+import { Band } from '../../perfomer/band';
 import { CollectorAlbum } from '../collectorAlbum';
 
 describe('CollectorListarComponent', () => {
