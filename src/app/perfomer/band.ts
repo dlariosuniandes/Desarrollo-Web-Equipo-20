@@ -31,4 +31,8 @@ export class Band extends Performer {
   public getImage(): string{
     return this.image
   }
+
+  public getAlbums(): Album[]{
+    return this.albums
+  }
 }

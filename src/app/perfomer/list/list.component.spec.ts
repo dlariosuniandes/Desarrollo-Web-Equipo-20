@@ -63,7 +63,7 @@ describe('ListComponent', () => {
   })
 
   it('should have a musician card',()=> {
-    expect(debug.query(By.css('.col-4.card.musician-card')).nativeElement).toBeTruthy()
+    expect(debug.query(By.css('.musician-card')).nativeElement).toBeTruthy()
   })
 
   it('should have a title tag for bands',()=> {
@@ -71,6 +71,6 @@ describe('ListComponent', () => {
   })
 
   it('should have a band card',()=> {
-    expect(debug.query(By.css('.col-4.card.band-card')).nativeElement).toBeTruthy()
+    expect(debug.query(By.css('.band-card')).nativeElement).toBeTruthy()
   })
 });
