@@ -8,6 +8,11 @@ export class Comment
     {
     }
 
+    darId()
+    {
+        return this.id;
+    }
+
     darDescripcion()
     {
         return this.description;
