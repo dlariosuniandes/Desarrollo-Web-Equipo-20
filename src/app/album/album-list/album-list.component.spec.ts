@@ -7,6 +7,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { environment } from 'src/environments/environment';
 import faker from 'faker'
 import { Album, Track } from '../album';
+import { AppRoutingModule } from '../../app-routing.module';
 
 describe('AlbumListComponent', () => {
   let component: AlbumListComponent;
@@ -20,7 +21,7 @@ describe('AlbumListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AlbumListComponent],
       providers:[],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, AppRoutingModule]
     })
     .compileComponents();
   }));
