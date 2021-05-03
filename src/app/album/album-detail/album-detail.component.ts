@@ -16,17 +16,32 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
   albumDetail: Album
   sub: Subscription
   idAlbum: number
-  constructor(private albumService:AlbumService, private router: Router, private ar: ActivatedRoute) {
-    this.idAlbum = this.ar.snapshot.params.id
+  constructor(public albumService:AlbumService, private router: Router, private ar: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
-    this.sub = this.albumService.obtenerAlbumId(this.idAlbum).subscribe(album=> this.albumDetail = album);
+    this.idAlbum = this.obtenerIdRuta();
+    this.sub = this.subServiceAlbum();
   }
 
   ngOnDestroy()
   {
-    this.sub.unsubscribe();
+    if (this.sub)
+    {
+      this.sub.unsubscribe();
+    }
+
+  }
+
+  subServiceAlbum()
+  {
+    return this.albumService.obtenerAlbumId(this.idAlbum).subscribe(album=> this.albumDetail = album);
+  }
+
+  obtenerIdRuta()
+  {
+    return this.ar.snapshot.params.id
   }
 
   backList()
