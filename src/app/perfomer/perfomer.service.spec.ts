@@ -81,6 +81,42 @@ describe('ArtistsService', () => {
     req.flush(mockBands);
   });
 
+  it('should return a musician detail', () => {
+    let mockMusician: Musician;
+    let testDate = Date.now();
+    mockMusician = new Musician(
+      new Date(testDate),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      1,
+      faker.lorem.sentence(),
+      []
+    );
+    service.getMusicianDetail(1).subscribe((detail) => {
+      expect(detail).toBeTruthy(detail instanceof Musician);
+    });
+    const req = httpMock.expectOne(() => true);
+    expect(req.request.method).toBe("GET");
+  });
+
+  it('should return a band detail', () => {
+    let mockBand: Band;
+    let testDate = Date.now();
+    mockBand = new Band(
+      new Date(testDate),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      1,
+      faker.lorem.sentence(),
+      []
+    );
+    service.getBandDetail(1).subscribe((detail) => {
+      expect(detail).toBeTruthy(detail instanceof Band);
+    });
+    const req = httpMock.expectOne(() => true);
+    expect(req.request.method).toBe("GET");
+  });
+
   afterEach(() => {
     httpMock.verify();
   });

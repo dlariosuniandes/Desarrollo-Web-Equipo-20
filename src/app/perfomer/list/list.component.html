@@ -1,26 +1,66 @@
 <div class="component-container">
+  <div *ngIf="!selected">
     <div class="list-container">
-        <div class="list-title musician">
-            <p>Musicos</p>
+      <div class="list-title musician">
+        <p>Musicos</p>
+      </div>
+      <div
+        *ngFor="let musician of musicians"
+        class="col-lg-4 col-md-6 col-sm-12 card musician-card"
+      >
+        <img src="{{ musician.getImage() }}" class="artist-image card-img-top" />
+        <div class="card-header-performer">
+          <p class="artist-name">{{ musician.getName() }}</p>
+          <p class="artist-year">
+            {{ this.formatDate(musician.getBirthDate()) }}
+          </p>
         </div>
-        <div *ngFor="let musician of musicians" class="col-4 card musician-card">
-            <img src={{musician.getImage()}} class='artist-image'>
-            <p class="artist-name">{{ musician.getName() }}</p>
-            <p class="artist-year">{{ this.formatDate(musician.getBirthDate()) }}</p>
-            <p class="artist-description">{{ musician.getDescription() }}</p>
-            <button type="button" class="btn btn-primary">Ver detalles</button>
+        <div class="card-description-performer">
+          <p class="artist-description">{{ musician.getDescription() }}</p>
         </div>
+        <div class="card-button-performer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onSelect(musician)"
+          >
+            Ver detalles
+          </button>
+        </div>
+      </div>
     </div>
     <div class="list-container">
-        <div class="list-title band">
-            <p>Bandas</p>
+      <div class="list-title band">
+        <p>Bandas</p>
+      </div>
+      <div
+        *ngFor="let band of bands"
+        class="col-lg-4 col-md-6 col-sm-12 card band-card"
+      >
+        <img src="{{ band.getImage() }}" class="artist-image card-img-top" />
+        <div class="card-header-performer">
+          <p class="artist-name">{{ band.getName() }}</p>
+          <p class="artist-year">
+            {{ this.formatDate(band.getCreationDate()) }}
+          </p>
         </div>
-        <div *ngFor="let band of bands" class="col-4 card band-card">
-            <img src={{band.getImage()}} class='artist-image'>
-            <p class="artist-name">{{ band.getName() }}</p>
-            <p class="artist-year">{{ this.formatDate(band.getCreationDate()) }}</p>
-            <p class="artist-description">{{ band.getDescription() }}</p>
-            <button type="button" class="btn btn-primary">Ver detalles</button>
+        <div class="card-description-performer">
+          <p class="artist-description">{{ band.getDescription() }}</p>
         </div>
+        <div class="card-button-performer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onSelect(band)"
+          >
+            Ver detalles
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+  <div *ngIf="selected">
+    <button (click)="goBackDetail()" class="btn btn-primary back-button">Back</button>
+    <app-detail [performerDetail]="currentPerformer"></app-detail>
+  </div>
 </div>

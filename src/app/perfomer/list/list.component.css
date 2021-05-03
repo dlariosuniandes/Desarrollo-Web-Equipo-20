@@ -1,65 +1,91 @@
 .component-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .list-title {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
 }
 
 .list-title p {
-    font-size: 3vw;
+  font-size: 3vw;
 }
 
 .list-container {
-    padding: 5%;
+  padding-bottom: 5%;
 }
 
 .musician-card {
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    padding: 5%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    height: 30vw;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
 }
 
 .band-card {
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    padding: 5%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    height: 30vw;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+}
+
+.card-header-performer {
+  padding-left: 5%;
+  padding-right: 5%;
+  flex: 1;
+  padding-top: 5%;
+}
+
+.card-description-performer {
+  padding-left: 5%;
+  padding-right: 5%;
+  flex: 2;
+  margin-bottom: 5%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 36px;
+}
+
+.card-button-performer {
+  padding-left: 5%;
+  padding-right: 5%;
+  flex: 1;
+  padding-bottom: 5%;
 }
 
 .artist-name {
-    font-weight: 800;
-    font-family: sans-serif;
-    margin: 0;
+  font-weight: 800;
+  font-family: sans-serif;
+  margin: 0;
 }
 
 .artist-year {
-    font-weight: 400;
-    font-family: sans-serif;
-    margin: 0;
-    color: grey;
+  font-weight: 400;
+  font-family: sans-serif;
+  margin: 0;
+  color: grey;
 }
 
 .artist-description {
-    font-weight: 400;
-    font-family: sans-serif;
-    margin: 0 0 10px 0;
-    color: grey;
-    font-size: small;
+  font-weight: 400;
+  font-family: sans-serif;
+  margin: 0 0 10px 0;
+  color: grey;
+  font-size: x-small;
+  line-height: 12px;
+}
+
+.btn .btn-primary {
+  width: 50%;
 }
 
 .artist-image {
-    height: 50%;
-    object-fit: cover;
-    object-position: top;
+  height: 15vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.back-button{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
