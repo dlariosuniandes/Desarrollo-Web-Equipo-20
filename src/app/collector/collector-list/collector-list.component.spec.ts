@@ -9,6 +9,7 @@ import faker from "faker";
 import { Collector } from "../collector";
 import { Band } from '../../perfomer/band';
 import { CollectorAlbum } from '../collectorAlbum';
+import { CollectorDetailComponent } from '../collector-detail/collector-detail.component';
 
 describe('CollectorListarComponent', () => {
   let component: CollectorListComponent;
@@ -18,7 +19,7 @@ describe('CollectorListarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CollectorListComponent ],
+      declarations: [CollectorListComponent, CollectorDetailComponent],
       imports: [HttpClientTestingModule],
     })
     .compileComponents();

@@ -6,13 +6,12 @@ import { CollectorAlbumService } from './collectorAlbum.service';
 import { HttpTestingController, HttpClientTestingModule } from "@angular/common/http/testing";
 
 import faker from "faker";
-import { Collector } from "./collector";
 import { environment } from "../../environments/environment";
 import { CollectorAlbum } from './collectorAlbum';
+import { Album } from '../album/album';
 
 
 describe('Service: CollectorAlbum', () => {
-  let injector: TestBed;
   let service: CollectorAlbumService;
   let httpMock: HttpTestingController;
   let apiUrl = environment.backUrl + "collectors/"+ 100 +'/albums';
@@ -40,6 +39,7 @@ describe('Service: CollectorAlbum', () => {
         faker.datatype.number(),
         faker.datatype.number(),
         faker.lorem.text(),
+        new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}))
       );
       mockPosts.push(collectorAlbum);
     }
@@ -53,8 +53,4 @@ describe('Service: CollectorAlbum', () => {
   });
 
 
-  it('should ...', inject([CollectorAlbumService], (
-    service: CollectorAlbumService) => {
-    expect(service).toBeTruthy();
-  }));
 });

@@ -34,7 +34,8 @@ export class CollectorAlbumService {
               col['album']['releaseDate'],
               col['album']['description'],
               col['album']['genre'],
-              col['album']['recordLabel']),
+              col['album']['recordLabel']
+              ),
             col['collector'])
             )
       };

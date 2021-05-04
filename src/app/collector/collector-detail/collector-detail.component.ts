@@ -14,9 +14,10 @@ import { CollectorAlbumService } from '../collectorAlbum.service';
 export class CollectorDetailComponent implements OnInit {
 
   @Input() collectorDetail: Collector;
+  collectorAlbums: Array<CollectorAlbum>;
 
   constructor(private collectorAlbumService: CollectorAlbumService) { }
-  collectorAlbums: Array<CollectorAlbum>;
+
 
   getCollectorAlbums(id:number): void {
     this.collectorAlbumService.getCollectorAlbums(id)
@@ -26,9 +27,10 @@ export class CollectorDetailComponent implements OnInit {
   }
 
   ngOnChanges(): void{
-    this.getCollectorAlbums(this.collectorDetail.darId())
+    
   }
   ngOnInit() {
+    this.getCollectorAlbums(this.collectorDetail.darId())
   }
 
 }
