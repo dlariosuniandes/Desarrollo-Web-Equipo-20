@@ -1,4 +1,4 @@
-import { Artist } from '../artists/artist';
+import { Performer } from '../perfomer/performer';
 import { Comment } from '../comentario/comment';
 import { CollectorAlbum } from './collectorAlbum';
 import { Album } from '../album/album';
@@ -7,17 +7,20 @@ import { Album } from '../album/album';
 export class Collector {
 
   constructor(
-
+    private id:number,
     private name: string,
     private telephone: number,
     private email: string,
-    private comments: Array<Comment>,
-    private favoritePerformers: Array<Artist>,
-    private collectorAlbums: Array<CollectorAlbum>
+    private comments?: Array<Comment>,
+    private favoritePerformers?: Array<Performer>,
+    private collectorAlbums?: Array<CollectorAlbum>
   ){
   }
 
 
+  darId():number {
+    return this.id;
+  }
 
   darNombre():string {
     return this.name;
@@ -46,32 +49,30 @@ export class Collector {
     return this.collectorAlbums;
   }
 
-  cambiarComentarios(coment:Array<Comment>)
-  {
-    this.comments = coment;
-  }
 
-  cambiarArtistasFavoritos(artists:Array<Artist>)
-  {
-    this.favoritePerformers = artists;
-  }
+  // cambiarNombre(nombre: string):void {
+  //   this.name = nombre;
+  // }
 
-  cambiarAlbumesColeccionista(albums: Array<CollectorAlbum>)
-  {
-    this.collectorAlbums = albums;
-  }
+  // cambiarTelefono(telefono: number):void {
+  //   this.telephone = telefono;
+  // }
 
+  // cambiarEmail(email: string):void {
+  //   this.email = email;
+  // }
+  // cambiarComentarios(coment:Array<Comment>)
+  // {
+  //   this.comments = coment;
+  // }
 
-  cambiarNombre(nombre: string):void {
-    this.name = nombre;
-  }
+  // cambiarArtistasFavoritos(artists:Array<Artist>)
+  // {
+  //   this.favoritePerformers = artists;
+  // }
 
-  cambiarTelefono(telefono: number):void {
-    this.telephone = telefono;
-  }
-
-  cambiarEmail(email: string):void {
-    this.email = email;
-  }
-
+  // cambiarAlbumesColeccionista(albums: Array<CollectorAlbum>)
+  // {
+  //   this.collectorAlbums = albums;
+  // }
 }

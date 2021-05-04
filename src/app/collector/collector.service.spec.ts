@@ -20,9 +20,8 @@ describe('Service: Collector', () => {
       imports: [HttpClientTestingModule],
       providers: [CollectorService],
     });
-    injector = getTestBed();
-    service = injector.get(CollectorService);
-    httpMock = injector.get(HttpTestingController);
+    service = TestBed.inject(CollectorService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
@@ -35,6 +34,7 @@ describe('Service: Collector', () => {
     for (let i =  1; i < 3; i++) {
       let collector = new Collector(
 
+        faker.datatype.number(),
         faker.name.findName(),
         faker.phone.phoneNumber(),
         faker.internet.email(),

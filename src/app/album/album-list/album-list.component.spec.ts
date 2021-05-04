@@ -7,6 +7,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { environment } from 'src/environments/environment';
 import faker from 'faker'
 import { Album, Track } from '../album';
+import { AppRoutingModule } from '../../app-routing.module';
 
 describe('AlbumListComponent', () => {
   let component: AlbumListComponent;
@@ -20,7 +21,7 @@ describe('AlbumListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AlbumListComponent],
       providers:[],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, AppRoutingModule]
     })
     .compileComponents();
   }));
@@ -38,7 +39,7 @@ describe('AlbumListComponent', () => {
       arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
     }
     for (let i = 1; i < 10; i++) {
-      let albumMock = new Album(faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}), arrayTrackMock,[],[])
+      let albumMock = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}), arrayTrackMock,[],[])
       arrayMock.push(albumMock);
     }
 

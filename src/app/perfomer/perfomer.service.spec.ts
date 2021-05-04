@@ -5,23 +5,23 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 
-import { ArtistsService } from './artists.service';
+import { PerformerService } from './perfomer.service';
 import { Musician } from './musician';
 import faker from 'faker';
 import { Band } from './band';
 
 describe('ArtistsService', () => {
-  let service: ArtistsService;
+  let service: PerformerService;
   let injector: TestBed;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ArtistsService],
+      providers: [PerformerService],
     });
     injector = getTestBed();
-    service = injector.get(ArtistsService);
+    service = injector.get(PerformerService);
     httpMock = injector.get(HttpTestingController);
   });
 
@@ -79,6 +79,42 @@ describe('ArtistsService', () => {
     const req = httpMock.expectOne(() => true);
     expect(req.request.method).toBe('GET');
     req.flush(mockBands);
+  });
+
+  it('should return a musician detail', () => {
+    let mockMusician: Musician;
+    let testDate = Date.now();
+    mockMusician = new Musician(
+      new Date(testDate),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      1,
+      faker.lorem.sentence(),
+      []
+    );
+    service.getMusicianDetail(1).subscribe((detail) => {
+      expect(detail).toBeTruthy(detail instanceof Musician);
+    });
+    const req = httpMock.expectOne(() => true);
+    expect(req.request.method).toBe("GET");
+  });
+
+  it('should return a band detail', () => {
+    let mockBand: Band;
+    let testDate = Date.now();
+    mockBand = new Band(
+      new Date(testDate),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      1,
+      faker.lorem.sentence(),
+      []
+    );
+    service.getBandDetail(1).subscribe((detail) => {
+      expect(detail).toBeTruthy(detail instanceof Band);
+    });
+    const req = httpMock.expectOne(() => true);
+    expect(req.request.method).toBe("GET");
   });
 
   afterEach(() => {

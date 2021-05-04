@@ -4,8 +4,8 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Collector } from './collector';
-import { Musician } from '../artists/musician';
-import { Band } from '../artists/band';
+import { Musician } from '../perfomer/musician';
+import { Band } from '../perfomer/band';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,7 @@ export class CollectorService {
         for(let col of collectors){
           arrCollectors.push(
             new Collector(
+              col['id'],
               col['name'],
               col['telephone'],
               col['email'],

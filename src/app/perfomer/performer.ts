@@ -1,6 +1,6 @@
 import { Album } from '../album/album';
 
-export class Artist {
+export abstract class Performer {
   name: string;
   description: string;
   id: number;
@@ -13,8 +13,8 @@ export class Artist {
     description: string,
     id: number,
     image:string,
-    albums: Array<Album>,
-    performerPrizes: any
+    albums?: Array<Album>,
+    performerPrizes?: any
   ) {
     this.name = name;
     this.description = description;
