@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CollectorListarComponent } from './collector-listar.component';
+import { CollectorListComponent } from './collector-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import faker from "faker";
 import { Collector } from "../collector";
@@ -11,21 +11,21 @@ import { Band } from '../../perfomer/band';
 import { CollectorAlbum } from '../collectorAlbum';
 
 describe('CollectorListarComponent', () => {
-  let component: CollectorListarComponent;
-  let fixture: ComponentFixture<CollectorListarComponent>;
+  let component: CollectorListComponent;
+  let fixture: ComponentFixture<CollectorListComponent>;
   let debug: DebugElement;
   let htmlElement:HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CollectorListarComponent ],
+      declarations: [ CollectorListComponent ],
       imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CollectorListarComponent);
+    fixture = TestBed.createComponent(CollectorListComponent);
     component = fixture.componentInstance;
     component.collectors = [
       new Collector(

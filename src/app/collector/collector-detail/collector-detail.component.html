@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-3">
+
+      <div class="thumb">
+        <img class="img-fluid" src="../../assets/images/user.svg" alt="avatar usuario" />
+      </div>
+      <p class="h3 p-3" id="usuario">{{collectorDetail.darNombre()}}</p>
+      <dl>
+        <dt>Datos Personales</dt>
+        <hr>
+        <dt> Telefono</dt>
+        <dd>{{collectorDetail.darTelefono()}}</dd>
+        <hr>
+        <dt>Email</dt>
+        <dd>{{collectorDetail.darEmail()}}</dd>
+      </dl>
+    </div>
+
+    <div class="col-4">
+      <table class="table table-striped">
+        <tbody>
+          <div class="card" *ngFor="let a of collectorAlbums;">
+          <tr>
+            <td>{{a.darAlbum().darNombre()}}</td>
+            <td>{{a.darEstado()}}</td>
+            <td>{{a.darPrecio()}}</td>
+          </tr>
+        </div>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-5">
+      <table class="table table-striped">
+        <tbody>
+          <div class="card" *ngFor="let b of collectorDetail.darArtistasFavoritos();">
+          <tr>
+            <td><img class="img-fluid" src={{b.image}} alt="imagen artista"></td>
+            <td>{{b.name}}</td>
+            <td>{{b.description}}</td>
+          </tr>
+        </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

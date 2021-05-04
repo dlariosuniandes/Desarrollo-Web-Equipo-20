@@ -17,7 +17,9 @@ export class Collector {
   ){
   }
 
-
+  darId():number {
+    return this.id;
+  }
 
   darNombre():string {
     return this.name;
