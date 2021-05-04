@@ -1,4 +1,5 @@
 <testExecutions version="1">
+
   <file path="src/app/perfomer/perfomer.service.spec.ts">
     <testCase name="ArtistsService should return a band detail" duration="34"/>
     <testCase name="ArtistsService should create service" duration="2"/>

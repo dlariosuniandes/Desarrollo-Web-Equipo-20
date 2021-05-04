@@ -1,8 +1,13 @@
+import { Album } from "../album/album";
+import { Collector } from "./collector";
+
 export class CollectorAlbum {
   constructor(
     private id: number,
     private price: number,
-    private status: string
+    private status: string,
+    private album?: Album,
+    private collector?: Collector
   ){
   }
   darPrecio(){
@@ -10,6 +15,12 @@ export class CollectorAlbum {
   }
   darEstado(){
     return this.status;
+  }
+  darAlbum(){
+    return this.album;
+  }
+  darColeccionista(){
+    return this.collector;
   }
   // cambiarPrecio(precio:number): void {
   //   this.price = precio;

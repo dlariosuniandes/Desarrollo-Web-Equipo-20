@@ -11,10 +11,15 @@ export class Collector {
     private name: string,
     private telephone: number,
     private email: string,
-    private comments: Array<Comment>,
-    private favoritePerformers: Array<Performer>,
-    private collectorAlbums: Array<CollectorAlbum>
+    private comments?: Array<Comment>,
+    private favoritePerformers?: Array<Performer>,
+    private collectorAlbums?: Array<CollectorAlbum>
   ){
+  }
+
+
+  darId():number {
+    return this.id;
   }
 
   darNombre():string {

@@ -5,13 +5,17 @@ import { AlbumModule } from './album/album.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CollectorModule } from './collector/collector.module';
+import { PerformerModule } from './perfomer/performer.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AlbumModule
+        AlbumModule,
+        CollectorModule,
+        PerformerModule
       ],
       declarations: [
         AppComponent,

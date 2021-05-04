@@ -42,14 +42,14 @@ export class Track
 
 
 export class Album{
-    
+
     constructor(
         private id: number,
-        private name: string, 
-        private cover: string, 
-        private releaseDate: Date, 
-        private description: string, 
-        private genre: GENRE, 
+        private name: string,
+        private cover: string,
+        private releaseDate: Date,
+        private description: string,
+        private genre: GENRE,
         private recordLabel: RECORD_LABEL,
         private tracks?: Array<Track>,
         private performers?: Array<Performer>,

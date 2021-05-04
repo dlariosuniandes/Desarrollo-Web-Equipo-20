@@ -3,11 +3,11 @@ import { Collector } from '../collector'
 import { CollectorService } from '../collector.service';
 
 @Component({
-  selector: 'collector-listar',
-  templateUrl: './collector-listar.component.html',
-  styleUrls: ['./collector-listar.component.css']
+  selector: 'collector-list',
+  templateUrl: './collector-list.component.html',
+  styleUrls: ['./collector-list.component.css']
 })
-export class CollectorListarComponent implements OnInit {
+export class CollectorListComponent implements OnInit {
   indiceADetallar: number;
   constructor(private collectorService: CollectorService) { }
   collectors: Array<Collector>;
