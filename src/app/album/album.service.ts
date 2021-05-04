@@ -70,4 +70,41 @@ export class AlbumService {
       )
     );
   }
+
+  obtenerAlbumId(id: number)
+  {
+    return this.http.get<Album>(this.urlBack+`/`+id).pipe(map(album=>{
+            let tracks:Array<Track> = [];
+            let performers:Array<Performer> = []
+            let comments: Array<Comment> = [];
+            album['tracks'].forEach(x => tracks.push(new Track(x['name'],x['duration'])));
+            album['performers'].forEach(x=>
+              {
+                if (x['birthDate'])
+                {
+                  performers.push(new Musician(x['birthDate'],x['name'],x['description'],x['id'],x['image']))
+                }
+                else
+                {
+                  performers.push(new Band(x['creationDate'],x['name'],x['description'],x['id'],x['image']))
+                }
+              });
+              album['comments'].forEach(x=> comments.push(new Comment(x['id'],x['description'],x['rating'])))
+            return new Album(
+              album['id'],
+              album['name'],
+              album['cover'],
+              album['releaseDate'],
+              album['description'],
+              album['genre'],
+              album['recordLabel'],
+              tracks,
+              performers,
+              comments
+              );
+          }
+    
+    )
+  );
+  }
 }

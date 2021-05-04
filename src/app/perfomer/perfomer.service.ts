@@ -5,6 +5,7 @@ import { Musician } from './musician';
 import { Band } from './band';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
+import { Album } from '../album/album';
 
 @Injectable({
   providedIn: 'root',
@@ -48,6 +49,66 @@ export class PerformerService {
             element.performerPrizes
           );
         });
+      })
+    );
+  }
+
+  getMusicianDetail(id: number): Observable<Musician> {
+    const methodUrl = this.url + 'musicians/' + id;
+    return this.http.get<Musician>(methodUrl).pipe(
+      map((element) => {
+        return new Musician(
+          element.birthDate,
+          element.name,
+          element.description,
+          element.id,
+          element.image,
+          element.albums.map((album) => {
+            return new Album(
+              album.id,
+              album.name,
+              album.cover,
+              album.releaseDate,
+              album.description,
+              album.genre,
+              album.recordLabel,
+              album.tracks,
+              album.performers,
+              album.comments
+            );
+          }),
+          element.performerPrizes
+        );
+      })
+    );
+  }
+
+  getBandDetail(id: number): Observable<Band> {
+    const methodUrl = this.url + 'bands/' + id;
+    return this.http.get<Band>(methodUrl).pipe(
+      map((element) => {
+        return new Band(
+          element.creationDate,
+          element.name,
+          element.description,
+          element.id,
+          element.image,
+          element.albums.map((album) => {
+            return new Album(
+              album.id,
+              album.name,
+              album.cover,
+              album.releaseDate,
+              album.description,
+              album.genre,
+              album.recordLabel,
+              album.tracks,
+              album.performers,
+              album.comments
+            );
+          }),
+          element.performerPrizes
+        );
       })
     );
   }

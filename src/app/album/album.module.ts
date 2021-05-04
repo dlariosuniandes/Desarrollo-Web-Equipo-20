@@ -3,19 +3,22 @@ import { CommonModule } from '@angular/common';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AlbumService } from './album.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
 @NgModule({
-  declarations: [AlbumListComponent],
+  declarations: [AlbumListComponent, AlbumDetailComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers:[AlbumService],
   exports:
   [
-    AlbumListComponent
+    AlbumListComponent, AlbumDetailComponent
   ]
 })
 export class AlbumModule { }

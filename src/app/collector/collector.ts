@@ -17,6 +17,7 @@ export class Collector {
   ){
   }
 
+
   darId():number {
     return this.id;
   }

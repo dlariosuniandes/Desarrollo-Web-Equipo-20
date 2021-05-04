@@ -1,0 +1,50 @@
+#detail-card {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    background-color: white;
+}
+
+body {
+    border-color: #F5F5F5;
+}
+
+#albumImg {
+    width: 100%;
+    height: auto;
+}
+
+#boldParagraph {
+    font-weight: bold;
+}
+
+#tackTable {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: grey;
+}
+
+#iconBack {
+    height: auto;
+}
+
+#iconBack:hover {
+    cursor: pointer;
+}
+
+#iconUser {
+    font-size: 20px;
+}
+
+tbody {
+    background-color: white;
+}
+
+#bgNameUser {
+    background-color: #DAE8FC;
+}
+
+.table {
+    margin-bottom: 0px;
+}

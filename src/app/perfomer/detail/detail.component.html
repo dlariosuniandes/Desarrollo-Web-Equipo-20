@@ -1,0 +1,48 @@
+<div *ngIf="performer" class="component-container">
+  <div class="container perfomer-card-container col-lg-12 col-md-12 col-sm-12">
+    <div class="row">
+      <div class="perfomer-image-container col-lg-5 col-md-5 col-sm-12">
+        <img
+          class="performer-image"
+          src="{{ performer.getImage() }}"
+          alt="Imagen del Artista"
+        />
+      </div>
+      <div class="perfomer-text-container col-lg-7 col-md-7 col-sm-12">
+        <p class="artist-name">{{ performer.getName() }}</p>
+        <p class="artist-year">{{ this.returnDatePerfomer() }}</p>
+        <p class="artist-description">{{ performer.getDescription() }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="album-list-container">
+    <div class="performer-title-container">
+      <p>Albumes de {{ performer.getName() }}</p>
+    </div>
+    <div class="list-container container">
+      <div class="row">
+        <div
+          *ngFor="let album of performer.getAlbums()"
+          class="col-lg-4 col-md-5 col-sm-12 card musician-card"
+        >
+          <img
+            src="{{ album.darPortada() }}"
+            class="artist-image card-img-top"
+          />
+          <div class="card-header-performer">
+            <p class="artist-name">{{ album.darNombre() }}</p>
+            <p class="artist-year">
+              {{ this.formatDate(album.darFecha()) }}
+            </p>
+          </div>
+          <div class="card-description-performer">
+            <p class="artist-description">{{ album.darSelloDisco() }}</p>
+          </div>
+          <div class="card-button-performer">
+            <button type="button" class="btn btn-primary">Ver detalles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
