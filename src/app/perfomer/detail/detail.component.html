@@ -1,3 +1,6 @@
+<button (click)="goBackDetail()" class="btn btn-primary back-button">
+  Back
+</button>
 <div *ngIf="performer" class="component-container">
   <div class="container perfomer-card-container col-lg-12 col-md-12 col-sm-12">
     <div class="row">
@@ -39,7 +42,13 @@
             <p class="artist-description">{{ album.darSelloDisco() }}</p>
           </div>
           <div class="card-button-performer">
-            <button type="button" class="btn btn-primary">Ver detalles</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="onSelect(album)"
+            >
+              Ver detalles
+            </button>
           </div>
         </div>
       </div>
