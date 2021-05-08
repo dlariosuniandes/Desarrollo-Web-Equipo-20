@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Band } from '../band';
 import { Musician } from '../musician';
 import { PerformerService } from '../perfomer.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Album } from 'src/app/album/album';
 
 @Component({
   selector: 'performer-detail',
@@ -12,8 +14,14 @@ export class DetailComponent implements OnInit {
   performer: Musician | Band;
 
   @Input() performerDetail: Musician | Band;
-  constructor(private performerService: PerformerService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private performerService: PerformerService
+  ) {}
 
+  performerId: number;
+  typePerformer: string;
   ngOnChanges(): void {
     if (this.performerDetail instanceof Musician) {
       this.performerService
@@ -33,7 +41,28 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if (this.performerDetail === undefined) {
+      this.route.url.subscribe((test) => {
+        this.typePerformer = test[0]['path'];
+      });
+      this.performerId = +this.route.snapshot.paramMap.get('id');
+      console.log(this.typePerformer, this.performerId);
+      if (this.typePerformer === 'band') {
+        this.performerService
+          .getBandDetail(this.performerId)
+          .subscribe((cs) => {
+            console.log(cs);
+            this.performer = cs;
+          });
+      } else if ((this.typePerformer = 'musician')) {
+        this.performerService
+          .getMusicianDetail(this.performerId)
+          .subscribe((cs) => {
+            console.log(cs);
+            this.performer = cs;
+          });
+      }
+    }
   }
 
   returnDatePerfomer(): string {
@@ -48,5 +77,13 @@ export class DetailComponent implements OnInit {
     const formatDate = new Date(date);
     const year = formatDate.getFullYear();
     return `(${year})`;
+  }
+
+  goBackDetail() {
+    this.router.navigateByUrl('/performers/list');
+  }
+
+  onSelect(album: Album) {
+    this.router.navigateByUrl('/albums/' + album.darId());
   }
 }
