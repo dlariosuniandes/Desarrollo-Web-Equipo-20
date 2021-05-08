@@ -18,6 +18,10 @@ body {
     font-weight: bold;
 }
 
+#boldParagraph:hover {
+    cursor: pointer;
+}
+
 #tackTable {
     border-style: solid;
     border-width: 1px;

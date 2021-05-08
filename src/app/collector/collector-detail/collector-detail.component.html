@@ -23,7 +23,7 @@
                 <tbody>
                     <div class="card" *ngFor="let a of collectorAlbums;">
                         <tr>
-                            <td>{{a.darAlbum().darNombre()}}</td>
+                            <td class="albumNav" (click)="navegarAlbum(a.darAlbum().darId())">{{a.darAlbum().darNombre()}}</td>
                             <td>{{a.darEstado()}}</td>
                             <td>{{a.darPrecio()}}</td>
                         </tr>
@@ -37,7 +37,7 @@
                     <div class="card" *ngFor="let b of collectorDetail.darArtistasFavoritos();">
                         <tr>
                             <td><img class="img-fluid" src={{b.image}} alt="imagen artista"></td>
-                            <td>{{b.name}}</td>
+                            <td class="albumNav" (click)="navegarArtista(b)">{{b.name}}</td>
                             <td>{{b.description}}</td>
                         </tr>
                     </div>

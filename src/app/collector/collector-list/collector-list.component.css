@@ -11,3 +11,15 @@
   font-family: sans-serif;
   color: grey;
 }
+
+.component-container{
+  padding-bottom: 5%;
+}
+
+.list-title {
+  padding-right: 5%;
+  padding-top: 5%;
+}
+.list-title p {
+  font-size: 3vw;
+}

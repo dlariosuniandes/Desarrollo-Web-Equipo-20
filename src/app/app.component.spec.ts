@@ -3,7 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AlbumModule } from './album/album.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CollectorModule } from './collector/collector.module';
 import { PerformerModule } from './perfomer/performer.module';
@@ -20,7 +19,6 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         NavbarComponent,
-        SidebarComponent,
         FooterComponent
       ],
     }).compileComponents();

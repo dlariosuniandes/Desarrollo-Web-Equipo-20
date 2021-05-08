@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { PerformerModule } from './perfomer/performer.module'
 
 import { CollectorModule } from './collector/collector.module';
@@ -20,7 +19,6 @@ import { AlbumModule } from './album/album.module';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    SidebarComponent
   ],
   imports: [
     BrowserModule,

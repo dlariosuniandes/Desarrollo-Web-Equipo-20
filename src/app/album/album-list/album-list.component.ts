@@ -32,6 +32,6 @@ export class AlbumListComponent implements OnInit, OnDestroy{
 
   detallarAlbum(index:number)
   {
-    this.router.navigateByUrl(`/album-list/detail/${this.albums[index].darId()}`)
+    this.router.navigateByUrl(`/albums/${this.albums[index].darId()}`)
   }
 }

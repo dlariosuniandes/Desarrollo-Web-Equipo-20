@@ -1,3 +1,11 @@
 #usuario {
-  color: #000066;
+    color: #000066;
+}
+
+.albumNav {
+    color: blue;
+}
+
+.albumNav:hover {
+    cursor: pointer;
 }

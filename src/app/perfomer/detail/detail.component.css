@@ -18,7 +18,7 @@
 
 .perfomer-image-container{
     overflow: hidden;
-    height: 20vh;
+    height: 40vh;
 }
 
 .artist-name{
@@ -94,3 +94,8 @@ font-weight: 800;
     flex: 1;
     padding-bottom: 5%;
   }
+
+  .back-button{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
