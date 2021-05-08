@@ -4,10 +4,12 @@ import { CollectorListComponent } from './collector-list/collector-list.componen
 import { CollectorDetailComponent } from './collector-detail/collector-detail.component';
 import { CollectorService } from './collector.service';
 import { CollectorAlbumService } from './collectorAlbum.service';
+import { CollectorRoutingModule } from './collector-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CollectorRoutingModule
   ],
   declarations: [CollectorListComponent, CollectorDetailComponent],
   exports: [CollectorListComponent, CollectorDetailComponent],

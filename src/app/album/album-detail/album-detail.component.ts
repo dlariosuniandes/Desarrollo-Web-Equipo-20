@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CollectorService } from '../../collector/collector.service';
 import { map } from 'rxjs/operators';
+import { Performer } from '../../perfomer/performer';
+import { Band } from '../../perfomer/band';
 
 @Component({
   selector: 'app-album-detail',
@@ -18,7 +20,7 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
   idAlbum: number
   backUrl: string
   constructor(public albumService:AlbumService, private router: Router, private ar: ActivatedRoute) {
-    if(this.router.getCurrentNavigation().extras?.state?.backUrl)
+    if(this.router.getCurrentNavigation()?.extras?.state?.backUrl)
     {
       this.backUrl = "/"+this.router.getCurrentNavigation().extras.state.backUrl
     }
@@ -79,5 +81,17 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
     return text;
   }
 
+  navegarArtista(artista: Performer)
+  {
+    let tipoArtista:string = ''
+    if(artista instanceof Band)
+    {
+      tipoArtista = "band"
+    }else
+    {
+      tipoArtista = "musician"
+    }
+    this.router.navigateByUrl(`/performers/${tipoArtista}/${artista.id}`,{state:{backUrl:`/albums/${this.albumDetail.darId()}`}});
+  }
 
 }

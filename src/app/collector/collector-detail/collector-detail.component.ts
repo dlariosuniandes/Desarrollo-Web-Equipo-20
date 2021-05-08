@@ -3,6 +3,8 @@ import { Performer } from 'src/app/perfomer/performer';
 import { Collector } from '../collector';
 import { CollectorAlbum } from '../collectorAlbum';
 import { CollectorAlbumService } from '../collectorAlbum.service';
+import { Router } from '@angular/router';
+import { Band } from '../../perfomer/band';
 
 
 
@@ -14,9 +16,10 @@ import { CollectorAlbumService } from '../collectorAlbum.service';
 export class CollectorDetailComponent implements OnInit {
 
   @Input() collectorDetail: Collector;
+  @Input () collectorsLength: number;
   collectorAlbums: Array<CollectorAlbum>;
 
-  constructor(private collectorAlbumService: CollectorAlbumService) { }
+  constructor(private collectorAlbumService: CollectorAlbumService, private router: Router) { }
 
 
   getCollectorAlbums(id:number): void {
@@ -33,4 +36,33 @@ export class CollectorDetailComponent implements OnInit {
     this.getCollectorAlbums(this.collectorDetail.darId())
   }
 
+  navegarAlbum(id: number)
+  {
+    if(this.collectorsLength>1)
+    {
+      this.router.navigateByUrl('/albums/' + id,{state:{backUrl:`/collectors/list`}});
+    }
+    else{
+      this.router.navigateByUrl('/albums/' + id,{state:{backUrl:`/collectors/${this.collectorDetail.darId()}`}});
+    }
+  }
+  navegarArtista(artista: Performer)
+  {
+    let tipoArtista:string = ''
+    if(artista instanceof Band)
+    {
+      tipoArtista = "band"
+    }else
+    {
+      tipoArtista = "musician"
+    }
+
+    if(this.collectorsLength>1)
+    {
+      this.router.navigateByUrl(`/performers/${tipoArtista}/${artista.id}`,{state:{backUrl:`/collectors/list`}});
+    }
+    else{
+      this.router.navigateByUrl(`/performers/${tipoArtista}/${artista.id}`,{state:{backUrl:`/collectors/${this.collectorDetail.darId()}`}});
+    }
+  }
 }

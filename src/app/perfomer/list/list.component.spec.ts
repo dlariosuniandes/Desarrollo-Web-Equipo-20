@@ -6,6 +6,7 @@ import { ListComponent } from './list.component';
 import { Musician } from '../musician';
 import { By } from '@angular/platform-browser';
 import { Band } from '../band';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -14,7 +15,7 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, RouterTestingModule],
       declarations: [ListComponent],
     }).compileComponents();
   }));

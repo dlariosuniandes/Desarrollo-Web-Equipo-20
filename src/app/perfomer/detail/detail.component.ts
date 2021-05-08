@@ -12,13 +12,19 @@ import { Album } from 'src/app/album/album';
 })
 export class DetailComponent implements OnInit {
   performer: Musician | Band;
+  backUrl:string;
 
   @Input() performerDetail: Musician | Band;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private performerService: PerformerService
-  ) {}
+  ) {
+    if(this.router.getCurrentNavigation()?.extras?.state?.backUrl)
+    {
+      this.backUrl = "/"+this.router.getCurrentNavigation().extras.state.backUrl
+    }
+  }
 
   performerId: number;
   typePerformer: string;
@@ -76,7 +82,14 @@ export class DetailComponent implements OnInit {
   }
 
   goBackDetail() {
-    this.router.navigateByUrl('/performers/list');
+    if(this.backUrl)
+    {
+      this.router.navigateByUrl(this.backUrl);
+    }
+    else
+    {
+      this.router.navigateByUrl('/performers/list');
+    }
   }
 
   onSelect(album: Album) {

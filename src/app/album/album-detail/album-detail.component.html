@@ -16,7 +16,7 @@
             </div>
             <div class="col-12 col-md-8">
                 <h4>{{albumDetail.darNombre()}}</h4>
-                <p class="text-primary mb-0" id="boldParagraph">{{stringArtistas()}} / {{albumDetail.darSelloDisco()}}</p>
+                <p class="mb-0"><span class="text-primary" id="boldParagraph" *ngFor="let artista of albumDetail.darArtistas(), index as j" (click)="navegarArtista(artista)">{{artista.name}} <span *ngIf="j!=albumDetail.darArtistas().length-1">-</span> </span> / {{albumDetail.darSelloDisco()}}</p>
                 <p class="mb-0">{{albumDetail.darFecha() | date:"yyyy"}}</p><span class="badge badge-primary">{{albumDetail.darGenero()}}</span>
                 <p class="pt-5">{{albumDetail.darDescripcion()}}</p>
             </div>

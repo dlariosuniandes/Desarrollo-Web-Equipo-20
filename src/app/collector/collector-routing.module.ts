@@ -12,10 +12,12 @@ const routes: Routes = [{
       component: CollectorListComponent
     },
     {
-      path: 'id',
-      component: CollectorDetailComponent,
-
+      path: ':id',
+      component: CollectorListComponent,
     },
+    {
+      path: '', redirectTo:'/collectors/list', pathMatch:'full'
+    }
   ]
 }];
 

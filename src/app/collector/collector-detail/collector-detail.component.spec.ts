@@ -9,6 +9,7 @@ import { Album } from '../../album/album';
 import { CollectorAlbum } from '../collectorAlbum';
 import faker from "faker";
 import { Collector } from '../collector';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CollectorDetailComponent',() => {
   let component: CollectorDetailComponent;
@@ -24,7 +25,7 @@ describe('CollectorDetailComponent',() => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CollectorDetailComponent],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
   }));
