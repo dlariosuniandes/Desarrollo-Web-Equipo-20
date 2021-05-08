@@ -35,7 +35,7 @@ describe('CollectorListarComponent', () => {
         faker.phone.phoneNumber(),
         faker.internet.email(),
         [],
-        [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.lorem.text())],
+        [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.image.imageUrl())],
         [new CollectorAlbum(faker.datatype.number(),faker.datatype.number(),faker.lorem.text())]
       )
     ];

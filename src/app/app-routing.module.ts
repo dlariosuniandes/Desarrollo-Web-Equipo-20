@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'album-list', component: AlbumListComponent},
   {path: 'collector-list', component: CollectorListComponent},
   {path:"album-list/detail/:id", component:AlbumDetailComponent},
-  {path: 'perfomer-list', component: ListComponent},
+  {path: 'performer-list', component: ListComponent},
   {path: '', redirectTo:'/album-list', pathMatch: 'full'},
   {path: '**', redirectTo:'/album-list'}
 ];

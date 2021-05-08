@@ -4,7 +4,7 @@ import { Musician } from '../musician';
 import { PerformerService } from '../perfomer.service';
 
 @Component({
-  selector: 'app-detail',
+  selector: 'performer-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
 })
