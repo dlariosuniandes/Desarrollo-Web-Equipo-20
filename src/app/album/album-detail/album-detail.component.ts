@@ -46,7 +46,7 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
 
   backList()
   {
-    this.router.navigateByUrl('album-list');
+    this.router.navigateByUrl('albums/list');
   }
 
   stringArtistas()

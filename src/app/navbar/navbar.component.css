@@ -27,3 +27,12 @@
     font-size: 2em;
     margin-left: 20px;
 }
+
+li.nav-item>a:hover {
+    cursor: pointer;
+    border-bottom-style: solid;
+}
+
+.navActivate {
+    border-style: solid;
+}
