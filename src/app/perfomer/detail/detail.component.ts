@@ -28,14 +28,12 @@ export class DetailComponent implements OnInit {
         .getMusicianDetail(this.performerDetail.id)
         .subscribe((cs) => {
           this.performer = cs;
-          console.log(cs);
         });
     } else if (this.performerDetail instanceof Band) {
       this.performerService
         .getBandDetail(this.performerDetail.id)
         .subscribe((cs) => {
           this.performer = cs;
-          console.log(cs);
         });
     }
   }
@@ -51,14 +49,12 @@ export class DetailComponent implements OnInit {
         this.performerService
           .getBandDetail(this.performerId)
           .subscribe((cs) => {
-            console.log(cs);
             this.performer = cs;
           });
       } else if ((this.typePerformer = 'musician')) {
         this.performerService
           .getMusicianDetail(this.performerId)
           .subscribe((cs) => {
-            console.log(cs);
             this.performer = cs;
           });
       }
@@ -84,6 +80,6 @@ export class DetailComponent implements OnInit {
   }
 
   onSelect(album: Album) {
-    this.router.navigateByUrl('/albums/' + album.darId());
+    this.router.navigateByUrl('/albums/' + album.darId(),{state:{backUrl:`/performers/${this.typePerformer}/${this.performerId}`}});
   }
 }

@@ -16,8 +16,13 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
   albumDetail: Album
   sub: Subscription
   idAlbum: number
+  backUrl: string
   constructor(public albumService:AlbumService, private router: Router, private ar: ActivatedRoute) {
-
+    if(this.router.getCurrentNavigation().extras?.state?.backUrl)
+    {
+      this.backUrl = "/"+this.router.getCurrentNavigation().extras.state.backUrl
+    }
+    
   }
 
   ngOnInit(): void {
@@ -46,7 +51,15 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
 
   backList()
   {
-    this.router.navigateByUrl('albums/list');
+    if(this.backUrl)
+    {
+      this.router.navigateByUrl(this.backUrl);
+    }
+    else
+    {
+      this.router.navigateByUrl('albums/list');
+    }
+
   }
 
   stringArtistas()
