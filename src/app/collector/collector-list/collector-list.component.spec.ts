@@ -10,8 +10,9 @@ import { Collector } from "../collector";
 import { Band } from '../../perfomer/band';
 import { CollectorAlbum } from '../collectorAlbum';
 import { CollectorDetailComponent } from '../collector-detail/collector-detail.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('CollectorListarComponent', () => {
+describe('CollectorListComponent', () => {
   let component: CollectorListComponent;
   let fixture: ComponentFixture<CollectorListComponent>;
   let debug: DebugElement;
@@ -20,7 +21,7 @@ describe('CollectorListarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CollectorListComponent, CollectorDetailComponent],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
     })
     .compileComponents();
   }));
@@ -35,7 +36,7 @@ describe('CollectorListarComponent', () => {
         faker.phone.phoneNumber(),
         faker.internet.email(),
         [],
-        [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.lorem.text())],
+        [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.image.imageUrl())],
         [new CollectorAlbum(faker.datatype.number(),faker.datatype.number(),faker.lorem.text())]
       )
     ];
@@ -48,8 +49,8 @@ describe('CollectorListarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it("Should have an p element with name ", () => {
-    expect(debug.query(By.css("p")).nativeElement.innerText).toContain(component.collectors[0].darNombre());
+  it("Should have an .collectorName element with name ", () => {
+    expect(debug.query(By.css(".collectorName")).nativeElement.innerText).toContain(component.collectors[0].darNombre());
 
   });
   it('should capture button index', () => {

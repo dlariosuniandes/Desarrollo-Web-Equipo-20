@@ -3,21 +3,21 @@
         <div class="col">
             <div class="d-sm-flex align-items-sm-center mt-3 mb-3 h-100">
                 <i class="bi bi-caret-left-fill" id="iconBack" style="height: auto;font-size: 53px;color: var(--blue);" (click)="backList()"></i>
-                <span class="text-left h-100 ml-3" id="iconBack" style="font-size: 23px;color: var(--blue);" (click)="backList()">Volver</span>
+                <span class="text-left h-100 ml-3" id="iconBack" style="font-size: 23px;" (click)="backList()">Volver</span>
             </div>
         </div>
     </div>
     <div class="container mt-2">
         <div class="row align-items-center p-5 p-md-3 shadow ml-2 mr-2 ml-md-0 mr-md-0" id="detail-card">
-            <div class="col-12 col-md-4 mb-3 mb-md-0"><img id="albumImg" src="{{albumDetail.darPortada()}}" />
+            <div class="col-12 col-md-4 mb-3 mb-md-0"><img id="albumImg" src="{{albumDetail.darPortada()}}" alt="{{albumDetail.darNombre()}}" />
             </div>
             <div class="col col-12 d-md-none">
                 <hr />
             </div>
             <div class="col-12 col-md-8">
                 <h4>{{albumDetail.darNombre()}}</h4>
-                <p class="text-primary mb-0" id="boldParagraph">{{stringArtistas()}} / {{albumDetail.darSelloDisco()}}</p>
-                <p class="mb-0">{{albumDetail.darFecha() | date:"yyyy"}}</p><span class="badge badge-primary">{{albumDetail.darGenero()}}</span>
+                <p class="mb-0"><span style="color: #000066;" id="boldParagraph" *ngFor="let artista of albumDetail.darArtistas(), index as j" (click)="navegarArtista(artista)">{{artista.name}} <span *ngIf="j!=albumDetail.darArtistas().length-1">-</span> </span> / {{albumDetail.darSelloDisco()}}</p>
+                <p class="mb-0">{{albumDetail.darFecha() | date:"yyyy"}}</p><span class="badge text-light" style="background-color:  #000066;">{{albumDetail.darGenero()}}</span>
                 <p class="pt-5">{{albumDetail.darDescripcion()}}</p>
             </div>
         </div>

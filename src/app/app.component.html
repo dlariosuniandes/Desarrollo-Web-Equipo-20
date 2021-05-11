@@ -1,17 +1,14 @@
 <app-navbar></app-navbar>
-<div class="container-fluid d-flex flex-column h-100">
+<div class="container d-flex flex-column">
 
-    <main class="h-100">
+    <main>
         <div class="row h-100">
-            <div class="col-4 col-md-3 col-lg-3 col-xl-2">
-                <app-sidebar></app-sidebar>
-            </div>
-            <div class="col-8 col-md-9 col-lg-8 col-xl-10">
+            <div class="justify-content-center">
                 <router-outlet></router-outlet>
             </div>
         </div>
     </main>
 </div>
-<div class="mt-auto">
+<footer class="footer">
     <app-footer></app-footer>
-</div>
+</footer>

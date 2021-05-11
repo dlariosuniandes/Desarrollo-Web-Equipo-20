@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Musician } from '../musician';
 import { By } from '@angular/platform-browser';
 import { Album, GENRE, RECORD_LABEL } from 'src/app/album/album';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DetailComponent', () => {
   let component: DetailComponent;
@@ -14,7 +15,7 @@ describe('DetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, RouterTestingModule],
       declarations: [DetailComponent],
     }).compileComponents();
   }));

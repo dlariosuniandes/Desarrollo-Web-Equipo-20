@@ -9,6 +9,7 @@ import faker from "faker";
 import { Comment } from 'src/app/comentario/comment';
 import { Band } from '../../perfomer/band';
 import { Musician } from '../../perfomer/musician';
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('AlbumDetailComponent', () => {
@@ -45,7 +46,7 @@ describe('AlbumDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AlbumDetailComponent ],
-      imports: [HttpClientTestingModule, AppRoutingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
   }));
@@ -111,10 +112,8 @@ describe('AlbumDetailComponent', () => {
     }
     fixture.detectChanges();
     const urlImg: string = htmlElement.querySelector('#albumImg').parentNode.querySelector('img').src;
-    const stringArtistas = htmlElement.querySelector('#boldParagraph').innerHTML;
     const numberTracks = htmlElement.querySelector('tbody.mb-0').querySelectorAll('tr').length
     const numberComments = htmlElement.querySelectorAll("#commentCollector").length
-    expect(stringArtistas).toEqual(component.stringArtistas()+ " / "+ component.albumDetail.darSelloDisco());
     expect(urlImg).toEqual(component.albumDetail.darPortada());
     expect(numberTracks).toEqual(component.albumDetail.darTracks().length);
     expect(numberComments).toEqual(component.albumDetail.darComentarios().length)

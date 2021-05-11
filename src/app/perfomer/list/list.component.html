@@ -1,14 +1,18 @@
 <div class="component-container">
-  <div *ngIf="!selected">
-    <div class="list-container">
-      <div class="list-title musician">
-        <p>Musicos</p>
-      </div>
+  <div class="list-container">
+    <div class="list-title musician">
+      <h1>Musicos</h1>
+    </div>
+    <div class="row">
       <div
         *ngFor="let musician of musicians"
-        class="col-lg-4 col-md-6 col-sm-12 card musician-card"
+        class="col-lg-3 col-md-5 col-sm-11 card mx-4 my-4 musician-card"
       >
-        <img src="{{ musician.getImage() }}" class="artist-image card-img-top" />
+        <img
+          src="{{ musician.getImage() }}"
+          class="artist-image card-img-top"
+          alt="{{ musician.getName() }}"
+        />
         <div class="card-header-performer">
           <p class="artist-name">{{ musician.getName() }}</p>
           <p class="artist-year">
@@ -29,15 +33,21 @@
         </div>
       </div>
     </div>
-    <div class="list-container">
-      <div class="list-title band">
-        <p>Bandas</p>
-      </div>
+  </div>
+  <div class="list-container">
+    <div class="list-title band">
+      <h1>Bandas</h1>
+    </div>
+    <div class="row">
       <div
         *ngFor="let band of bands"
-        class="col-lg-4 col-md-6 col-sm-12 card band-card"
+        class="col-lg-3 col-md-5 col-sm-11 card mx-4 my-4 band-card"
       >
-        <img src="{{ band.getImage() }}" class="artist-image card-img-top" />
+        <img
+          src="{{ band.getImage() }}"
+          class="artist-image card-img-top"
+          alt="{{ band.getName() }}"
+        />
         <div class="card-header-performer">
           <p class="artist-name">{{ band.getName() }}</p>
           <p class="artist-year">
@@ -58,9 +68,5 @@
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="selected">
-    <button (click)="goBackDetail()" class="btn btn-primary back-button">Back</button>
-    <app-detail [performerDetail]="currentPerformer"></app-detail>
   </div>
 </div>

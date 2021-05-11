@@ -9,6 +9,7 @@ import faker from 'faker'
 import { Album, Track } from './album';
 import { Band } from '../perfomer/band';
 import { Comment } from '../comentario/comment';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AlbumService', () => {
   let service: AlbumService;
@@ -19,7 +20,7 @@ describe('AlbumService', () => {
       providers:[
         AlbumService
       ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     });
     service = TestBed.inject(AlbumService)
     mockHttp = TestBed.inject(HttpTestingController);

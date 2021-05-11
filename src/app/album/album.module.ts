@@ -5,6 +5,7 @@ import { AlbumService } from './album.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { AlbumRoutingModule } from './album-routing.module';
 
 
 
@@ -13,7 +14,8 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     CommonModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AlbumRoutingModule
   ],
   providers:[AlbumService],
   exports:

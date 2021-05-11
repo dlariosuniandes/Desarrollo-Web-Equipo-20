@@ -9,6 +9,7 @@ import { PerformerService } from './perfomer.service';
 import { Musician } from './musician';
 import faker from 'faker';
 import { Band } from './band';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ArtistsService', () => {
   let service: PerformerService;
@@ -17,7 +18,7 @@ describe('ArtistsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [PerformerService],
     });
     injector = getTestBed();
