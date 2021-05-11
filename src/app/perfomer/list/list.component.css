@@ -63,20 +63,26 @@
   font-weight: 400;
   font-family: sans-serif;
   margin: 0;
-  color: grey;
+  color: black;
 }
 
 .artist-description {
   font-weight: 400;
   font-family: sans-serif;
   margin: 0 0 10px 0;
-  color: grey;
+  color: black;
   font-size: x-small;
   line-height: 12px;
 }
 
-.btn .btn-primary {
+.btn-primary {
   width: 50%;
+  background-color: teal !important;
+  border-color: teal !important;
+}
+
+.btn-primary{
+  color: rgb(255, 255, 255) !important;
 }
 
 .artist-image {

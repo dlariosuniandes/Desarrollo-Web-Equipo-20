@@ -12,7 +12,7 @@
         />
       </div>
       <div class="perfomer-text-container col-lg-7 col-md-7 col-sm-12">
-        <p class="artist-name">{{ performer.getName() }}</p>
+        <h1 class="artist-name">{{ performer.getName() }}</h1>
         <p class="artist-year">{{ this.returnDatePerfomer() }}</p>
         <p class="artist-description">{{ performer.getDescription() }}</p>
       </div>
@@ -31,6 +31,7 @@
           <img
             src="{{ album.darPortada() }}"
             class="artist-image card-img-top"
+            alt="imagen de {{album.darNombre()}}"
           />
           <div class="card-header-performer">
             <p class="artist-name">{{ album.darNombre() }}</p>

@@ -1,7 +1,7 @@
 <div class="component-container">
   <div class="list-container">
     <div class="list-title musician">
-      <p>Musicos</p>
+      <h1>Musicos</h1>
     </div>
     <div class="row">
       <div
@@ -11,6 +11,7 @@
         <img
           src="{{ musician.getImage() }}"
           class="artist-image card-img-top"
+          alt="{{ musician.getName() }}"
         />
         <div class="card-header-performer">
           <p class="artist-name">{{ musician.getName() }}</p>
@@ -35,14 +36,18 @@
   </div>
   <div class="list-container">
     <div class="list-title band">
-      <p>Bandas</p>
+      <h1>Bandas</h1>
     </div>
     <div class="row">
       <div
         *ngFor="let band of bands"
         class="col-lg-3 col-md-5 col-sm-11 card mx-4 my-4 band-card"
       >
-        <img src="{{ band.getImage() }}" class="artist-image card-img-top" />
+        <img
+          src="{{ band.getImage() }}"
+          class="artist-image card-img-top"
+          alt="{{ band.getName() }}"
+        />
         <div class="card-header-performer">
           <p class="artist-name">{{ band.getName() }}</p>
           <p class="artist-year">
