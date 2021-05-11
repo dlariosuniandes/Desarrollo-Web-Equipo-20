@@ -1,1 +1,78 @@
-<testExecutions version="1"/>
+<testExecutions version="1">
+  <file path="src/app/perfomer/perfomer.service.spec.ts">
+    <testCase name="ArtistsService should create service" duration="162"/>
+    <testCase name="ArtistsService should return 10 bands" duration="4"/>
+    <testCase name="ArtistsService should return 10 musicians" duration="3"/>
+    <testCase name="ArtistsService should return a band detail" duration="2"/>
+    <testCase name="ArtistsService should return a musician detail" duration="2"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId retorna el album deseado" duration="3"/>
+    <testCase name="AlbumService Se deberia crear el servicio" duration="1"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="3"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="3"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId se hace con el link correctamente" duration="3"/>
+    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="10"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="1"/>
+    <testCase name="AlbumService La funcion obtenerAlbumId retorna un obesvable" duration="1"/>
+  </file>
+  <file path="src/app/album/album-detail/album-detail.component.spec.ts">
+    <testCase name="AlbumDetailComponent Verifica que las funciones subServiceAlbum y obtenerIdRuta sean llamadas al inicializar el componente" duration="12"/>
+    <testCase name="AlbumDetailComponent should create" duration="5"/>
+    <testCase name="AlbumDetailComponent Verifica que se pinte el detalle del album en el html" duration="20"/>
+    <testCase name="AlbumDetailComponent Verifica que al inicializar el componente la variable albumI sea instancia de album" duration="19"/>
+    <testCase name="AlbumDetailComponent Verifica que al dar click en el boton de back, se active la funcion backList" duration="27"/>
+  </file>
+  <file path="src/app/album/album-list/album-list.component.spec.ts">
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="10"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="7"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="7"/>
+    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="10"/>
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum " duration="53"/>
+    <testCase name="AlbumListComponent should create" duration="6"/>
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum y se envie por parametro la posición del arreglo" duration="10"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="5"/>
+  </file>
+  <file path="src/app/perfomer/list/list.component.spec.ts">
+    <testCase name="ListComponent should return formatted date" duration="8"/>
+    <testCase name="ListComponent should have a musician card" duration="16"/>
+    <testCase name="ListComponent should have a title musician" duration="12"/>
+    <testCase name="ListComponent should have a title tag for bands" duration="25"/>
+    <testCase name="ListComponent should have a band card" duration="7"/>
+    <testCase name="ListComponent should create" duration="21"/>
+  </file>
+  <file path="src/app/collector/collector-detail/collector-detail.component.spec.ts">
+    <testCase name="CollectorDetailComponent should create" duration="11"/>
+  </file>
+  <file path="src/app/perfomer/detail/detail.component.spec.ts">
+    <testCase name="DetailComponent should render list albums" duration="10"/>
+    <testCase name="DetailComponent should return date for perfomer either is Musician or Band" duration="19"/>
+    <testCase name="DetailComponent should render date" duration="10"/>
+    <testCase name="DetailComponent should render description" duration="27"/>
+    <testCase name="DetailComponent should render component container" duration="25"/>
+    <testCase name="DetailComponent should render artistName" duration="8"/>
+    <testCase name="DetailComponent should create" duration="6"/>
+    <testCase name="DetailComponent should return formatted date" duration="7"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'front'" duration="57"/>
+    <testCase name="AppComponent should create the app" duration="12"/>
+  </file>
+  <file path="src/app/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="16"/>
+  </file>
+  <file path="src/app/collector/collector.service.spec.ts">
+    <testCase name="Service: Collector getPost() should return 2 records" duration="3"/>
+  </file>
+  <file path="src/app/collector/collector-list/collector-list.component.spec.ts">
+    <testCase name="CollectorListComponent should capture button index" duration="21"/>
+    <testCase name="CollectorListComponent Should have an .collectorName element with name " duration="10"/>
+    <testCase name="CollectorListComponent should create" duration="8"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="9"/>
+  </file>
+  <file path="src/app/collector/collectorAlbum.service.spec.ts">
+    <testCase name="Service: CollectorAlbum getPost() should return 2 records" duration="1"/>
+  </file>
+</testExecutions>
