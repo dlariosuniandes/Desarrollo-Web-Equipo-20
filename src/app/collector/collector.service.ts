@@ -23,6 +23,11 @@ export class CollectorService {
     return this.http.delete(this.apiUrl+"/"+idC);
   };
 
+  addAlbumCollector(idC: number, idA: number){
+    console.log(idC, this.apiUrl+"/"+idC+"/albums/"+idA);
+    return this.http.delete(this.apiUrl+"/"+idC+"/albums/"+idA);
+  };
+
   getCollectors(): Observable<Collector[]> {
     return this.http.get<Collector[]>(this.apiUrl).pipe(
       map(collectors=>{

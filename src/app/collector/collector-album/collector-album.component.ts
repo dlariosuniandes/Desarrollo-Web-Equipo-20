@@ -8,16 +8,16 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'collector-create',
-  templateUrl: './collector-create.component.html',
-  styleUrls: ['./collector-create.component.css']
+  selector: 'collector-album',
+  templateUrl: './collector-album.component.html',
+  styleUrls: ['./collector-album.component.css']
 })
-export class CollectorCreateComponent implements OnInit {
-  collectorForm: FormGroup;
+export class CollectorAlbumComponent implements OnInit {
+  addAlbumCollectorForm: FormGroup;
   collectors: Collector[];
 
-  @Output() cancelEvent = new EventEmitter()
-  @Output() finishCreation = new EventEmitter()
+  @Output() cancelEvent = new EventEmitter();
+  @Output() finishCreation = new EventEmitter();
 
   constructor(
     private collectorService: CollectorService,
@@ -28,15 +28,15 @@ export class CollectorCreateComponent implements OnInit {
 
   }
 
-  createCollector(newCollector: Collector) {
+  addAlbumCollector(collectorId: number, albumId: number) {
 
     //-----------------------------------------------------------------
-    this.collectorService.createCollector(newCollector).subscribe(
+    this.collectorService.addAlbumCollector(collectorId,albumId).subscribe(
       rta =>
       {
         Swal.fire({
           icon: 'success',
-          text: 'El coleccionista fue añadido con éxito.'
+          text: 'El album fue añadido al coleccionista con éxito.'
         }).then(r=>
           {
             if (r.isConfirmed)
@@ -54,21 +54,21 @@ export class CollectorCreateComponent implements OnInit {
      );
     //------------------------------------------------------------------
 
-    this.collectorForm.reset();
+    this.addAlbumCollectorForm.reset();
 
   }
-
-
-  cancelCreation() {
-    console.log("Cancelando ...");
-    this.collectorForm.reset();
+  emitCancelEvent()
+  {
+    this.cancelEvent.emit();
   }
+
 
   ngOnInit() {
-    this.collectorForm = this.formBuilder.group({
-      name: ["",[Validators.required, Validators.minLength(2)]],
-      telephone: ["",[Validators.required, Validators.minLength(7)]],
-      email: ["", [Validators.required, Validators.email]]
+    this.addAlbumCollectorForm = this.formBuilder.group({
+      price: ["",[Validators.required, Validators.min(10)]],
+      status: ["",[Validators.required]],
+      album: ["", [Validators.required]]
     });
   }
+
 }
