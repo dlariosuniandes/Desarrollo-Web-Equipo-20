@@ -15,9 +15,14 @@ export class CollectorService {
   constructor(private http: HttpClient) { }
 
   createCollector(collector: Collector): Observable<Collector>{
-    return this.http.post<Collector>(this.apiUrl + 1, collector);//.pipe(catchError(this.handleError('createCollector',collector)));
-
+    return this.http.post<Collector>(this.apiUrl, collector);//.pipe(catchError(this.handleError('createCollector',collector)));
   };
+
+  deleteCollector(idC: number){
+    console.log(idC, this.apiUrl+"/"+idC);
+    return this.http.delete(this.apiUrl+"/"+idC);
+  };
+
   getCollectors(): Observable<Collector[]> {
     return this.http.get<Collector[]>(this.apiUrl).pipe(
       map(collectors=>{

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+//import { ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Collector } from '../collector';
 import { CollectorService } from '../collector.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'collector-create',
@@ -14,24 +16,43 @@ export class CollectorCreateComponent implements OnInit {
   collectorForm: FormGroup;
   collectors: Collector[];
 
+  @Output() cancelEvent = new EventEmitter()
+  @Output() finishCreation = new EventEmitter()
 
   constructor(
     private collectorService: CollectorService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private router: Router
+  //  private toastr: ToastrService
   ) {
 
   }
 
   createCollector(newCollector: Collector) {
-    console.warn("el coleccionista fue creado", newCollector);
     this.showSuccess(newCollector);
 
     //-----------------------------------------------------------------
-    this.collectorService.createCollector(newCollector).subscribe(collector => {
-      //this.collectors.push(newCollector);
-      this.showSuccess(newCollector);
-     });
+    this.collectorService.createCollector(newCollector).subscribe(
+      rta =>
+      {
+        Swal.fire({
+          icon: 'success',
+          text: 'El coleccionista fue añadido con éxito.'
+        }).then(r=>
+          {
+            if (r.isConfirmed)
+            {
+
+              this.router.navigateByUrl('collectors/list');
+            }
+          }
+        )
+      },
+    error =>
+      {
+        console.log(error)
+      }
+     );
     //------------------------------------------------------------------
 
     this.collectorForm.reset();
@@ -39,7 +60,7 @@ export class CollectorCreateComponent implements OnInit {
   }
 
   showSuccess(c: Collector) {
-    this.toastr.success('Creado exitosamente!', `Coleccionista ${c.darNombre}`,{"progressBar": true, timeOut: 4000});
+    //this.toastr.success('Creado exitosamente!', `Coleccionista ${c.darNombre}`,{"progressBar": true, timeOut: 4000});
   }
 
   cancelCreation() {

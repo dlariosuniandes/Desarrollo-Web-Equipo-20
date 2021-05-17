@@ -16,11 +16,12 @@
                 <dt>Email</dt>
                 <dd>{{collectorDetail.darEmail()}}</dd>
                 <dt></dt>
-                <dd><button>Editar</button></dd>
+                <dd><button>Editar</button><button (click)="borrarColeccionista(collectorDetail.darId())">Borrar</button></dd>
             </dl>
         </div>
 
         <div class="col-4" *ngIf="collectorAlbums">
+            <P>Albums:</P>
             <table class="table table-striped" *ngIf="collectorAlbums.length!=0">
                 <tbody>
                     <div class="card" *ngFor="let a of collectorAlbums;">
@@ -34,6 +35,7 @@
             </table>
         </div>
         <div class="col-5">
+            <p>Artistas favoritos:</p>
             <table class="table table-striped">
                 <tbody>
                     <div class="card" *ngFor="let b of collectorDetail.darArtistasFavoritos();">
