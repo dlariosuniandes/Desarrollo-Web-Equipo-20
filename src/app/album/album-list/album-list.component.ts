@@ -13,7 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AlbumListComponent implements OnInit, OnDestroy{
 
   sub: Subscription;
-  albums: Array<Album>
+  albums: Array<Album>;
+  creatingAlbum: boolean = false;
   constructor(private servicioAlbum: AlbumService, private router: Router) { }
 
   ngOnInit(): void {
@@ -33,5 +34,18 @@ export class AlbumListComponent implements OnInit, OnDestroy{
   detallarAlbum(index:number)
   {
     this.router.navigateByUrl(`/albums/${this.albums[index].darId()}`)
+  }
+
+  crearAlbumOn()
+  {
+    this.creatingAlbum = !this.creatingAlbum
+  }
+
+  reloadComponent()
+  {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }
