@@ -8,6 +8,7 @@ import { Performer } from '../perfomer/performer';
 import { Musician } from '../perfomer/musician';
 import { Band } from '../perfomer/band';
 import { Comment } from '../comentario/comment';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -106,5 +107,16 @@ export class AlbumService {
     
     )
   );
+  }
+
+  agregarAlbum(album:Object)
+  {
+    const rta = this.http.post(this.urlBack,album);
+    return rta;
+  }
+
+  eliminarAlbum(id: number)
+  {
+    return this.http.delete(this.urlBack+"/"+id)
   }
 }
