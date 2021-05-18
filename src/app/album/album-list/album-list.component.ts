@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { AlbumService } from '../album.service';
 import { Album } from '../album';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-album-list',
@@ -28,7 +29,8 @@ export class AlbumListComponent implements OnInit, OnDestroy{
 
   startSub(): Subscription
   {
-    return this.servicioAlbum.obtenerAlbums().subscribe(al => {this.albums = al});
+    Swal.showLoading()
+    return this.servicioAlbum.obtenerAlbums().subscribe(al => {this.albums = al; Swal.close()});
   }
 
   detallarAlbum(index:number)

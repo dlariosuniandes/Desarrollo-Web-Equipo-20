@@ -8,11 +8,12 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AlbumRoutingModule } from './album-routing.module';
 import { AlbumCreateComponent } from './album-create/album-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlbumTrackCreateComponent } from './album-track-create/album-track-create.component';
 
 
 
 @NgModule({
-  declarations: [AlbumListComponent, AlbumDetailComponent, AlbumCreateComponent],
+  declarations: [AlbumListComponent, AlbumDetailComponent, AlbumCreateComponent, AlbumTrackCreateComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -24,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers:[AlbumService],
   exports:
   [
-    AlbumListComponent, AlbumDetailComponent, AlbumCreateComponent
+    AlbumListComponent, AlbumDetailComponent, AlbumCreateComponent, AlbumTrackCreateComponent
   ]
 })
 export class AlbumModule { }

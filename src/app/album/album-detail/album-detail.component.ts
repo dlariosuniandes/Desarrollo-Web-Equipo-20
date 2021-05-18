@@ -18,6 +18,7 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
   sub: Subscription
   idAlbum: number
   backUrl: string
+  creatingTrackOn:boolean=false
   constructor(public albumService:AlbumService, private router: Router, private ar: ActivatedRoute) {
     if(this.router.getCurrentNavigation()?.extras?.state?.backUrl)
     {
@@ -42,7 +43,8 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
 
   subServiceAlbum()
   {
-    return this.albumService.obtenerAlbumId(this.idAlbum).subscribe(album=> this.albumDetail = album);
+    Swal.showLoading()
+    return this.albumService.obtenerAlbumId(this.idAlbum).subscribe(album=> {this.albumDetail = album; Swal.close()});
   }
 
   obtenerIdRuta()
@@ -109,6 +111,7 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
         {
           if(r.isConfirmed)
           {
+            Swal.showLoading();
             this.albumService.eliminarAlbum(this.idAlbum).subscribe(response =>
               {
                 Swal.fire(
@@ -138,5 +141,58 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
         }
       )
 
+  }
+  changeCreatingTrack()
+  {
+    this.creatingTrackOn = !this.creatingTrackOn
+  }
+
+  reloadComponent()
+  {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
+
+  accionEliminarTrack(id: number)
+  {
+    Swal.fire(
+      {
+        icon:'question',
+        text:'¿Esta seguro que desea eliminar el track: '+ this.albumDetail.darTracks().filter(tr=>tr.darId()==id)[0].darNombre()+"?",
+        showCancelButton:true,
+        confirmButtonColor:'#0275d8'
+      }
+    ).then(
+      r=>
+      {
+        if(r.isConfirmed)
+        {
+          Swal.showLoading()
+          this.albumService.eliminarTrack(this.idAlbum,id).subscribe(
+            track=>
+            {
+              Swal.fire(
+                {
+                  icon:'success',
+                  text:'Se ha eliminado correctamente el track',
+                  confirmButtonColor:'#0275d8'
+                }
+              ).then(
+                ()=>
+                {
+                  this.reloadComponent()
+                }
+              )
+            },
+            error=>
+            {
+              
+            }
+          )
+        }
+      }
+    )
   }
 }
