@@ -1,0 +1,36 @@
+<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <form class="modal-content" [formGroup]="createTrackForm" (ngSubmit)="crearTrack()">
+        <div class="modal-header">
+            <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong>Añadir un Track</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelEvent.emit()"><span aria-hidden="true">×</span></button>
+        </div>
+        <div>
+            <div class="row register-form">
+                <div class="col-md-8 offset-md-2">
+                    <div class="custom-form p-0 ml-0 mr-0">
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                                <label class="col-form-label" for="name-input-field">Nombre del track</label>
+                            </div>
+                            <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: nombreTrack.invalid && nombreTrack.touched}">
+                                <input type="text" class="form-control" formControlName="nombre" />
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                                <label class="col-form-label" for="email-input-field">Duración</label>
+                            </div>
+                            <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: duracionTrack.invalid && duracionTrack.touched}">
+                                <span>Introducir la duración en segundos</span> <br>
+                                <input type="text" class="form-control" formControlName="duracion" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer d-xl-flex justify-content-xl-center">
+            <button class="btn btn-light submit-button" type="submit" [disabled]="createTrackForm.invalid">Asociar track</button>
+            <button class="btn btn-danger cancel-button" type="button" data-dismiss="modal" (click)="cancelEvent.emit()">Cancelar</button>
+        </div>
+    </form>
+</div>
