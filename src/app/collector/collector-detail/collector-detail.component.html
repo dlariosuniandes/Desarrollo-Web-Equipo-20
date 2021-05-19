@@ -16,7 +16,9 @@
                 <dt>Email</dt>
                 <dd>{{collectorDetail.darEmail()}}</dd>
                 <dt></dt>
-                <dd><button>Editar</button><button (click)="borrarColeccionista(collectorDetail.darId())">Borrar</button></dd>
+                <dd>
+                  <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="adicionarAlbumOn()">Agregar Album</button>
+                  <button class="btn btn-danger" type="button" (click)="borrarColeccionista(collectorDetail.darId())">Borrar</button></dd>
             </dl>
         </div>
 
@@ -50,3 +52,16 @@
         </div>
     </div>
 </div>
+<collector-album
+  role="dialog"
+  tabindex="-1"
+  class="modal fade show"
+  id="albumCreationModal"
+  data-backdrop="static"
+  aria-hidden="true"
+  style="display: none"
+  *ngIf="addingAlbum"
+  (cancelEvent)="adicionarAlbumOn()"
+  [collectorDetail]="collectorDetail"
+>
+</collector-album>

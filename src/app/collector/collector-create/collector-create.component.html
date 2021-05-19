@@ -94,19 +94,19 @@
       </div>
       <div class="row m-3">
         <button
-          type= "button"
-          class="btn btn-success"
+          type= "submit"
+          class="btn btn-primary submit-button"
           [disabled]="!collectorForm.valid"
           (click)="createCollector(collectorForm.value)"
         >
-        Create
+        Crear
         </button>
         <button
           type="button"
-          class="btn btn-danger ml-3"
+          class="btn btn-danger cancel-button"
           (click)="cancelCreation()"
         >
-          Cancel
+          Cancelar
         </button>
       </div>
       </form>

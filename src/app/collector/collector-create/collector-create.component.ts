@@ -29,7 +29,6 @@ export class CollectorCreateComponent implements OnInit {
   }
 
   createCollector(newCollector: Collector) {
-    this.showSuccess(newCollector);
 
     //-----------------------------------------------------------------
     this.collectorService.createCollector(newCollector).subscribe(
@@ -50,6 +49,10 @@ export class CollectorCreateComponent implements OnInit {
       },
     error =>
       {
+        Swal.fire({
+          icon: 'error',
+          text: 'El coleccionista no fue añadido!.'
+          })
         console.log(error)
       }
      );
@@ -59,13 +62,11 @@ export class CollectorCreateComponent implements OnInit {
 
   }
 
-  showSuccess(c: Collector) {
-    //this.toastr.success('Creado exitosamente!', `Coleccionista ${c.darNombre}`,{"progressBar": true, timeOut: 4000});
-  }
 
   cancelCreation() {
     console.log("Cancelando ...");
     this.collectorForm.reset();
+    this.router.navigateByUrl('collectors/list');
   }
 
   ngOnInit() {

@@ -1,4 +1,5 @@
 <testExecutions version="1">
+
   <file path="src/app/collector/collector-detail/collector-detail.component.spec.ts">
     <testCase name="CollectorDetailComponent should create" duration="149"/>
   </file>
@@ -16,6 +17,7 @@
   </file>
   <file path="src/app/collector/collectorAlbum.service.spec.ts">
     <testCase name="Service: CollectorAlbum getPost() should return 2 records" duration="2"/>
+
   </file>
   <file path="src/app/album/album-track-create/album-track-create.component.spec.ts">
     <testCase name="AlbumTrackCreateComponent Muestra la clase wrong input cuando dicha entrada no es valida" duration="13"/>
@@ -24,15 +26,18 @@
     <testCase name="AlbumTrackCreateComponent Cancelar acciona la función emitCancelEvent" duration="7"/>
     <testCase name="AlbumTrackCreateComponent verifica que el formulario se cree correctamente" duration="7"/>
   </file>
+
   <file path="src/app/collector/collector-create/collector-create.component.spec.ts">
     <testCase name="CollectorCreateComponent should create" duration="9"/>
   </file>
   <file path="src/app/navbar/navbar.component.spec.ts">
     <testCase name="NavbarComponent should create" duration="6"/>
+
   </file>
   <file path="src/app/footer/footer.component.spec.ts">
     <testCase name="FooterComponent should create" duration="3"/>
   </file>
+
   <file path="src/app/album/album.service.spec.ts">
     <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId retorna el album deseado" duration="2"/>
     <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="1"/>
@@ -92,5 +97,6 @@
     <testCase name="ArtistsService should create service" duration="1"/>
     <testCase name="ArtistsService should return a band detail" duration="2"/>
     <testCase name="ArtistsService should return a musician detail" duration="1"/>
+
   </file>
 </testExecutions>

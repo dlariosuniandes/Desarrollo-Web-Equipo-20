@@ -1,0 +1,106 @@
+<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+  <form class="modal-content"
+  [formGroup]="addAlbumCollectorForm"
+  (ngSubmit)="!addAlbumCollectorForm.invalid"
+  >
+      <div class="modal-header">
+          <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong>Añadir un Album</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="emitCancelEvent()"><span aria-hidden="true">×</span></button>
+      </div>
+      <div>
+          <div class="row register-form">
+              <div class="col-md-8 offset-md-2">
+                  <div class="custom-form p-0 ml-0 mr-0">
+                    <div class="form-row form-group">
+                      <label class="col-form-label" for="dropdown-input-field">Nombre de Album</label>
+                          <select
+                            class="form-select form-select-lg w-100 h-100"
+                            aria-label="Default select example"
+                            formControlName="album"
+                            >
+                              <option value="" disabled>Escoger nombre del album</option>
+                              <option *ngFor="let a of albums" value={{a.darId()}}>{{a.darNombre()}}</option>
+                          </select>
+                          <div
+                          class="alert alert-danger alert-dismissible fade show"
+                          *ngIf="
+                            addAlbumCollectorForm.get('album').hasError('required') &&
+                            addAlbumCollectorForm.get('album').touched
+                            "
+                          >
+                            Debe escoger una opcion
+                          </div>
+                  </div>
+                  <div class="form-row form-group">
+                          <label class="col-form-label" for="name-input-field">Precio del Album</label>
+                          <input
+                            novalidate
+                            id="price"
+                            class="form-control"
+                            formControlName="price"
+                            placeholder="Valor del album"
+                            type="number"
+                            />
+                            <div
+                              class="alert alert-danger alert-dismissible fade show"
+                              *ngIf="
+                                addAlbumCollectorForm.get('price').hasError('required') &&
+                                addAlbumCollectorForm.get('price').touched
+                              "
+                            >
+                              Precio requerido
+                            </div>
+                            <div
+                              class="alert alert-danger alert-dismissible fade show"
+                              *ngIf="
+                                addAlbumCollectorForm.get('price').hasError('min') &&
+                                addAlbumCollectorForm.get('price').touched
+                              "
+                            >
+                              Precio muy bajo. Este debe ser de al menos 10
+                        </div>
+                      </div>
+                      <div class="form-row form-group">
+                          <label class="col-form-label" for="dropdown-input-field">Estado</label>
+                              <select
+                                class="form-select form-select-lg w-100 h-100"
+                                aria-label="Default select example"
+                                formControlName="status"
+                                >
+                                  <option value="" disabled>Escoger estado del album</option>
+                                  <option *ngFor="let st of status" [ngValue]="st">{{st}}</option>
+
+                              </select>
+                              <div
+                              class="alert alert-danger alert-dismissible fade show"
+                              *ngIf="
+                                addAlbumCollectorForm.get('status').hasError('required') &&
+                                addAlbumCollectorForm.get('status').touched
+                                "
+                              >
+                                Debe escoger una opcion
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer d-xl-flex justify-content-xl-center">
+          <button
+            type="submit"
+            class="btn btn-primary submit-button"
+            [disabled]="addAlbumCollectorForm.invalid"
+            (click)="addAlbumCollector(addAlbumCollectorForm.value.album,addAlbumCollectorForm.value)"
+          >
+            Crear Album
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger cancel-button"
+            data-dismiss="modal"
+            (click)="emitCancelEvent()"
+          >
+            Cancelar
+          </button>
+      </div>
+  </form>
+</div>
