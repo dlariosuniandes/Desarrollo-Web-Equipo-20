@@ -62,5 +62,6 @@
   style="display: none"
   *ngIf="addingAlbum"
   (cancelEvent)="adicionarAlbumOn()"
-  >
+  [collectorDetail]="collectorDetail"
+>
 </collector-album>

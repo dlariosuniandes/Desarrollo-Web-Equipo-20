@@ -49,6 +49,10 @@ export class CollectorCreateComponent implements OnInit {
       },
     error =>
       {
+        Swal.fire({
+          icon: 'error',
+          text: 'El coleccionista no fue añadido!.'
+          })
         console.log(error)
       }
      );
@@ -62,6 +66,7 @@ export class CollectorCreateComponent implements OnInit {
   cancelCreation() {
     console.log("Cancelando ...");
     this.collectorForm.reset();
+    this.router.navigateByUrl('collectors/list');
   }
 
   ngOnInit() {

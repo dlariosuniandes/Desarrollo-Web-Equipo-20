@@ -6,6 +6,8 @@ import { catchError, map } from 'rxjs/operators';
 import { Collector } from './collector';
 import { Musician } from '../perfomer/musician';
 import { Band } from '../perfomer/band';
+import { CollectorAlbum } from './collectorAlbum';
+import { registerLocaleData } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +25,11 @@ export class CollectorService {
     return this.http.delete(this.apiUrl+"/"+idC);
   };
 
-  addAlbumCollector(idC: number, idA: number){
-    console.log(idC, this.apiUrl+"/"+idC+"/albums/"+idA);
-    return this.http.delete(this.apiUrl+"/"+idC+"/albums/"+idA);
+  addAlbumCollector(idC: number, idA: number, collectorAlbum: CollectorAlbum){
+    //console.log(idC, this.apiUrl+"/"+idC+"/albums/"+idA, collectorAlbum);
+    let registro = {'price':collectorAlbum['price'],
+                  'status':collectorAlbum['status']};
+    return this.http.post(this.apiUrl+"/"+idC+"/albums/"+idA, registro);
   };
 
   getCollectors(): Observable<Collector[]> {
