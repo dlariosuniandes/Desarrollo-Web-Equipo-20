@@ -32,4 +32,9 @@ describe('AlbumCreateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Muestra la clase wrong input cuando dicha entrada no es valida',()=>
+  {
+    
+  })
 });

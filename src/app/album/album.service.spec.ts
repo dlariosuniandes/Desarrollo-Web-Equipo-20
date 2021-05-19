@@ -60,10 +60,10 @@ describe('AlbumService', () => {
     let arrayTrackMock = []
     for(let n = 1; n<10;n++)
     {
-      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+      arrayTrackMock.push(new Track(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.lorem.text()));
     }
 
-    let arrayMock = []
+    let arrayMock = [];
     for (let i = 1; i < 10; i++) {
       let albumMock = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock,[],[])
       arrayMock.push(albumMock);
@@ -90,7 +90,7 @@ describe('AlbumService', () => {
     let arrayTrackMock = []
     for(let n = 1; n<10;n++)
     {
-      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+      arrayTrackMock.push(new Track(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.lorem.text()));
     }
     let albumMock = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock,[],[])
     
@@ -109,7 +109,7 @@ describe('AlbumService', () => {
     let arrayTrackMock = []
     for(let n = 1; n<10;n++)
     {
-      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+      arrayTrackMock.push(new Track(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.lorem.text()));
     }
     let albumMock = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}),arrayTrackMock,[],[])
     

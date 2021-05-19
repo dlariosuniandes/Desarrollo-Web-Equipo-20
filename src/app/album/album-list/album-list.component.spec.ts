@@ -36,7 +36,7 @@ describe('AlbumListComponent', () => {
      arrayTrackMock = []
     for(let j = 1; j<10;j++)
     {
-      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+      arrayTrackMock.push(new Track(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.lorem.text()));
     }
     for (let i = 1; i < 10; i++) {
       let albumMock = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}), arrayTrackMock,[],[])
