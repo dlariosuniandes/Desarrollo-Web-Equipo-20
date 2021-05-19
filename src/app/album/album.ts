@@ -19,8 +19,13 @@ export enum RECORD_LABEL
 
 export class Track
 {
-    constructor(private name:string, private duration:string)
+    constructor(private id:number, private name:string, private duration:string)
     {
+    }
+
+    darId()
+    {
+        return this.id;
     }
 
     darNombre()

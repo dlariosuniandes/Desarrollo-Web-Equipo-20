@@ -14,7 +14,6 @@ export class CollectorListComponent implements OnInit {
   collectors: Array<Collector>;
 
   constructor(private collectorService: CollectorService, private ar: ActivatedRoute, private rr:Router) {
-    console.log(ar.snapshot.params.id)
   }
 
 

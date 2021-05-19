@@ -22,7 +22,6 @@ export class ListComponent implements OnInit {
   getMusicianList() {
     this.artistService.getMusicians().subscribe((cs) => {
       this.musicians = cs;
-      console.log(this.musicians)
     });
   }
   getBandList() {

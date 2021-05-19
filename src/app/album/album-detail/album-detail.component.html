@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="col-4 d-flex justify-content-end m-0 p-5">
-            <button type="button" class="btn btn-success">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#trackCreationModal" (click)="changeCreatingTrack()">
                 <i width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" ></i>
                 Tracks
             </button>
@@ -43,12 +43,18 @@
                     <tr>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Duración</th>
+                        <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="mb-0">
                     <tr *ngFor="let track of albumDetail.darTracks()">
                         <td class="text-center">{{track.darNombre()}}</td>
                         <td class="text-center">{{track.darDuracion()}}</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger ml-2" (click)="accionEliminarTrack(track.darId())">
+                                <i width="16" height="16" fill="currentColor" class="bi bi-trash" ></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -84,3 +90,6 @@
 
     </div>
 </div>
+
+<app-album-track-create role="dialog" tabindex="-1" class="modal fade show" id="trackCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="creatingTrackOn" (cancelEvent)="changeCreatingTrack()" (finishCreation)="reloadComponent()"
+    [idAlbum]="idAlbum"></app-album-track-create>
