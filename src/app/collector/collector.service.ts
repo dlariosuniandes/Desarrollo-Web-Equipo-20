@@ -19,7 +19,6 @@ export class CollectorService {
   };
 
   deleteCollector(idC: number){
-    console.log(idC, this.apiUrl+"/"+idC);
     return this.http.delete(this.apiUrl+"/"+idC);
   };
 
