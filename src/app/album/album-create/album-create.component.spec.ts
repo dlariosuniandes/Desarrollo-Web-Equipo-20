@@ -53,8 +53,9 @@ describe('AlbumCreateComponent', () => {
 
   it('verifica el correcto funcionamiento de validarFecha',()=>
   {
-    const dateControl = new FormControl('05/19/2021')
+    const dateControl = new FormControl(['05/19/2050'])
     let retornoFuncion = component.validarFecha(dateControl)
+    console.log(retornoFuncion);
     expect(retornoFuncion['response']).toBeTrue()
   })
 

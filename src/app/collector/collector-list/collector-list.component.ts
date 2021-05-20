@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CollectorListComponent implements OnInit {
   indiceADetallar: number;
   collectors: Array<Collector>;
+
   constructor(private collectorService: CollectorService, private ar: ActivatedRoute, private rr:Router) {
   }
 
