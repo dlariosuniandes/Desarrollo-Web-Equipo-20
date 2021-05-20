@@ -30,7 +30,20 @@ export class AlbumListComponent implements OnInit, OnDestroy{
   startSub(): Subscription
   {
     Swal.showLoading()
-    return this.servicioAlbum.obtenerAlbums().subscribe(al => {this.albums = al; Swal.close()});
+    return this.servicioAlbum.obtenerAlbums().subscribe(
+      al => 
+        {
+          this.albums = al; Swal.close()
+        },
+      error =>
+      {
+        Swal.fire(
+          {
+            text: error.error.message
+          }
+        )
+      }
+      );
   }
 
   detallarAlbum(index:number)
