@@ -50,7 +50,6 @@ export class DetailComponent implements OnInit {
         this.typePerformer = test[0]['path'];
       });
       this.performerId = +this.route.snapshot.paramMap.get('id');
-      console.log(this.typePerformer, this.performerId);
       if (this.typePerformer === 'band') {
         this.performerService
           .getBandDetail(this.performerId)
