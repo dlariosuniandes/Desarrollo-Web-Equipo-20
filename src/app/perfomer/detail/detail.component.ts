@@ -13,6 +13,7 @@ import { Album } from 'src/app/album/album';
 export class DetailComponent implements OnInit {
   performer: Musician | Band;
   backUrl:string;
+  flagModal: boolean = false
 
   @Input() performerDetail: Musician | Band;
   constructor(
@@ -93,5 +94,17 @@ export class DetailComponent implements OnInit {
 
   onSelect(album: Album) {
     this.router.navigateByUrl('/albums/' + album.darId(),{state:{backUrl:`/performers/${this.typePerformer}/${this.performerId}`}});
+  }
+
+  toggleModal(){
+    this.flagModal = !this.flagModal
+  }
+
+  reloadComponent()
+  {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }

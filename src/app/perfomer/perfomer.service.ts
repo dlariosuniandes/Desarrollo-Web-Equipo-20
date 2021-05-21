@@ -113,12 +113,17 @@ export class PerformerService {
     );
   }
 
-  createMusician(musician: Object){
-    const methodUrl = this.url + 'musicians/'
-    return this.http.post(methodUrl,musician)
+  createMusician(musician: Object) {
+    const methodUrl = this.url + 'musicians/';
+    return this.http.post(methodUrl, musician);
   }
-  createBand(band: Object){
-    const methodUrl = this.url + 'bands/'
-    return this.http.post(methodUrl,band)
+  createBand(band: Object) {
+    const methodUrl = this.url + 'bands/';
+    return this.http.post(methodUrl, band);
+  }
+
+  associateMusician(bandId, musicianId) {
+    const methodUrl = this.url + 'bands/' + bandId + '/musicians/' + musicianId;
+    return this.http.post(methodUrl, {})
   }
 }
