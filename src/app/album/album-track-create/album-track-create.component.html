@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <form class="modal-content" [formGroup]="createTrackForm" (ngSubmit)="crearTrack()">
         <div class="modal-header">
-            <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong>Añadir un Track</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelEvent.emit()"><span aria-hidden="true">×</span></button>
+            <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong i18n>Añadir un Track</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelEvent.emit()"><span aria-hidden="true">×</span></button>
         </div>
         <div>
             <div class="row register-form">
@@ -9,33 +9,33 @@
                     <div class="custom-form p-0 ml-0 mr-0">
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="name-input-field">Nombre del track</label>
+                                <label class="col-form-label" for="name-input-field" i18n>Nombre del track</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: nombreTrack.invalid && nombreTrack.touched}">
-                                <input type="text" class="form-control" formControlName="nombre" />
+                                <input type="text" class="form-control" formControlName="nombre" i18n-placeholder placeholder="Agrege un nombre de track" />
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="nombreTrack.invalid && nombreTrack.touched" style="color:red">Se requiere un nombre con mas de 3 caracteres</span>
+                                <span *ngIf="nombreTrack.invalid && nombreTrack.touched" style="color:red" i18n>Se requiere un nombre con mas de 3 caracteres</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="email-input-field">Duración</label>
+                                <label class="col-form-label" for="email-input-field" i18n>Duración</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: duracionTrack.invalid && duracionTrack.touched}">
-                                <span>Introducir la duración en segundos</span> <br>
-                                <input type="text" class="form-control" formControlName="duracion" />
+                                <span i18n>Introducir la duración en segundos</span> <br>
+                                <input type="text" class="form-control" formControlName="duracion" i18n-placeholder placeholder="Agregue duración en segundos" />
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="duracionTrack.invalid && duracionTrack.touched" style="color:red">Se requiere una duración en segundos</span>
+                                <span *ngIf="duracionTrack.invalid && duracionTrack.touched" style="color:red" i18n>Se requiere una duración en segundos</span>
                             </div>
                         </div>
                     </div>
@@ -43,8 +43,8 @@
             </div>
         </div>
         <div class="modal-footer d-xl-flex justify-content-xl-center">
-            <button class="btn btn-light submit-button" type="submit" [disabled]="createTrackForm.invalid">Asociar track</button>
-            <button class="btn btn-danger cancel-button" type="button" data-dismiss="modal" (click)="cancelEvent.emit()">Cancelar</button>
+            <button class="btn btn-light submit-button" type="submit" [disabled]="createTrackForm.invalid" i18n>Asociar track</button>
+            <button class="btn btn-danger cancel-button" type="button" data-dismiss="modal" (click)="cancelEvent.emit()" i18n>Cancelar</button>
         </div>
     </form>
 </div>

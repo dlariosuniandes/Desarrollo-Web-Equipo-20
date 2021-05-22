@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <form class="modal-content" [formGroup]="createAlbumForm" (ngSubmit)="crearAlbum()">
         <div class="modal-header">
-            <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong>Añadir un Album</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="emitCancelEvent()"><span aria-hidden="true">×</span></button>
+            <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong i18n>Añadir un Album</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="emitCancelEvent()"><span aria-hidden="true">×</span></button>
         </div>
         <div>
             <div class="row register-form">
@@ -9,38 +9,38 @@
                     <div class="custom-form p-0 ml-0 mr-0">
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="name-input-field">Nombre del Album</label>
+                                <label class="col-form-label" for="name-input-field" i18n>Nombre del Album</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: nombreAlbum.invalid && nombreAlbum.touched}">
-                                <input type="text" class="form-control" formControlName="nombreAlbum" />
+                                <input type="text" class="form-control" formControlName="nombreAlbum" i18n-placeholder placeholder="inserte nombre de album" />
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="nombreAlbum.invalid && nombreAlbum.touched" style="color:red">Se requiere un nombre con mas de 3 caracteres</span>
+                                <span *ngIf="nombreAlbum.invalid && nombreAlbum.touched" style="color:red" i18n>Se requiere un nombre con mas de 3 caracteres</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="email-input-field">URL de portada</label>
+                                <label class="col-form-label" for="email-input-field" i18n>URL de portada</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: urlAlbum.invalid && urlAlbum.touched}">
-                                <input type="email" class="form-control" formControlName="urlAlbum" />
+                                <input type="email" class="form-control" formControlName="urlAlbum" i18n-placeholder placeholder="inserte url de portada" />
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="urlAlbum.invalid && urlAlbum.touched" style="color:red">Se requiere una URL y que a su vez contenga http o www...</span>
+                                <span *ngIf="urlAlbum.invalid && urlAlbum.touched" style="color:red" i18n>Se requiere una URL y que a su vez contenga http o www...</span>
                             </div>
                         </div>
 
                         <div class="form-row form-group mb-0">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="date-input-field">Fecha de publicación</label>
+                                <label class="col-form-label" for="date-input-field" i18n>Fecha de publicación</label>
                             </div>
 
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: fechaPublicacion.invalid && fechaPublicacion.touched}">
@@ -51,31 +51,31 @@
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="fechaPublicacion.invalid && fechaPublicacion.touched" style="color:red">Se requiere una fecha anterior a la fecha actual</span>
+                                <span *ngIf="fechaPublicacion.invalid && fechaPublicacion.touched" style="color:red" i18n>Se requiere una fecha anterior a la fecha actual</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="desc-input-field">Descripción</label>
+                                <label class="col-form-label" for="desc-input-field" i18n>Descripción</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: descripcion.invalid && descripcion.touched}">
-                                <textarea class="form-control" type="text" formControlName="descripcion"></textarea>
+                                <textarea class="form-control" type="text" formControlName="descripcion" i18n-placeholder placeholder="inserte una descripción para el album"></textarea>
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="descripcion.invalid && descripcion.touched" style="color:red">Se requiere una descripcion</span>
+                                <span *ngIf="descripcion.invalid && descripcion.touched" style="color:red" i18n>Se requiere una descripcion</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
-                                <label class="col-form-label" for="dropdown-input-field">Genero</label>
+                                <label class="col-form-label" for="dropdown-input-field" i18n>Genero</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: genre.invalid && genre.touched}">
                                 <select class="form-select form-select-lg w-100 h-100" aria-label="Default select example" formControlName="genero">
-                                    <option value="" disabled>Escoger Genero</option>
+                                    <option value="" disabled i18n>Escoger Genero</option>
                                     <option *ngFor="let g of genero" [ngValue]="g">{{g}}</option>
                                 </select>
                             </div>
@@ -84,14 +84,14 @@
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="genre.invalid && genre.touched" style="color:red">Se requiere seleccionar un genero</span>
+                                <span *ngIf="genre.invalid && genre.touched" style="color:red" i18n>Se requiere seleccionar un genero</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
-                            <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field-2">Sello Discográfico</label></div>
+                            <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field-2" i18n>Sello Discográfico</label></div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: seal.invalid && seal.touched}">
                                 <select class="form-select form-select-lg w-100 h-100" aria-label="seleccion de sello" formControlName="sello">
-                                    <option value="" disabled>Escoger sello discografico</option>
+                                    <option value="" disabled i18n>Escoger sello discografico</option>
                                     <option *ngFor="let r of sello" [ngValue]="r">{{r}}</option>
                                 </select>
                             </div>
@@ -100,7 +100,7 @@
                             <div class="col-sm-4 label-column">
                             </div>
                             <div class="col-sm-6 input-column p-0">
-                                <span *ngIf="seal.invalid && seal.touched" style="color:red">Se requiere seleccionar un sello</span>
+                                <span *ngIf="seal.invalid && seal.touched" style="color:red" i18n>Se requiere seleccionar un sello</span>
                             </div>
                         </div>
                     </div>
@@ -108,8 +108,8 @@
             </div>
         </div>
         <div class="modal-footer d-xl-flex justify-content-xl-center">
-            <button class="btn btn-light submit-button" type="submit" [disabled]="createAlbumForm.invalid">Crear Album</button>
-            <button class="btn btn-danger cancel-button" type="button" data-dismiss="modal" (click)="emitCancelEvent()">Cancelar</button>
+            <button class="btn btn-light submit-button" type="submit" [disabled]="createAlbumForm.invalid" i18n>Crear Album</button>
+            <button class="btn btn-danger cancel-button" type="button" data-dismiss="modal" (click)="emitCancelEvent()" i18n>Cancelar</button>
         </div>
     </form>
 </div>
