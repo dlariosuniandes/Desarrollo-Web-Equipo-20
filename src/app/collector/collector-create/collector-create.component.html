@@ -1,6 +1,6 @@
 <div class="component-container">
     <div class="list-title collectors">
-        <p>Crear nuevo coleccionistas</p>
+        <p i18n>Crear nuevo coleccionista</p>
         <form [formGroup]="collectorForm" (ngSubmit)="!collectorForm.invalid && createCollector(collectorForm.value)">
             <div class="form-row form-group">
                 <label for="name" i18n> Nombre*</label>
