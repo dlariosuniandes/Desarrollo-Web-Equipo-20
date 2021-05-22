@@ -10,12 +10,12 @@
         <input
           novalidate
           id="name"
-          class="form-control"
+          class="form-control"[ngClass]="{wrongInput: collectorForm.get('name').touched && (collectorForm.get('name').hasError('required') || collectorForm.get('name').hasError('minlength'))}"
           formControlName="name"
           placeholder="Su nombre completo"
           />
         <div
-          class="alert alert-danger alert-dismissible fade show"
+          class="wrongText"
           *ngIf="
             collectorForm.get('name').hasError('required') &&
             collectorForm.get('name').touched
@@ -24,7 +24,7 @@
           Nombre requerido
         </div>
         <div
-        class="alert alert-danger alert-dismissible fade show"
+        class="wrongText"
         *ngIf="
           collectorForm.get('name').hasError('minlength') &&
           collectorForm.get('name').touched
@@ -38,12 +38,12 @@
         <input
           id="telephone"
           type="text"
-          class="form-control"
+          class="form-control"[ngClass]="{wrongInput: collectorForm.get('telephone').touched && (collectorForm.get('telephone').hasError('required') || collectorForm.get('telephone').hasError('minlength'))}"
           formControlName="telephone"
           placeholder="Su telefono"
         />
         <div
-          class="alert alert-danger alert-dismissible fade show"
+          class="wrongText"
           *ngIf="
             collectorForm.get('telephone').hasError('required') &&
             collectorForm.get('telephone').touched
@@ -52,7 +52,7 @@
           Telefono requerido
         </div>
         <div
-        class="alert alert-danger alert-dismissible fade show"
+        class="wrongText"
         *ngIf="
           collectorForm.get('telephone').hasError('minlength') &&
           collectorForm.get('telephone').touched
@@ -61,17 +61,17 @@
         Telefono muy corto. Debe tener minimo 7 numeros
       </div>
       </div>
-      <div class="form-row form-group">
+      <div class="form-row form-group" >
         <label for="email"> Email* </label>
         <input
           id="email"
           type="text"
-          class="form-control"
+          class="form-control"[ngClass]="{wrongInput: collectorForm.get('email').touched && (collectorForm.get('email').hasError('required') || collectorForm.get('email').hasError('email'))}"
           formControlName="email"
           placeholder="Su correo electronico"
         />
         <div
-          class="alert alert-danger alert-dismissible fade show"
+          class="wrongText"
           *ngIf="
             collectorForm.get('email').hasError('required') &&
             collectorForm.get('email').touched
@@ -80,7 +80,7 @@
           Correo electronico requerido
         </div>
         <div
-          class="alert alert-danger alert-dismissible fade show"
+          class="wrongText"
           *ngIf="
             collectorForm.get('email').hasError('email') &&
             collectorForm.get('email').touched
