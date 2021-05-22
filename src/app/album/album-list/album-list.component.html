@@ -2,7 +2,7 @@
 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="crearAlbumOn()" i18n>Agregar Album</button>
 <hr class="mt-3 mb-3">
 <div class="row" id="iterablecard">
-    <div class="col-auto col-sm-12 col-md-12 col-lg-6 col-xl-4" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;" *ngFor="let album of albums, index as i">
+    <div class="col-auto col-sm-12 col-md-12 col-lg-6 col-xl-4" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;" *ngFor="let album of albums, index as i" id='cardAlbum-{{album.id}}'>
         <div class="bg-light border rounded shadow card"><img class="card-img-top" src="{{album.darPortada()}}" alt="{{album.darNombre()}}" />
             <div class="card-body">
                 <h4 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{album.darNombre()}}</h4>
