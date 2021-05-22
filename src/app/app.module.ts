@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollectorModule } from './collector/collector.module';
 
 import { AlbumModule } from './album/album.module';
+import { FormsModule } from '@angular/forms';
+import { CommonModule, NgClass } from '@angular/common';
 
 
 
@@ -28,8 +30,9 @@ import { AlbumModule } from './album/album.module';
     CollectorModule,
     AlbumModule,
     HttpClientModule,
+    CommonModule,
   //  ToastrModule.forRoot(), // ToastrModule added
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

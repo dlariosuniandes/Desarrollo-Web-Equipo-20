@@ -1,71 +1,83 @@
 <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-    <form
-      [formGroup]="associateMusicianForm"
-      (ngSubmit)="associateMusician()"
-      class="modal-content"
-    >
-      <div class="modal-header">
-        <h3 class="modal-title d-xl-flex align-items-xl-center">
-          <br /><strong>Asociar el musico</strong><br />
-        </h3>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-          (click)="cancelAssociation()"
-        >
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="form-content">
-        <div class="row register-form">
-          <div class="col-md-8 offset-md-2">
-            <div class="custom-form p-0 ml-0 mr-0">
-              <div class="form-row form-group">
-                <div class="col-sm-4 label-column">
-                  <label class="col-form-label" for="type"> Tipo </label>
-                </div>
-                <div
-                  class="col-sm-6 input-column p-0"
-                  [ngClass]="{
-                    wrongInput:
-                      associateMusicianForm.controls.band.invalid &&
-                      associateMusicianForm.controls.band.touched
-                  }"
+  <form
+    [formGroup]="associateMusicianForm"
+    (ngSubmit)="associateMusician()"
+    class="modal-content"
+  >
+    <div class="modal-header">
+      <h3 class="modal-title d-xl-flex align-items-xl-center" i18n>
+        <br /><strong>Asociar el musico</strong><br />
+      </h3>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="cancelAssociation()"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="form-content">
+      <div class="row register-form">
+        <div class="col-md-8 offset-md-2">
+          <div class="custom-form p-0 ml-0 mr-0">
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column">
+                <label class="col-form-label" for="type" i18n> Tipo </label>
+              </div>
+              <div
+                class="col-sm-6 input-column p-0"
+                [ngClass]="{
+                  wrongInput:
+                    associateMusicianForm.controls.band.invalid &&
+                    associateMusicianForm.controls.band.touched
+                }"
+              >
+                <select formControlName="band" id="band" class="form-control">
+                  <option value="" disabled i18n>Seleccionar banda</option>
+                  <option *ngFor="let band of bands" [ngValue]="band.id">
+                    {{ band.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column"></div>
+              <div class="col-sm-6 input-column p-0">
+                <span
+                  *ngIf="
+                    associateMusicianForm.controls.band.invalid &&
+                    associateMusicianForm.controls.band.touched
+                  "
+                  style="color: red"
+                  i18n
+                  >Se requiere una banda</span
                 >
-                  <select
-                    formControlName="band"
-                    id="band"
-                    class="form-control"
-                  >
-                    <option value="" disabled>Seleccionar banda</option>
-                    <option *ngFor="let band of bands" [ngValue]="band.id">
-                      {{ band.name }}
-                    </option>
-                  </select>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="modal-footer d-xl-flex justify-content-xl-center">
-        <button
-          class="btn btn-light submit-button"
-          type="submit"
-          [disabled]="associateMusicianForm.invalid"
-        >
-          Create
-        </button>
-        <button
-          type="button"
-          class="btn btn-danger ml-3 cancel-button"
-          (click)="cancelAssociation()"
-          data-dismiss="modal"
-        >
-          Cancel
-        </button>
-      </div>
-    </form>
-  </div>
+    </div>
+    <div class="modal-footer d-xl-flex justify-content-xl-center">
+      <button
+        class="btn btn-light submit-button"
+        type="submit"
+        [disabled]="associateMusicianForm.invalid"
+        i18n
+      >
+        Create
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger ml-3 cancel-button"
+        (click)="cancelAssociation()"
+        data-dismiss="modal"
+        i18n
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

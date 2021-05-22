@@ -4,6 +4,7 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { CreateComponent } from './create/create.component';
 import { AssociateMusicianBandComponent } from './associate-musician-band/associate-musician-band.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -39,7 +40,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), CommonModule],
   exports: [RouterModule],
 })
 export class PerformerRoutingModule {}
