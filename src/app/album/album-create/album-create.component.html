@@ -17,6 +17,13 @@
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="nombreAlbum.invalid && nombreAlbum.touched" style="color:red">Se requiere un nombre con mas de 3 caracteres</span>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
                                 <label class="col-form-label" for="email-input-field">URL de portada</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: urlAlbum.invalid && urlAlbum.touched}">
@@ -25,10 +32,26 @@
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="urlAlbum.invalid && urlAlbum.touched" style="color:red">Se requiere una URL y que a su vez contenga http o www...</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-group mb-0">
+                            <div class="col-sm-4 label-column">
                                 <label class="col-form-label" for="date-input-field">Fecha de publicación</label>
                             </div>
+
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: fechaPublicacion.invalid && fechaPublicacion.touched}">
                                 <input type="date" class="form-control" formControlName="fechaPublicacion" />
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="fechaPublicacion.invalid && fechaPublicacion.touched" style="color:red">Se requiere una fecha anterior a la fecha actual</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -37,6 +60,13 @@
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: descripcion.invalid && descripcion.touched}">
                                 <textarea class="form-control" type="text" formControlName="descripcion"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="descripcion.invalid && descripcion.touched" style="color:red">Se requiere una descripcion</span>
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -51,12 +81,26 @@
                             </div>
                         </div>
                         <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="genre.invalid && genre.touched" style="color:red">Se requiere seleccionar un genero</span>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
                             <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field-2">Sello Discográfico</label></div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: seal.invalid && seal.touched}">
                                 <select class="form-select form-select-lg w-100 h-100" aria-label="seleccion de sello" formControlName="sello">
                                     <option value="" disabled>Escoger sello discografico</option>
                                     <option *ngFor="let r of sello" [ngValue]="r">{{r}}</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="seal.invalid && seal.touched" style="color:red">Se requiere seleccionar un sello</span>
                             </div>
                         </div>
                     </div>

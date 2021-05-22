@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage } from '../app.po';
 import { browser, logging } from 'protractor';
 
 describe('workspace-project App', () => {
@@ -8,10 +8,14 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  // it('should display welcome message', () => {
+  // it('Crea un album y espera que se visualice en el listado', async() => {
   //   page.navigateTo();
-  //   expect(page.getTitleText()).toEqual('front app is running!');
+  //   browser.waitForAngular()
+  //   page.darClickAgregarAlbum()
+  //   browser.waitForAngular()
+    
   // });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

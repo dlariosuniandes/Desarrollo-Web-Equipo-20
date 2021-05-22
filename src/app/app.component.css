@@ -1,9 +1,11 @@
-.footer {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
+router-outlet {
+    height: 100%;
 }
 
 .container {
-    height: 110%;
+    height: 100%;
+}
+
+footer {
+    height: 100%;
 }
