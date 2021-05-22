@@ -18,6 +18,7 @@ export class ListComponent implements OnInit {
   bands: Array<Band>;
   selected: boolean = false;
   currentPerformer: Musician | Band;
+  flagModal: boolean = false
 
   getMusicianList() {
     this.artistService.getMusicians().subscribe((cs) => {
@@ -45,5 +46,17 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.getMusicianList();
     this.getBandList();
+  }
+
+  modalToggle(){
+    this.flagModal = !this.flagModal;
+  }
+
+  reloadComponent()
+  {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }

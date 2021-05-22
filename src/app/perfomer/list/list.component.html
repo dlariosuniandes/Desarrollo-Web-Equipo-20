@@ -1,4 +1,13 @@
 <div class="component-container">
+  <button
+    class="btn btn-primary button-modal"
+    type="button"
+    data-toggle="modal"
+    data-target="#perfomerCreationModal"
+    (click)="modalToggle()"
+  >
+    Agregar Artista
+  </button>
   <div class="list-container">
     <div class="list-title musician">
       <h1>Musicos</h1>
@@ -70,3 +79,15 @@
     </div>
   </div>
 </div>
+<performer-create
+  role="dialog"
+  tabindex="-1"
+  class="modal fade show"
+  id="perfomerCreationModal"
+  data-backdrop="static"
+  aria-hidden="true"
+  style="display: none"
+  *ngIf="flagModal"
+  (cancelEvent)="modalToggle()"
+  (finishCreation)="reloadComponent()"
+></performer-create>
