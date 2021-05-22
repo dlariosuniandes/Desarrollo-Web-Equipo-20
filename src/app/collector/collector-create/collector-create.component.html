@@ -12,7 +12,7 @@
           id="name"
           class="form-control"
           formControlName="name"
-          placeholder="Tu nombre completo"
+          placeholder="Su nombre completo"
           />
         <div
           class="alert alert-danger alert-dismissible fade show"
@@ -94,19 +94,19 @@
       </div>
       <div class="row m-3">
         <button
-          type= "button"
-          class="btn btn-success"
+          type= "submit"
+          class="btn btn-dark submit-button"
           [disabled]="!collectorForm.valid"
           (click)="createCollector(collectorForm.value)"
         >
-        Create
+        Crear
         </button>
         <button
           type="button"
-          class="btn btn-danger ml-3"
+          class="btn btn-danger cancel-button"
           (click)="cancelCreation()"
         >
-          Cancel
+          Cancelar
         </button>
       </div>
       </form>

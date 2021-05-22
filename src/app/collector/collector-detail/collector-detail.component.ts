@@ -19,6 +19,7 @@ export class CollectorDetailComponent implements OnInit {
   @Input() collectorDetail: Collector;
   @Input () collectorsLength: number;
   collectorAlbums: Array<CollectorAlbum>;
+  addingAlbum: boolean = false;
 
   constructor(private collectorAlbumService: CollectorAlbumService, private collectorService: CollectorService, private router: Router) { }
 
@@ -112,5 +113,9 @@ export class CollectorDetailComponent implements OnInit {
     else{
       this.router.navigateByUrl(`/performers/${tipoArtista}/${artista.id}`,{state:{backUrl:`/collectors/${this.collectorDetail.darId()}`}});
     }
+  }
+  adicionarAlbumOn()
+  {
+    this.addingAlbum = !this.addingAlbum
   }
 }

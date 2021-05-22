@@ -1,4 +1,5 @@
 <testExecutions version="1">
+
   <file path="src/app/footer/footer.component.spec.ts">
     <testCase name="FooterComponent should create" duration="906"/>
   </file>
@@ -89,5 +90,5 @@
   </file>
   <file path="src/app/collector/collector.service.spec.ts">
     <testCase name="Service: Collector getPost() should return 2 records" duration="3"/>
-  </file>
+
 </testExecutions>

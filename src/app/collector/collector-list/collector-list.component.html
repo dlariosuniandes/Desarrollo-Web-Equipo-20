@@ -14,7 +14,7 @@
     </div>
     <div class="accordion" id="accordionCollectors" *ngIf="collectors">
         <div class="card" *ngFor="let b of collectors; let i = index">
-            <h2 class="card-header" id="headingOneA">
+            <h2 class="card-header" id="headingOneA{{i}}">
                 <button id="but{{i}}" class="btn btn-lg btn-block align-middle" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'+i" aria-expanded="true" [attr.aria-controls]="'collapseOne'+i" (click)="collectorDetail(i)">
 
         <div class="container container-fluid">

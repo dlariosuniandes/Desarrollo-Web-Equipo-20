@@ -59,6 +59,9 @@
                                     "maximumError": "10kb"
                                 }
                             ]
+                        },
+                        "en": {
+                            "localize": ["en"]
                         }
                     }
                 },
@@ -70,6 +73,9 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "front:build:production"
+                        },
+                        "en": {
+                            "browserTarget": "front:build:en"
                         }
                     }
                 },
@@ -120,6 +126,11 @@
                             "devServerTarget": "front:serve:production"
                         }
                     }
+                }
+            },
+            "i18n": {
+                "locales": {
+                    "en": "src/locale/messages.en.xlf"
                 }
             }
         }
