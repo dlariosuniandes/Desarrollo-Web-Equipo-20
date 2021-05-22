@@ -75,6 +75,14 @@ export class DetailComponent implements OnInit {
     }
   }
 
+  returnTypePerfomer(): string{
+    if (this.performer instanceof Musician) {
+      return 'musician'
+    } else {
+      return 'band'
+    }
+  }
+
   formatDate(date: Date): string {
     const formatDate = new Date(date);
     const year = formatDate.getFullYear();
