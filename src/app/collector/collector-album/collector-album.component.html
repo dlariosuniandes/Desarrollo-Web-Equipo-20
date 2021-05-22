@@ -13,7 +13,7 @@
                     <div class="form-row form-group">
                       <label class="col-form-label" for="dropdown-input-field">Nombre de Album</label>
                           <select
-                            class="form-select form-select-lg w-100 h-100"
+                            class="form-select form-select-lg w-100 h-100" [ngClass]="{wrongInput: addAlbumCollectorForm.get('album').touched && addAlbumCollectorForm.get('album').hasError('required')}"
                             aria-label="Default select example"
                             formControlName="album"
                             >
@@ -21,7 +21,7 @@
                               <option *ngFor="let a of albums" value={{a.darId()}}>{{a.darNombre()}}</option>
                           </select>
                           <div
-                          class="alert alert-danger alert-dismissible fade show"
+                          class="wrongText"
                           *ngIf="
                             addAlbumCollectorForm.get('album').hasError('required') &&
                             addAlbumCollectorForm.get('album').touched
@@ -35,13 +35,13 @@
                           <input
                             novalidate
                             id="price"
-                            class="form-control"
+                            class="form-control" [ngClass]="{wrongInput: addAlbumCollectorForm.get('price').touched && (addAlbumCollectorForm.get('price').hasError('required') || addAlbumCollectorForm.get('price').hasError('min'))}"
                             formControlName="price"
                             placeholder="Valor del album"
                             type="number"
                             />
                             <div
-                              class="alert alert-danger alert-dismissible fade show"
+                              class="wrongText"
                               *ngIf="
                                 addAlbumCollectorForm.get('price').hasError('required') &&
                                 addAlbumCollectorForm.get('price').touched
@@ -50,7 +50,7 @@
                               Precio requerido
                             </div>
                             <div
-                              class="alert alert-danger alert-dismissible fade show"
+                              class="wrongText"
                               *ngIf="
                                 addAlbumCollectorForm.get('price').hasError('min') &&
                                 addAlbumCollectorForm.get('price').touched
@@ -62,7 +62,7 @@
                       <div class="form-row form-group">
                           <label class="col-form-label" for="dropdown-input-field">Estado</label>
                               <select
-                                class="form-select form-select-lg w-100 h-100"
+                                class="form-select form-select-lg w-100 h-100" [ngClass]="{wrongInput: addAlbumCollectorForm.get('status').touched && addAlbumCollectorForm.get('status').hasError('required')}"
                                 aria-label="Default select example"
                                 formControlName="status"
                                 >
@@ -71,7 +71,7 @@
 
                               </select>
                               <div
-                              class="alert alert-danger alert-dismissible fade show"
+                              class="wrongText"
                               *ngIf="
                                 addAlbumCollectorForm.get('status').hasError('required') &&
                                 addAlbumCollectorForm.get('status').touched
