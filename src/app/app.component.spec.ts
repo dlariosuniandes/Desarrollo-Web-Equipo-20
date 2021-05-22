@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CollectorModule } from './collector/collector.module';
 import { PerformerModule } from './perfomer/performer.module';
+import { CommonModule } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
         RouterTestingModule,
         AlbumModule,
         CollectorModule,
-        PerformerModule
+        PerformerModule,
+        CommonModule
       ],
       declarations: [
         AppComponent,

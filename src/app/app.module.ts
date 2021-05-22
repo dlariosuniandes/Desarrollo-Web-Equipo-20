@@ -14,6 +14,7 @@ import { CollectorModule } from './collector/collector.module';
 import { AlbumModule } from './album/album.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgClass } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
 
