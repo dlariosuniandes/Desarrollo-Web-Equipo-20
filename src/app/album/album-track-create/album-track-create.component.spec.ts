@@ -1,13 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-
 import { AlbumTrackCreateComponent } from './album-track-create.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AppRoutingModule } from '../../app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement } from '@angular/core';
 
 describe('AlbumTrackCreateComponent', () => {
