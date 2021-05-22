@@ -6,20 +6,19 @@
             <div class="thumb">
                 <img class="img-fluid" width="70" height="70" src="../../assets/images/user.svg" alt="avatar usuario" />
             </div>
-            <p class="h3 p-3" id="usuario">{{collectorDetail.darNombre()}}</p>
+            <p class="h3 p-3" id="usuario{{collectorDetail.darId()}}">{{collectorDetail.darNombre()}}</p>
             <dl>
                 <dt>Datos Personales</dt>
-                <hr>
+
                 <dt> Telefono</dt>
                 <dd>{{collectorDetail.darTelefono()}}</dd>
-                <hr>
+
                 <dt>Email</dt>
                 <dd>{{collectorDetail.darEmail()}}</dd>
-                <dt></dt>
-                <dd>
-                  <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="adicionarAlbumOn()">Agregar Album</button>
-                  <button class="btn btn-danger" type="button" (click)="borrarColeccionista(collectorDetail.darId())">Borrar</button></dd>
             </dl>
+                  <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="adicionarAlbumOn()">Agregar Album</button>
+                  <button class="btn btn-danger" type="button" (click)="borrarColeccionista(collectorDetail.darId())">Borrar</button>
+
         </div>
 
         <div class="col-4" *ngIf="collectorAlbums">
