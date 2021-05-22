@@ -17,11 +17,25 @@
                         </div>
                         <div class="form-row form-group">
                             <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="nombreTrack.invalid && nombreTrack.touched" style="color:red">Se requiere un nombre con mas de 3 caracteres</span>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
                                 <label class="col-form-label" for="email-input-field">Duración</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: duracionTrack.invalid && duracionTrack.touched}">
                                 <span>Introducir la duración en segundos</span> <br>
                                 <input type="text" class="form-control" formControlName="duracion" />
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column">
+                            </div>
+                            <div class="col-sm-6 input-column p-0">
+                                <span *ngIf="duracionTrack.invalid && duracionTrack.touched" style="color:red">Se requiere una duración en segundos</span>
                             </div>
                         </div>
                     </div>
