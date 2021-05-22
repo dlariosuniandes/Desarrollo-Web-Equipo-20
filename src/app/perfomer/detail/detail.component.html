@@ -1,4 +1,4 @@
-<button (click)="goBackDetail()" class="btn btn-primary back-button">
+<button (click)="goBackDetail()" class="btn btn-primary back-button" i18n>
   Back
 </button>
 <button
@@ -8,6 +8,7 @@
   data-target="#musicianAssociateModal"
   (click)="toggleModal()"
   *ngIf="returnTypePerfomer() === 'musician'"
+  i18n
 >
   Asociar a Banda
 </button>
@@ -30,7 +31,7 @@
   </div>
   <div class="album-list-container">
     <div class="performer-title-container">
-      <p>Albumes de {{ performer.getName() }}</p>
+      <span i18n>Albumes de</span><span>{{ performer.getName() }}</span>
     </div>
     <div class="list-container container">
       <div class="row">
@@ -57,6 +58,7 @@
               type="button"
               class="btn btn-primary"
               (click)="onSelect(album)"
+              i18n
             >
               Ver detalles
             </button>
