@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { AlbumTrackCreateComponent } from './album-track-create.component';
 
@@ -8,7 +12,8 @@ describe('AlbumTrackCreateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlbumTrackCreateComponent ]
+      declarations: [ AlbumTrackCreateComponent ],
+      imports: [ FormsModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule ]
     })
     .compileComponents();
   }));

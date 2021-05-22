@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 
 import { AlbumCreateComponent } from './album-create.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -15,7 +15,7 @@ describe('AlbumCreateComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AlbumCreateComponent ],
-      imports:[ReactiveFormsModule, HttpClientTestingModule, AppRoutingModule]
+      imports:[ReactiveFormsModule, HttpClientTestingModule, AppRoutingModule, FormsModule]
     })
     .compileComponents();
   }));

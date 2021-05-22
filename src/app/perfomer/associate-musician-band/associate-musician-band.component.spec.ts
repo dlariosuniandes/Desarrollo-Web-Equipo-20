@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AssociateMusicianBandComponent } from './associate-musician-band.component';
 
@@ -8,7 +10,8 @@ describe('AssociateMusicianBandComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssociateMusicianBandComponent ]
+      declarations: [ AssociateMusicianBandComponent ],
+      imports: [FormsModule, ReactiveFormsModule, HttpClientModule]
     })
     .compileComponents();
   }));
