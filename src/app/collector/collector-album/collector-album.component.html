@@ -11,7 +11,7 @@
                             <label class="col-form-label" for="dropdown-input-field" i18n>Nombre de Album</label>
                             <select class="form-select form-select-lg w-100 h-100" [ngClass]="{wrongInput: addAlbumCollectorForm.get('album').touched && addAlbumCollectorForm.get('album').hasError('required')}" aria-label="Default select example" formControlName="album">
                               <option value="" disabled i18n>Escoger nombre del album</option>
-                              <option *ngFor="let a of albums" value={{a.darId()}} i18n>{{a.darNombre()}}</option>
+                              <option *ngFor="let a of albums" value={{a.darId()}}>{{a.darNombre()}}</option>
                           </select>
                             <div class="wrongText" *ngIf="
                             addAlbumCollectorForm.get('album').hasError('required') &&

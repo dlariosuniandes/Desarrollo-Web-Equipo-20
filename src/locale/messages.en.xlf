@@ -52,6 +52,7 @@
       </trans-unit>
       <trans-unit id="7f1e0de9c29c30a9176ce33a3b39dadef0977b03" datatype="html">
         <source>Datos Personales</source>
+        <target>Personal Information</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/collector/collector-detail/collector-detail.component.html</context>
           <context context-type="linenumber">11</context>
@@ -344,7 +345,7 @@
         <source>
             Crear Album
           </source>
-          <target>Crate album</target>
+          <target>Create album</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/collector/collector-album/collector-album.component.html</context>
           <context context-type="linenumber">59</context>
@@ -714,6 +715,9 @@
         <source>
         <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Añadir un Artista<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
       </source>
+      <target>
+        <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Add an artist<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+      </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/perfomer/create/create.component.html</context>
           <context context-type="linenumber">8</context>
@@ -897,6 +901,46 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/perfomer/associate-musician-band/associate-musician-band.component.html</context>
           <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="36dac424812426abfc1cb683d429b6eae6502ded" datatype="html">
+        <source>Crear nuevo coleccionista</source>
+        <target>Create new collector</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/collector/collector-create/collector-create.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aff279e017fd8bcda9712dc73a4bd54b213ace52" datatype="html">
+        <source>Musicos</source>
+        <target>Musicians</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/perfomer/list/list.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b7485162c7a26a81474a63a7ae7be0cce9f6a75" datatype="html">
+        <source>Bandas</source>
+        <target>Bands</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/perfomer/list/list.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e51606d777f97af44491b80e911d7c049afd7af0" datatype="html">
+        <source>
+            Ver detalles
+          </source>
+        <target>
+            See details
+            </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/perfomer/list/list.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/perfomer/list/list.component.html</context>
+          <context context-type="linenumber">77</context>
         </context-group>
       </trans-unit>
     </body>
