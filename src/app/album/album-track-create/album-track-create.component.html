@@ -12,7 +12,7 @@
                                 <label class="col-form-label" for="name-input-field" i18n>Nombre del track</label>
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: nombreTrack.invalid && nombreTrack.touched}">
-                                <input type="text" class="form-control" formControlName="nombre" i18n-placeholder placeholder="Agrege un nombre de track" />
+                                <input type="text" class="form-control" formControlName="nombre" id="trackName" i18n-placeholder placeholder="Agrege un nombre de track" />
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: duracionTrack.invalid && duracionTrack.touched}">
                                 <span i18n>Introducir la duración en segundos</span> <br>
-                                <input type="text" class="form-control" formControlName="duracion" i18n-placeholder placeholder="Agregue duración en segundos" />
+                                <input type="text" class="form-control" formControlName="duracion" id="trackDuration" i18n-placeholder placeholder="Agregue duración en segundos" />
                             </div>
                         </div>
                         <div class="form-row form-group">
