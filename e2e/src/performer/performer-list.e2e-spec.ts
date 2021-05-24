@@ -125,5 +125,6 @@ describe('workspace-project App', () => {
     await browser.sleep(200);
     const button = await element(by.xpath(`//button[text()=" Create "]`));
     await button.click();
+    await browser.sleep(200);
   })
 });
