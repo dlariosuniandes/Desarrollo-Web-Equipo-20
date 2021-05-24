@@ -89,6 +89,7 @@ describe('workspace-project App', () => {
       by.xpath(`//select[@formcontrolname="performerType"]`)
     );
     await selectType.click();
+    await browser.sleep(200)
     const option = await element(by.xpath(`//option[@value="1: Músico"]`));
     await option.click();
     await browser.sleep(200);
@@ -118,6 +119,7 @@ describe('workspace-project App', () => {
       by.xpath(`//select[@formcontrolname="band"]`)
     );
     await selectType.click();
+    browser.sleep(200)
     const option = await element(by.xpath(`//option[@value="1: 101"]`));
     await option.click();
     await browser.sleep(200);
