@@ -97,7 +97,7 @@ describe('workspace-project App', () => {
     await button.click();
     await page.navigateToRoute('performers/list');
     await browser.waitForAngular();
-    const createdPerfomer = element
+    const createdPerfomer = await element
       .all(by.xpath(`//p[text()="Banda Test"]`))
       .count();
     expect(createdPerfomer).toBeGreaterThan(0)
