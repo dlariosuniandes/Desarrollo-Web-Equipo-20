@@ -36,7 +36,7 @@ describe('workspace-project App', () => {
     for(let i=0; i<numberCollectors;i++)
     {
       await page.darClickVerColeccionista(i);
-      await browser.sleep(3000)
+      await browser.sleep(500)
       await page.navigateTo('/collectors/list');
       await browser.waitForAngular();
     }

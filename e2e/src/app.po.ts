@@ -12,7 +12,7 @@ export class AppPage {
     {
       return browser.get(browser.baseUrl) as Promise<unknown>;
     }
-
+  }
 
 
   navigateToRoute(route: string): Promise<unknown> {
@@ -214,8 +214,11 @@ export class AppPage {
     ).click();
   }
 
-  darClickAgregarColeccionista():Promise<unknown>
+  async darClickAgregarColeccionista():Promise<unknown>
   {
+    await browser.wait(element(by.xpath('//button[@id="newCollector"]')).isDisplayed(),5000)
+    let elHijo = element(by.xpath('//button[@id="newCollector"]'));
+    browser.actions().mouseMove(await elHijo);
     return element(by.xpath('//button[@id="newCollector"]')).click() as Promise<unknown>
   }
   async llenarFormularioColeccionista()
@@ -235,17 +238,24 @@ export class AppPage {
   {
     return element.all(by.css('.collectorName')).count() as Promise<number>
   }
-  darClickVerColeccionista(i:number):Promise<unknown>
+  async darClickVerColeccionista(i:number):Promise<unknown>
   {
+    await browser.wait(element(by.xpath(`//button[@data-target="#collapseOne${i}"]`)).isDisplayed(),5000)
+    let elHijo = element(by.xpath(`//button[@data-target="#collapseOne${i}"]`));
+    browser.actions().mouseMove(await elHijo);
     return element(by.xpath(`//button[@data-target="#collapseOne${i}"]`)).click() as Promise<unknown>
   }
-  obtenerTamanoAlbumsColeccionista():Promise<number>
+  async obtenerTamanoAlbumsColeccionista():Promise<number>
   {
+    await browser.wait(element(by.css('.albumNav')).isDisplayed(),5000)
     return element.all(by.css('.albumNav')).count() as Promise<number>
   }
   async darClickAgregarAlbumColeccionista():Promise<unknown>
   {
-
+    await browser.wait(element(by.xpath('//button[@data-target="#albumCreationModal"]')).isDisplayed(),5000)
+    let elHijo = element(by.xpath('//button[@data-target="#albumCreationModal"]'));
+    browser.actions().mouseMove(await elHijo);
+    browser.sleep(200)
     return element(by.xpath('//button[@data-target="#albumCreationModal"]')).click() as Promise<unknown>
   }
   async llenarFormularioAlbumColeccionista()
