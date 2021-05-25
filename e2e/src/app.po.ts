@@ -46,6 +46,7 @@ export class AppPage {
     );
     let elHijo = await element(by.xpath(`//button[@id="buttonAlbum${index}"]`));
     browser.actions().mouseMove(await elHijo);
+    await browser.sleep(200)
     idAlbum = await elHijo.element(by.xpath('../../..')).getAttribute('id');
     let splitted = await idAlbum.split('-');
     this.esperar(200);
