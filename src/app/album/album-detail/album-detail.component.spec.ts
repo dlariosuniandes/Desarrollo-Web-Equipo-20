@@ -135,7 +135,7 @@ describe('AlbumDetailComponent', () => {
     }
     fixture.detectChanges();
     let spy2 = spyOn(component,'backList');
-    htmlElement.querySelector("#iconBack").parentNode.querySelector("i").click();
+    htmlElement.querySelector("#iconBack").parentNode.querySelector("em").click();
     expect(spy2.calls.count()).toBe(1);
   })
 });
