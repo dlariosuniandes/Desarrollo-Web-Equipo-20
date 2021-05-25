@@ -1,5 +1,5 @@
-
-<h1 class="mt-3 mb-3" i18n>Listado de Albums</h1>
+<h1 class="mt-3 mb-3" i18n>
+    Listado de Albums</h1>
 <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="crearAlbumOn()" i18n>Agregar Album</button>
 <hr class="mt-3 mb-3">
 <div class="row" id="iterablecard">
@@ -11,7 +11,7 @@
                 <h4 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{album.darFecha() | date:'dd/MM/yyyy'}}</h4>
                 <p class="card-text" style="  font-family: Antic, sans-serif;color: rgb(81,87,94);"></p>
                 <p>{{album.darDescripcion()}}</p>
-                <button class="btn text-light bg-dark d-flex align-items-center" id="buttonAlbum{{i}}" type="button" style="font-weight: bold;font-family: Antic, sans-serif;" (click)="detallarAlbum(i)" i18n>Ver detalle del album <i class="bi bi-arrow-bar-right h5 mb-0"></i></button>
+                <button class="btn text-light bg-dark d-flex align-items-center" id="buttonAlbum{{i}}" type="button" style="font-weight: bold;font-family: Antic, sans-serif;" (click)="detallarAlbum(i)" i18n>Ver detalle del album <em class="bi bi-arrow-bar-right h5 mb-0"></em></button>
             </div>
         </div>
     </div>
