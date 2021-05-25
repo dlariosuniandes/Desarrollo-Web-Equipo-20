@@ -8,8 +8,7 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  for(let i=0;i<9;i++)
-  {
+
     it('El boton de agregar album dispara el componente de crear album en un modal', async() => {
       await page.navigateTo();
       await browser.waitForAngular()
@@ -98,7 +97,7 @@ describe('workspace-project App', () => {
       expect(await numberCardsEnd< await numberCardsInit).toBeTruthy();
       
     })
-  }
+  
 
 
 
