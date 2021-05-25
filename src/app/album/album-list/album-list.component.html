@@ -1,13 +1,14 @@
-<h2 class="mt-3 mb-3" i18n>Listado de Albums</h2>
-<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="crearAlbumOn()" i18n>Agregar Album</button>
+
+<h1 class="mt-3 mb-3" i18n>Listado de Albums</h1>
+<button class="btn btn-dark" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="crearAlbumOn()" i18n>Agregar Album</button>
 <hr class="mt-3 mb-3">
 <div class="row" id="iterablecard">
     <div class="col-auto col-sm-12 col-md-12 col-lg-6 col-xl-4" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;" *ngFor="let album of albums, index as i" id='cardAlbum-{{album.id}}'>
         <div class="bg-light border rounded shadow card"><img class="card-img-top" src="{{album.darPortada()}}" alt="{{album.darNombre()}}" />
             <div class="card-body">
-                <h4 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{album.darNombre()}}</h4>
-                <h5 class="card-sub-title" style="font-family: Antic, sans-serif;color: #0062cc;"><span *ngFor="let artista of album.darArtistas()">{{artista.name}}</span></h5>
-                <h6 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{album.darFecha() | date:'dd/MM/yyyy'}}</h6>
+                <h2 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{album.darNombre()}}</h2>
+                <h3 class="card-sub-title" style="font-family: Antic, sans-serif;color: #0062cc;"><span *ngFor="let artista of album.darArtistas()">{{artista.name}}</span></h3>
+                <h4 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{album.darFecha() | date:'dd/MM/yyyy'}}</h4>
                 <p class="card-text" style="  font-family: Antic, sans-serif;color: rgb(81,87,94);"></p>
                 <p>{{album.darDescripcion()}}</p>
                 <button class="btn text-light bg-dark d-flex align-items-center" id="buttonAlbum{{i}}" type="button" style="font-weight: bold;font-family: Antic, sans-serif;" (click)="detallarAlbum(i)" i18n>Ver detalle del album <i class="bi bi-arrow-bar-right h5 mb-0"></i></button>
@@ -17,4 +18,4 @@
 </div>
 
 
-<app-album-create role="dialog" tabindex="-1" class="modal fade show" id="albumCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="creatingAlbum" (cancelEvent)="crearAlbumOn()" (finishCreation)="reloadComponent()"></app-album-create>
+<app-album-create title="ModalCreacion" role="dialog" tabindex="-1" class="modal fade show" id="albumCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="creatingAlbum" (cancelEvent)="crearAlbumOn()" (finishCreation)="reloadComponent()"></app-album-create>
