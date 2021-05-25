@@ -6,13 +6,13 @@ export class AppPage {
   navigateTo(childComponents?:string): Promise<unknown> {
     if(childComponents != undefined)
     {
-      return browser.get(browser.baseUrl + "") as Promise<unknown>;
+      return browser.get(browser.baseUrl + childComponents) as Promise<unknown>;
     }
     else
     {
       return browser.get(browser.baseUrl) as Promise<unknown>;
     }
-    
+
   }
 
   getTitleText(): Promise<string> {
@@ -28,7 +28,7 @@ export class AppPage {
   {
     return element(by.id(id)).isPresent()
   }
-  
+
   esperar(time:number)
   {
     browser.sleep(time);
@@ -156,5 +156,59 @@ export class AppPage {
     await browser.wait(element(by.css('.swal2-confirm.swal2-styled.swal2-default-outline')).isPresent(),5000)
     this.esperar(200)
     await element(by.css('.swal2-confirm.swal2-styled.swal2-default-outline')).click()
+  }
+
+  darClickAgregarColeccionista():Promise<unknown>
+  {
+    return element(by.xpath('//button[@id="newCollector"]')).click() as Promise<unknown>
+  }
+  async llenarFormularioColeccionista()
+  {
+    await browser.wait(element.all(by.css('input')).isPresent(),5000);
+    const inputArray = await element.all(by.xpath("//input"))
+    this.esperar(200)
+    await inputArray[0].click()
+    await inputArray[0].sendKeys('Juan Carlos Nieto');
+    await inputArray[1].click()
+    await inputArray[1].sendKeys('3212445566');
+    await inputArray[2].click()
+    await inputArray[2].sendKeys('prueba@xmail.com');
+    this.esperar(200)
+  }
+  obtenerTamanoColeccionistas():Promise<number>
+  {
+    return element.all(by.css('.collectorName')).count() as Promise<number>
+  }
+  darClickVerColeccionista(i:number):Promise<unknown>
+  {
+    return element(by.xpath(`//button[@data-target="#collapseOne${i}"]`)).click() as Promise<unknown>
+  }
+  obtenerTamanoAlbumsColeccionista():Promise<number>
+  {
+    return element.all(by.css('.albumNav')).count() as Promise<number>
+  }
+  async darClickAgregarAlbumColeccionista():Promise<unknown>
+  {
+
+    return element(by.xpath('//button[@data-target="#albumCreationModal"]')).click() as Promise<unknown>
+  }
+  async llenarFormularioAlbumColeccionista()
+  {
+    await browser.wait(element.all(by.css('input')).isPresent(),5000);
+    const inputArray = await element.all(by.xpath("//input"))
+    this.esperar(200)
+    await inputArray[0].click()
+    await inputArray[0].sendKeys('12500');
+    this.esperar(200)
+    const selector = await element(by.xpath("//select[@formcontrolname='album']"))
+    await selector.click()
+    const option = await selector.element(by.xpath('//option[@value="101"]'))
+    await option.click()
+    this.esperar(200)
+    const selector2 = await element(by.xpath("//select[@formcontrolname='status']"))
+    await selector2.click()
+    const option2 = await selector2.element(by.xpath('//option[@value="1: Active"]'))
+    await option2.click()
+    this.esperar(200)
   }
 }

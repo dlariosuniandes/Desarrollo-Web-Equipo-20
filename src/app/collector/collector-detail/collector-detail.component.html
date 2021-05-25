@@ -42,7 +42,7 @@
                     <div class="card" *ngFor="let b of collectorDetail.darArtistasFavoritos();">
                         <tr>
                             <td><img class="img-fluid" src={{b.image}} alt="imagen artista"></td>
-                            <td class="albumNav" (click)="navegarArtista(b)">{{b.name}}</td>
+                            <td class="artistNav" (click)="navegarArtista(b)">{{b.name}}</td>
                             <td>{{b.description}}</td>
                         </tr>
                     </div>
