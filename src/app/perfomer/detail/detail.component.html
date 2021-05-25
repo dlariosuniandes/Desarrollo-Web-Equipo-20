@@ -1,5 +1,16 @@
-<button (click)="goBackDetail()" class="btn btn-primary back-button">
+<button (click)="goBackDetail()" class="btn btn-primary back-button" i18n>
   Back
+</button>
+<button
+  class="btn btn-primary button-modal"
+  type="button"
+  data-toggle="modal"
+  data-target="#musicianAssociateModal"
+  (click)="toggleModal()"
+  *ngIf="returnTypePerfomer() === 'musician'"
+  i18n
+>
+  Asociar a Banda
 </button>
 <div *ngIf="performer" class="component-container">
   <div class="container perfomer-card-container col-lg-12 col-md-12 col-sm-12">
@@ -20,7 +31,7 @@
   </div>
   <div class="album-list-container">
     <div class="performer-title-container">
-      <p>Albumes de {{ performer.getName() }}</p>
+      <span i18n>Albumes de</span><span>{{ performer.getName() }}</span>
     </div>
     <div class="list-container container">
       <div class="row">
@@ -31,7 +42,7 @@
           <img
             src="{{ album.darPortada() }}"
             class="artist-image card-img-top"
-            alt="imagen de {{album.darNombre()}}"
+            alt="imagen de {{ album.darNombre() }}"
           />
           <div class="card-header-performer">
             <p class="artist-name">{{ album.darNombre() }}</p>
@@ -47,6 +58,7 @@
               type="button"
               class="btn btn-primary"
               (click)="onSelect(album)"
+              i18n
             >
               Ver detalles
             </button>
@@ -56,3 +68,18 @@
     </div>
   </div>
 </div>
+
+<app-associate-musician-band
+  title="ModalAdicionar"
+  role="dialog"
+  tabindex="-1"
+  class="modal fade show"
+  id="musicianAssociateModal"
+  data-backdrop="static"
+  aria-hidden="true"
+  style="display: none"
+  *ngIf="flagModal"
+  (cancelEvent)="toggleModal()"
+  (finishCreation)="reloadComponent()"
+  [currentMusician]="performer"
+></app-associate-musician-band>

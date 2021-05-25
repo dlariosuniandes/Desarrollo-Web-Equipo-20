@@ -9,3 +9,11 @@
 .albumNav:hover {
     cursor: pointer;
 }
+
+.artistNav:hover {
+  cursor: pointer;
+}
+
+.artistNav {
+  color: blue;
+}

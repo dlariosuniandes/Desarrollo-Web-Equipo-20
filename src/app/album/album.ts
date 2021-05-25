@@ -2,25 +2,30 @@ import { Performer } from '../perfomer/performer';
 import { Comment } from '../comentario/comment';
 export enum GENRE
 {
-    CLASSICAL,
-    SALSA,
-    ROCK,
-    FOLK
+    CLASSICAL='Classical',
+    SALSA='Salsa',
+    ROCK='Rock',
+    FOLK='Folk'
 }
 
 export enum RECORD_LABEL
 {
-    SONY,
-    EMI,
-    DF,
-    ELEKTRA,
-    FANIA
+    SONY  = 'Sony Music',
+    EMI = 'EMI',
+    DF= 'Discos Fuentes',
+    ELEKTRA = 'Elektra',
+    FANIA = 'Fania Record'
 }
 
 export class Track
 {
-    constructor(private name:string, private duration:string)
+    constructor(private id:number, private name:string, private duration:string)
     {
+    }
+
+    darId()
+    {
+        return this.id;
     }
 
     darNombre()

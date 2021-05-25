@@ -13,6 +13,7 @@ import { Album } from 'src/app/album/album';
 export class DetailComponent implements OnInit {
   performer: Musician | Band;
   backUrl:string;
+  flagModal: boolean = false
 
   @Input() performerDetail: Musician | Band;
   constructor(
@@ -50,7 +51,6 @@ export class DetailComponent implements OnInit {
         this.typePerformer = test[0]['path'];
       });
       this.performerId = +this.route.snapshot.paramMap.get('id');
-      console.log(this.typePerformer, this.performerId);
       if (this.typePerformer === 'band') {
         this.performerService
           .getBandDetail(this.performerId)
@@ -75,6 +75,14 @@ export class DetailComponent implements OnInit {
     }
   }
 
+  returnTypePerfomer(): string{
+    if (this.performer instanceof Musician) {
+      return 'musician'
+    } else {
+      return 'band'
+    }
+  }
+
   formatDate(date: Date): string {
     const formatDate = new Date(date);
     const year = formatDate.getFullYear();
@@ -94,5 +102,17 @@ export class DetailComponent implements OnInit {
 
   onSelect(album: Album) {
     this.router.navigateByUrl('/albums/' + album.darId(),{state:{backUrl:`/performers/${this.typePerformer}/${this.performerId}`}});
+  }
+
+  toggleModal(){
+    this.flagModal = !this.flagModal
+  }
+
+  reloadComponent()
+  {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }

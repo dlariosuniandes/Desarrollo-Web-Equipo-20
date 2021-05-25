@@ -5,7 +5,8 @@ import { CollectorAlbum } from '../collectorAlbum';
 import { CollectorAlbumService } from '../collectorAlbum.service';
 import { Router } from '@angular/router';
 import { Band } from '../../perfomer/band';
-
+import { CollectorService } from '../collector.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -18,8 +19,9 @@ export class CollectorDetailComponent implements OnInit {
   @Input() collectorDetail: Collector;
   @Input () collectorsLength: number;
   collectorAlbums: Array<CollectorAlbum>;
+  addingAlbum: boolean = false;
 
-  constructor(private collectorAlbumService: CollectorAlbumService, private router: Router) { }
+  constructor(private collectorAlbumService: CollectorAlbumService, private collectorService: CollectorService, private router: Router) { }
 
 
   getCollectorAlbums(id:number): void {
@@ -30,11 +32,58 @@ export class CollectorDetailComponent implements OnInit {
   }
 
   ngOnChanges(): void{
-    
+
   }
   ngOnInit() {
     this.getCollectorAlbums(this.collectorDetail.darId())
   }
+
+  borrarColeccionista(id: number){
+    Swal.fire(
+      {
+        title: '¿Esta seguro que desea eliminar el album: '+this.collectorDetail.darNombre()+' ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText:'Seguro!',
+        cancelButtonText:'Cancelar',
+        cancelButtonColor: '#FF0000',
+        confirmButtonColor: '#008000',
+      }
+    ).then((r)=>
+        {
+          if(r.isConfirmed)
+          {
+            this.collectorService.deleteCollector(id).subscribe(response =>
+              {
+                Swal.fire(
+                  {
+                    text:'Se elimino correctamente el album',
+                    icon: 'success'
+                  }
+                ).then(r=>
+                    {
+                      if(r.isConfirmed)
+                      {
+                        this.router.navigateByUrl('collectors/');
+                        this.router.onSameUrlNavigation = 'reload';
+                      }
+                    }
+                )
+
+              },
+              error=>
+              {
+               Swal.fire({
+                 text:'Hubo un error al intentar eliminar el coleccionista',
+                 icon:'warning'
+               })
+              }
+              )
+          }
+        }
+      )
+
+  };
 
   navegarAlbum(id: number)
   {
@@ -64,5 +113,9 @@ export class CollectorDetailComponent implements OnInit {
     else{
       this.router.navigateByUrl(`/performers/${tipoArtista}/${artista.id}`,{state:{backUrl:`/collectors/${this.collectorDetail.darId()}`}});
     }
+  }
+  adicionarAlbumOn()
+  {
+    this.addingAlbum = !this.addingAlbum
   }
 }

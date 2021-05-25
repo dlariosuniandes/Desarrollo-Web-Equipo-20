@@ -8,6 +8,7 @@ import { Performer } from '../perfomer/performer';
 import { Musician } from '../perfomer/musician';
 import { Band } from '../perfomer/band';
 import { Comment } from '../comentario/comment';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class AlbumService {
               let tracks:Array<Track> = [];
               let performers:Array<Performer> = []
               let comments: Array<Comment> = [];
-              albumi['tracks'].forEach(x => tracks.push(new Track(x['name'],x['duration'])));
+              albumi['tracks'].forEach(x => tracks.push(new Track(x['id'],x['name'],x['duration'])));
               albumi['performers'].forEach(x=>
                 {
                   if (x['birthDate'])
@@ -77,7 +78,7 @@ export class AlbumService {
             let tracks:Array<Track> = [];
             let performers:Array<Performer> = []
             let comments: Array<Comment> = [];
-            album['tracks'].forEach(x => tracks.push(new Track(x['name'],x['duration'])));
+            album['tracks'].forEach(x => tracks.push(new Track(x['id'],x['name'],x['duration'])));
             album['performers'].forEach(x=>
               {
                 if (x['birthDate'])
@@ -106,5 +107,24 @@ export class AlbumService {
     
     )
   );
+  }
+
+  agregarAlbum(album:Object)
+  {
+    const rta = this.http.post(this.urlBack,album);
+    return rta;
+  }
+
+  eliminarAlbum(id: number)
+  {
+    return this.http.delete(this.urlBack+"/"+id)
+  }
+  crearTrack(idAlbum:number, track:Object)
+  {
+    return this.http.post(this.urlBack+"/"+idAlbum+"/tracks",track)
+  }
+  eliminarTrack(idAlbum:number,idTrackEliminar:number)
+  {
+    return this.http.delete(this.urlBack+"/"+idAlbum+"/tracks/"+idTrackEliminar)
   }
 }

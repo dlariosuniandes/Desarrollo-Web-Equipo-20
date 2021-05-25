@@ -1,11 +1,17 @@
 import { Album } from "../album/album";
 import { Collector } from "./collector";
 
+export enum ALBUM_STATUS
+{
+    ACTIVE='Active',
+    INACTIVE='Inactive'
+}
+
 export class CollectorAlbum {
   constructor(
     private id: number,
     private price: number,
-    private status: string,
+    private status: ALBUM_STATUS,
     private album?: Album,
     private collector?: Collector
   ){

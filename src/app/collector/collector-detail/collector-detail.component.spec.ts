@@ -15,6 +15,8 @@ describe('CollectorDetailComponent',() => {
   let component: CollectorDetailComponent;
   let fixture: ComponentFixture<CollectorDetailComponent>;
   let mockCollectorAlbum:CollectorAlbum[]=[];
+  let debElement: DebugElement
+  let htmlMock: HTMLElement
   let crearCollectorAlbum=()=>
   {
     for (let i = 0; i< 10; i++) {
@@ -44,10 +46,21 @@ describe('CollectorDetailComponent',() => {
     )
     component.collectorAlbums = mockCollectorAlbum;
     fixture.detectChanges();
+    debElement = fixture.debugElement;
+    htmlMock = debElement.nativeElement;
 
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('acciona navegar album',()=>
+  {
+    // const linkAlbum=htmlMock.querySelector<HTMLButtonElement>("td.albumNav");
+    let spyFunc = spyOn(component,'navegarAlbum');
+    component.navegarAlbum(100)
+    console.log(spyFunc.calls.first().args)
+    expect(spyFunc.calls.count()).toEqual(1);
+  })
 });

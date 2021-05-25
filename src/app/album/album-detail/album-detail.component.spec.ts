@@ -26,7 +26,8 @@ describe('AlbumDetailComponent', () => {
     let arrayComments=[]
     for(let n = 1; n<10;n++)
     {
-      arrayTrackMock.push(new Track(faker.name.firstName(),faker.lorem.text()));
+
+      arrayTrackMock.push(new Track(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.lorem.text()));
       if(n%2 == 0)
       {
         

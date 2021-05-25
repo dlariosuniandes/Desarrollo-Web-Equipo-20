@@ -1,17 +1,28 @@
 <div class="component-container">
     <div class="list-title collectors">
-        <p>Coleccionistas</p>
+        <h1 i18n>Coleccionistas</h1>
+        <div class="component-container">
+            <div class="row">
+                <div class="col-11"></div>
+                <div class="col-1">
+                    <button class="btn text-light bg-dark d-flex align-items-right" id="newCollector" (click)="newForm()" type="button" style="font-weight: bold;font-family: Antic, sans-serif;" i18n>
+                Nuevo
+              </button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="accordion" id="accordionCollectors" *ngIf="collectors">
         <div class="card" *ngFor="let b of collectors; let i = index">
-            <h2 class="card-header" id="headingOneA">
+            <h2 class="card-header" id="headingOneA{{i}}">
                 <button id="but{{i}}" class="btn btn-lg btn-block align-middle" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'+i" aria-expanded="true" [attr.aria-controls]="'collapseOne'+i" (click)="collectorDetail(i)">
 
         <div class="container container-fluid">
           <div class="row">
             <div class="col col-1"><img src="../../assets/images/user.svg" width="50" height="50" class="d-inline-block" alt=""></div>
             <div class="col col-6"><p class="collectorName" align="center">{{b.darNombre()}}</p></div>
-            <div class="col col-5"><p align="center">{{b.darArtistasFavoritos()[0].name}}</p></div>
+            <div class="col col-5" role="alert" *ngIf="!b.darArtistasFavoritos()[0]"><p aling="center" i18n>oops... Actualmente no tiene un artista favorito</p></div>
+            <div class="col col-5" *ngIf="b.darArtistasFavoritos()[0]"><p align="center">{{b.darArtistasFavoritos()[0].name}}</p></div>
           </div>
         </div>
       </button>
@@ -29,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-3"><img src="../../assets/images/disc.svg" width="50" height="50" class="d-inline-block" alt=""></div>
-            <div class="nota col-6 aling-center">Te interesa hacer parte de esta comunidad de amantes de la musica? Registrate aqui y que comience el intercambio</div>
+            <div class="nota col-6 aling-center" i18n>Te interesa hacer parte de esta comunidad de amantes de la musica? Registrate aqui y que comience el intercambio</div>
         </div>
 
     </div>

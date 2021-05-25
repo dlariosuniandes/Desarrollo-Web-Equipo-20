@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PerformerModule } from './perfomer/performer.module'
-
+//import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollectorModule } from './collector/collector.module';
 
 import { AlbumModule } from './album/album.module';
+import { FormsModule } from '@angular/forms';
+import { CommonModule, NgClass } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
 
@@ -26,7 +30,10 @@ import { AlbumModule } from './album/album.module';
     PerformerModule,
     CollectorModule,
     AlbumModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+  //  ToastrModule.forRoot(), // ToastrModule added
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

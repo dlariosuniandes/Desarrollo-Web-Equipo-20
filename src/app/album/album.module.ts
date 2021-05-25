@@ -6,21 +6,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AlbumRoutingModule } from './album-routing.module';
+import { AlbumCreateComponent } from './album-create/album-create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlbumTrackCreateComponent } from './album-track-create/album-track-create.component';
 
 
 
 @NgModule({
-  declarations: [AlbumListComponent, AlbumDetailComponent],
+  declarations: [AlbumListComponent, AlbumDetailComponent, AlbumCreateComponent, AlbumTrackCreateComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    AlbumRoutingModule
+    AlbumRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers:[AlbumService],
   exports:
   [
-    AlbumListComponent, AlbumDetailComponent
+    AlbumListComponent, AlbumDetailComponent, AlbumCreateComponent, AlbumTrackCreateComponent
   ]
 })
 export class AlbumModule { }

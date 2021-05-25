@@ -1,7 +1,17 @@
 <div class="component-container">
+  <button
+    class="btn btn-primary button-modal"
+    type="button"
+    data-toggle="modal"
+    data-target="#perfomerCreationModal"
+    (click)="modalToggle()"
+    i18n
+  >
+    Agregar Artista
+  </button>
   <div class="list-container">
     <div class="list-title musician">
-      <h1>Musicos</h1>
+      <h1 i18n>Musicos</h1>
     </div>
     <div class="row">
       <div
@@ -27,6 +37,7 @@
             type="button"
             class="btn btn-primary"
             (click)="onSelect(musician)"
+            i18n
           >
             Ver detalles
           </button>
@@ -36,7 +47,7 @@
   </div>
   <div class="list-container">
     <div class="list-title band">
-      <h1>Bandas</h1>
+      <h1 i18n>Bandas</h1>
     </div>
     <div class="row">
       <div
@@ -62,6 +73,7 @@
             type="button"
             class="btn btn-primary"
             (click)="onSelect(band)"
+            i18n
           >
             Ver detalles
           </button>
@@ -70,3 +82,16 @@
     </div>
   </div>
 </div>
+<performer-create
+  title="ModalCreacion"
+  role="dialog"
+  tabindex="-1"
+  class="modal fade show"
+  id="perfomerCreationModal"
+  data-backdrop="static"
+  aria-hidden="true"
+  style="display: none"
+  *ngIf="flagModal"
+  (cancelEvent)="modalToggle()"
+  (finishCreation)="reloadComponent()"
+></performer-create>

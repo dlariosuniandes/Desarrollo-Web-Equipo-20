@@ -1,10 +1,24 @@
 <div class="mt-2 mb-4" *ngIf="albumDetail">
     <div class="row d-sm-flex justify-content-center align-items-sm-center ml-3">
-        <div class="col">
+        <div class="col-8">
             <div class="d-sm-flex align-items-sm-center mt-3 mb-3 h-100">
                 <i class="bi bi-caret-left-fill" id="iconBack" style="height: auto;font-size: 53px;color: var(--blue);" (click)="backList()"></i>
-                <span class="text-left h-100 ml-3" id="iconBack" style="font-size: 23px;" (click)="backList()">Volver</span>
+                <span class="text-left h-100 ml-3"  style="font-size: 23px;" (click)="backList()" i18n>Volver</span>
             </div>
+        </div>
+        <div class="col-4 d-flex justify-content-end m-0 p-5">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#trackCreationModal" (click)="changeCreatingTrack()">
+                <i width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" ></i>
+                Tracks
+            </button>
+            <button type="button" class="btn btn-dark ml-2">
+                <i width="16" height="16" fill="currentColor" class="bi bi-pencil-square" ></i>
+                Editar
+            </button>
+            <button type="button" class="btn btn-danger ml-2" (click)="accionEliminarAlbum()">
+                <i width="16" height="16" fill="currentColor" class="bi bi-trash" ></i>
+                Eliminar
+            </button>
         </div>
     </div>
     <div class="container mt-2">
@@ -22,28 +36,36 @@
             </div>
         </div>
         <h1 class="text-center mt-4 mb-4">Tracks del Album</h1>
-        <div class="alert alert-warning shadow" role="alert" *ngIf="albumDetail.darTracks().length==0">
+        <div class="alert alert-warning shadow" role="alert" *ngIf="albumDetail.darTracks().length==0" i18n>
             oops... Actualmente este album no tiene tracks relacionados.
         </div>
         <div class="table-responsive table table-striped mb-0 shadow" id="tackTable" cellspacing="0" width="100%" *ngIf="albumDetail.darTracks().length>0">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Duración</th>
+                        <th class="text-center" i18n>Nombre</th>
+                        <th class="text-center" i18n>Duración</th>
+                        <th class="text-center" i18n>Acciones</th>
+
                     </tr>
                 </thead>
                 <tbody class="mb-0">
                     <tr *ngFor="let track of albumDetail.darTracks()">
                         <td class="text-center">{{track.darNombre()}}</td>
                         <td class="text-center">{{track.darDuracion()}}</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger ml-2" (click)="accionEliminarTrack(track.darId())">
+                                <i width="16" height="16" fill="currentColor" class="bi bi-trash" ></i>
+                                Eliminar
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <h1 class="text-center mt-4 mb-4">Comentarios</h1>
+        <h1 class="text-center mt-4 mb-4" i18n>Comentarios</h1>
 
-        <div class="alert alert-warning shadow" role="alert" *ngIf="albumDetail.darComentarios().length==0">
+        <div class="alert alert-warning shadow" role="alert" *ngIf="albumDetail.darComentarios().length==0" i18n>
             oops... Actualmente este album no tiene comentarios relacionados.
         </div>
         <div *ngIf="albumDetail.darComentarios().length>0">
@@ -72,3 +94,6 @@
 
     </div>
 </div>
+
+<app-album-track-create title="ModalCreacion" role="dialog" tabindex="-1" class="modal fade show" id="trackCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="creatingTrackOn" (cancelEvent)="changeCreatingTrack()" (finishCreation)="reloadComponent()"
+    [idAlbum]="idAlbum"></app-album-track-create>

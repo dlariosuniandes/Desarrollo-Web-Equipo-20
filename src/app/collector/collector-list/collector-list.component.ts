@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Collector } from '../collector'
 import { CollectorService } from '../collector.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'collector-list',
   templateUrl: './collector-list.component.html',
   styleUrls: ['./collector-list.component.css']
 })
+
 export class CollectorListComponent implements OnInit {
   indiceADetallar: number;
   collectors: Array<Collector>;
-  constructor(private collectorService: CollectorService, private ar: ActivatedRoute) {
-    console.log(ar.snapshot.params.id)
+
+  constructor(private collectorService: CollectorService, private ar: ActivatedRoute, private rr:Router) {
   }
-  
+
 
   getCollectors(): void {
     this.collectorService.getCollectors()
@@ -27,10 +28,13 @@ export class CollectorListComponent implements OnInit {
       {
         this.collectors = collectors;
       }
-      
+
     });
   }
-
+  newForm()
+  {
+    this.rr.navigateByUrl("/collectors/create");
+  }
   collectorDetail(indexA:number): void {
     this.indiceADetallar = indexA;
   }

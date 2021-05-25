@@ -4,21 +4,25 @@
         <div class="col-3">
 
             <div class="thumb">
-                <img class="img-fluid" src="../../assets/images/user.svg" alt="avatar usuario" />
+                <img class="img-fluid" width="70" height="70" src="../../assets/images/user.svg" alt="avatar usuario" />
             </div>
-            <p class="h3 p-3" id="usuario">{{collectorDetail.darNombre()}}</p>
+            <p class="h3 p-3" id="usuario{{collectorDetail.darId()}}">{{collectorDetail.darNombre()}}</p>
             <dl>
-                <dt>Datos Personales</dt>
-                <hr>
-                <dt> Telefono</dt>
+                <dt i18n>Datos Personales</dt>
+
+                <dt i18n> Telefono</dt>
                 <dd>{{collectorDetail.darTelefono()}}</dd>
-                <hr>
-                <dt>Email</dt>
+
+                <dt i18n>Email</dt>
                 <dd>{{collectorDetail.darEmail()}}</dd>
             </dl>
+            <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#albumCreationModal" (click)="adicionarAlbumOn()" i18n>Agregar Album</button>
+            <button class="btn btn-danger" type="button" (click)="borrarColeccionista(collectorDetail.darId())" i18n>Borrar</button>
+
         </div>
 
         <div class="col-4" *ngIf="collectorAlbums">
+            <P i18n>Albumes:</P>
             <table class="table table-striped" *ngIf="collectorAlbums.length!=0">
                 <tbody>
                     <div class="card" *ngFor="let a of collectorAlbums;">
@@ -32,12 +36,13 @@
             </table>
         </div>
         <div class="col-5">
+            <p i18n>Artistas favoritos:</p>
             <table class="table table-striped">
                 <tbody>
                     <div class="card" *ngFor="let b of collectorDetail.darArtistasFavoritos();">
                         <tr>
                             <td><img class="img-fluid" src={{b.image}} alt="imagen artista"></td>
-                            <td class="albumNav" (click)="navegarArtista(b)">{{b.name}}</td>
+                            <td class="artistNav" (click)="navegarArtista(b)">{{b.name}}</td>
                             <td>{{b.description}}</td>
                         </tr>
                     </div>
@@ -46,3 +51,5 @@
         </div>
     </div>
 </div>
+<collector-album title="ModalCreacion" role="dialog" tabindex="-1" class="modal fade show" id="albumCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="addingAlbum" (cancelEvent)="adicionarAlbumOn()" [collectorDetail]="collectorDetail">
+</collector-album>

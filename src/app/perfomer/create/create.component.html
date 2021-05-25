@@ -1,0 +1,230 @@
+<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+  <form
+    [formGroup]="performerForm"
+    (ngSubmit)="crearPerformer()"
+    class="modal-content"
+  >
+    <div class="modal-header">
+      <h1 class="modal-title d-xl-flex align-items-xl-center" i18n>
+        <br /><strong>Añadir un Artista</strong><br />
+      </h1>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="cancelCrearPerformer()"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="form-content">
+      <div class="row register-form">
+        <div class="col-md-8 offset-md-2">
+          <div class="custom-form p-0 ml-0 mr-0">
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column">
+                <label class="col-form-label" for="name" i18n> Name </label>
+              </div>
+              <div
+                class="col-sm-6 input-column p-0"
+                [ngClass]="{
+                  wrongInput:
+                    performerForm.controls.name.invalid &&
+                    performerForm.controls.name.touched
+                }"
+              >
+                <input
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                  placeholder="Nombre del Musico o Banda"
+                  i18n-placeholder
+                />
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column"></div>
+              <div class="col-sm-6 input-column p-0">
+                <span
+                  *ngIf="
+                    performerForm.controls.name.invalid &&
+                    performerForm.controls.name.touched
+                  "
+                  style="color: red"
+                  i18n
+                  >Se requiere un nombre para el artista</span
+                >
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column">
+                <label class="col-form-label" for="image" i18n> Imagen </label>
+              </div>
+              <div
+                class="col-sm-6 input-column p-0"
+                [ngClass]="{
+                  wrongInput:
+                    performerForm.controls.image.invalid &&
+                    performerForm.controls.image.touched
+                }"
+              >
+                <input
+                  id="image"
+                  class="form-control"
+                  formControlName="image"
+                  placeholder="Url de la Imagen"
+                  i18n-placeholder
+                />
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column"></div>
+              <div class="col-sm-6 input-column p-0">
+                <span
+                  *ngIf="
+                    performerForm.controls.image.invalid &&
+                    performerForm.controls.image.touched
+                  "
+                  style="color: red"
+                  i18n
+                  >Se requiere una url de imagen</span
+                >
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column">
+                <label class="col-form-label" for="description" i18n>
+                  Descripción
+                </label>
+              </div>
+              <div
+                class="col-sm-6 input-column p-0"
+                [ngClass]="{
+                  wrongInput:
+                    performerForm.controls.description.invalid &&
+                    performerForm.controls.description.touched
+                }"
+              >
+                <textarea
+                  id="description"
+                  class="form-control"
+                  formControlName="description"
+                  placeholder="Ingrese la descripción"
+                  i18n-placeholder
+                ></textarea>
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column"></div>
+              <div class="col-sm-6 input-column p-0">
+                <span
+                  *ngIf="
+                    performerForm.controls.description.invalid &&
+                    performerForm.controls.description.touched
+                  "
+                  style="color: red"
+                  i18n
+                  >Se requiere una descripcion para el artista</span
+                >
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column">
+                <label class="col-form-label" for="date" i18n> Fecha </label>
+              </div>
+              <div
+                class="col-sm-6 input-column p-0"
+                [ngClass]="{
+                  wrongInput:
+                    performerForm.controls.date.invalid &&
+                    performerForm.controls.date.touched
+                }"
+              >
+                <input
+                  type="date"
+                  id="date"
+                  class="form-control"
+                  formControlName="date"
+                  placeholder="Fecha de Creación"
+                  i18n-placeholder
+                />
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column"></div>
+              <div class="col-sm-6 input-column p-0">
+                <span
+                  *ngIf="
+                    performerForm.controls.date.invalid &&
+                    performerForm.controls.date.touched
+                  "
+                  style="color: red"
+                  i18n
+                  >Se requiere un fecha de creación o nacimiento para el artista</span
+                >
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column">
+                <label class="col-form-label" for="type" i18n> Tipo </label>
+              </div>
+              <div
+                class="col-sm-6 input-column p-0"
+                [ngClass]="{
+                  wrongInput:
+                    performerForm.controls.performerType.invalid &&
+                    performerForm.controls.performerType.touched
+                }"
+              >
+                <select
+                  formControlName="performerType"
+                  id="performerType"
+                  class="form-control"
+                >
+                  <option value="" disabled i18n>Seleccionar tipo de artista</option>
+                  <option *ngFor="let type of typePerfomer" [ngValue]="type">
+                    {{ type }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-sm-4 label-column"></div>
+              <div class="col-sm-6 input-column p-0">
+                <span
+                  *ngIf="
+                    performerForm.controls.performerType.invalid &&
+                    performerForm.controls.performerType.touched
+                  "
+                  style="color: red"
+                  i18n
+                  >Se requiere un tipo de artista</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer d-xl-flex justify-content-xl-center">
+      <button
+        class="btn btn-light submit-button"
+        type="submit"
+        [disabled]="performerForm.invalid"
+        i18n
+      >
+        Create
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger ml-3 cancel-button"
+        (click)="cancelCrearPerformer()"
+        data-dismiss="modal"
+        i18n
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

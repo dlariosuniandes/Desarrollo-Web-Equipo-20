@@ -1,0 +1,69 @@
+<div class="component-container">
+    <div class="list-title collectors">
+        <h1 i18n>Crear nuevo coleccionista</h1>
+        <form [formGroup]="collectorForm" (ngSubmit)="!collectorForm.invalid && createCollector(collectorForm.value)">
+            <div class="form-row form-group">
+                <label for="name" i18n> Nombre*</label>
+                <input novalidate id="name" class="form-control" [ngClass]="{wrongInput: collectorForm.get('name').touched && (collectorForm.get('name').hasError('required') || collectorForm.get('name').hasError('minlength'))}" formControlName="name" i18n-placeholder
+                    placeholder="Su nombre completo" />
+                <div class="wrongText" *ngIf="
+            collectorForm.get('name').hasError('required') &&
+            collectorForm.get('name').touched
+          " i18n>
+                    Nombre requerido
+                </div>
+                <div class="wrongText" *ngIf="
+          collectorForm.get('name').hasError('minlength') &&
+          collectorForm.get('name').touched
+        " i18n>
+                    Nombre muy corto. Este debe ser de al menos 2 caracteres
+                </div>
+            </div>
+            <div class="form-row form-group">
+                <label for="telephone" i18n> Telefono* </label>
+                <input id="telephone" type="text" class="form-control" [ngClass]="{wrongInput: collectorForm.get('telephone').touched && (collectorForm.get('telephone').hasError('required') || collectorForm.get('telephone').hasError('minlength'))}" formControlName="telephone"
+                    i18n-placeholder placeholder="Su telefono" />
+                <div class="wrongText" *ngIf="
+            collectorForm.get('telephone').hasError('required') &&
+            collectorForm.get('telephone').touched
+          " i18n>
+                    Telefono requerido
+                </div>
+                <div class="wrongText" *ngIf="
+          collectorForm.get('telephone').hasError('minlength') &&
+          collectorForm.get('telephone').touched
+        " i18n>
+                    Telefono muy corto. Debe tener minimo 7 numeros
+                </div>
+            </div>
+            <div class="form-row form-group">
+                <label for="email"> Email* </label>
+                <input id="email" type="text" class="form-control" [ngClass]="{wrongInput: collectorForm.get('email').touched && (collectorForm.get('email').hasError('required') || collectorForm.get('email').hasError('email'))}" formControlName="email" i18n-placeholder
+                    placeholder="Su correo electronico" />
+                <div class="wrongText" *ngIf="
+            collectorForm.get('email').hasError('required') &&
+            collectorForm.get('email').touched
+          " i18n>
+                    Correo electronico requerido
+                </div>
+                <div class="wrongText" *ngIf="
+            collectorForm.get('email').hasError('email') &&
+            collectorForm.get('email').touched
+          " i18n>
+                    Formato de correo electronico incorrecto. Debe incluir @
+                </div>
+            </div>
+            <div class="row m-3 small" i18n>
+                * Campos requeridos
+            </div>
+            <div class="row m-3">
+                <button type="submit" class="btn btn-dark submit-button" [disabled]="!collectorForm.valid" (click)="createCollector(collectorForm.value)" i18n>
+        Crear
+        </button>
+                <button type="button" class="btn btn-danger cancel-button" (click)="cancelCreation()" i18n>
+          Cancelar
+        </button>
+            </div>
+        </form>
+    </div>
+</div>

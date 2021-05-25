@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Collector } from './collector';
 import { Musician } from '../perfomer/musician';
 import { Band } from '../perfomer/band';
+import { CollectorAlbum } from './collectorAlbum';
+import { registerLocaleData } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,21 @@ import { Band } from '../perfomer/band';
 export class CollectorService {
   private apiUrl: string = environment.backUrl + 'collectors';
   constructor(private http: HttpClient) { }
+
+  createCollector(collector: Collector): Observable<Collector>{
+    return this.http.post<Collector>(this.apiUrl, collector);//.pipe(catchError(this.handleError('createCollector',collector)));
+  };
+
+  deleteCollector(idC: number){
+    return this.http.delete(this.apiUrl+"/"+idC);
+  };
+
+  addAlbumCollector(idC: number, idA: number, collectorAlbum: CollectorAlbum){
+    //console.log(idC, this.apiUrl+"/"+idC+"/albums/"+idA, collectorAlbum);
+    let registro = {'price':collectorAlbum['price'],
+                  'status':collectorAlbum['status']};
+    return this.http.post(this.apiUrl+"/"+idC+"/albums/"+idA, registro);
+  };
 
   getCollectors(): Observable<Collector[]> {
     return this.http.get<Collector[]>(this.apiUrl).pipe(
