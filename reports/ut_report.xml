@@ -1,4 +1,5 @@
 <testExecutions version="1">
+
   <file path="src/app/collector/collector-create/collector-create.component.spec.ts">
     <testCase name="CollectorCreateComponent should create" duration="242"/>
     <testCase name="CollectorCreateComponent Cancela la creación de un coleccionista se acciona al presionar el boton cancelar" duration="15"/>
@@ -104,5 +105,6 @@
   </file>
   <file path="src/app/perfomer/associate-musician-band/associate-musician-band.component.spec.ts">
     <testCase name="AssociateMusicianBandComponent should create" duration="7"/>
+
   </file>
 </testExecutions>
