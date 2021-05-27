@@ -11,12 +11,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Collector } from '../collector';
 import { Band } from 'src/app/perfomer/band';
 import { CollectorAlbum } from '../collectorAlbum';
+import { CollectorService } from '../collector.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 describe('CollectorCreateComponent', () => {
   let component: CollectorCreateComponent;
   let fixture: ComponentFixture<CollectorCreateComponent>;
   let debElement: DebugElement
   let htmlMock: HTMLElement
+  let collectorService: jasmine.SpyObj<CollectorService>;
+  let router: jasmine.SpyObj<Router>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,6 +37,13 @@ describe('CollectorCreateComponent', () => {
     fixture.detectChanges();
     debElement = fixture.debugElement;
     htmlMock = debElement.nativeElement;
+    collectorService = TestBed.get(CollectorService);
+    spyOn(collectorService, 'createCollector').and.returnValue({
+      subscribe: () => new Observable<any>(),
+    } as any)
+    router = TestBed.get(Router);
+    spyOn(router,'navigateByUrl')
+    spyOn(component.collectorForm,'reset')
   });
 
   it('should create', () => {
@@ -63,5 +75,25 @@ describe('CollectorCreateComponent', () => {
     const espia = spyOn(component,'createCollector')
     component.createCollector(mockCollector)
     expect(espia.calls.count()).toEqual(1);
+  })
+
+  it('expect createCollector function to subscribe to observable', () => {
+    const mockCollector = new Collector(
+      faker.datatype.number(),
+      faker.name.findName(),
+      faker.phone.phoneNumber(),
+      faker.internet.email(),
+      [],
+      [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.image.imageUrl())],
+      [new CollectorAlbum(faker.datatype.number(),faker.datatype.number(),faker.lorem.text())]
+    )
+    component.createCollector(mockCollector)
+    expect(collectorService.createCollector).toHaveBeenCalled()
+  })
+
+  it('expect cancelCreation to reseltForm and navigate to collectors list', ()=> {
+    component.cancelCreation()
+    expect(component.collectorForm.reset).toHaveBeenCalled()
+    expect(router.navigateByUrl).toHaveBeenCalledWith('collectors/list')
   })
 });
