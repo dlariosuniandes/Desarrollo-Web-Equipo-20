@@ -361,20 +361,22 @@
           <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="672d2aee117af93096a7681af900d7292f4a71ca" datatype="html">
-        <source>Listado de Albums</source>
-        <target>List of albums</target>
+      <trans-unit id="1b11c379caeedd18c71ffd78d1c9476e141ddc82" datatype="html">
+        <source>
+    Listado de Albums</source>
+        <target>
+    Albums list</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/album/album-list/album-list.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2e99bc54c2fff840150c2b566e5fd14f1ad7cfd6" datatype="html">
-        <source>Ver detalle del album <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
-        <target>See details<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+      <trans-unit id="cdb7e9dbe5ed28c838fe62303bd13e8560f45a8b" datatype="html">
+        <source>Ver detalle del album <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/><x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
+        <target>See details <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/><x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/album/album-list/album-list.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ed48a7cf387caeb62d47a01845588e4a5a49168b" datatype="html">
