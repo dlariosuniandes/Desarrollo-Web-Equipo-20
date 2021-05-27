@@ -23,7 +23,7 @@
 
         <div class="col-4" *ngIf="collectorAlbums">
             <P i18n>Albumes:</P>
-            <table class="table table-striped" *ngIf="collectorAlbums.length!=0">
+            <table aria-hidden="true" class="table table-striped" *ngIf="collectorAlbums.length!=0" ><caption>Colecciones</caption>
                 <tbody>
                     <div class="card" *ngFor="let a of collectorAlbums;">
                         <tr>
@@ -37,12 +37,12 @@
         </div>
         <div class="col-5">
             <p i18n>Artistas favoritos:</p>
-            <table class="table table-striped">
+            <table aria-hidden="true" class="table table-striped"><caption>Artistas</caption>
                 <tbody>
                     <div class="card" *ngFor="let b of collectorDetail.darArtistasFavoritos();">
                         <tr>
                             <td><img class="img-fluid" src={{b.image}} alt="imagen artista"></td>
-                            <td class="albumNav" (click)="navegarArtista(b)">{{b.name}}</td>
+                            <td class="artistNav" (click)="navegarArtista(b)">{{b.name}}</td>
                             <td>{{b.description}}</td>
                         </tr>
                     </div>
@@ -51,5 +51,5 @@
         </div>
     </div>
 </div>
-<collector-album role="dialog" tabindex="-1" class="modal fade show" id="albumCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="addingAlbum" (cancelEvent)="adicionarAlbumOn()" [collectorDetail]="collectorDetail">
+<collector-album title="ModalCreacion" role="dialog" tabindex="-1" class="modal fade show" id="albumCreationModal" data-backdrop="static" aria-hidden="true" style="display: none" *ngIf="addingAlbum" (cancelEvent)="adicionarAlbumOn()" [collectorDetail]="collectorDetail">
 </collector-album>

@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+<div  class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <form class="modal-content" [formGroup]="createAlbumForm" (ngSubmit)="crearAlbum()">
         <div class="modal-header">
             <h3 class="modal-title d-xl-flex align-items-xl-center"><br /><strong i18n>Añadir un Album</strong><br /></h3><button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="emitCancelEvent()"><span aria-hidden="true">×</span></button>
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="col-sm-6 input-column p-0" [ngClass]="{wrongInput: fechaPublicacion.invalid && fechaPublicacion.touched}">
-                                <input type="date" class="form-control" formControlName="fechaPublicacion" />
+                                <input placeholder="fechaPublicacion" type="date" class="form-control" formControlName="fechaPublicacion" />
                             </div>
                         </div>
                         <div class="form-row form-group">

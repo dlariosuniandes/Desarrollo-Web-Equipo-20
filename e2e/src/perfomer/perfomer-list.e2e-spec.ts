@@ -56,49 +56,41 @@ describe('workspace-project App', () => {
     await page.navigateToRoute('performers/list');
     await browser.waitForAngular();
     await browser.sleep(200);
-    const buttonAdd = await element(
-      by.xpath(`//button[text()=" Agregar Artista "]`)
-    );
+    const buttonAdd = await element(by.xpath(`//button[text()=" Agregar Artista "]`));
     await browser.sleep(200);
     await buttonAdd.click();
     await browser.sleep(200);
     await browser.waitForAngular();
-    const inputName = await element(
-      by.xpath(`//input[@formcontrolname="name"]`)
-    );
+    const inputName = await element(by.xpath(`//input[@formcontrolname="name"]`));
     await inputName.sendKeys('Banda Test');
     await browser.sleep(200);
-    const inputImg = await element(
-      by.xpath(`//input[@formcontrolname="image"]`)
-    );
-    await inputImg.sendKeys(
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Ruben_Blades_by_Gage_Skidmore.jpg/800px-Ruben_Blades_by_Gage_Skidmore.jpg'
-    );
+    const inputImg = await element(by.xpath(`//input[@formcontrolname="image"]`));
     await browser.sleep(200);
-    const inputDescription = await element(
-      by.xpath(`//textarea[@formcontrolname="description"]`)
-    );
+    await inputImg.click()
+    await browser.sleep(200);
+    await inputImg.sendKeys('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Ruben_Blades_by_Gage_Skidmore.jpg/800px-Ruben_Blades_by_Gage_Skidmore.jpg');
+    await browser.sleep(200);
+    const inputDescription = await element(by.xpath(`//textarea[@formcontrolname="description"]`));
     await inputDescription.sendKeys('Descripción Test');
     await browser.sleep(200);
-    const inputDate = await element(
-      by.xpath(`//input[@formcontrolname="date"]`)
-    );
+    const inputDate = await element(by.xpath(`//input[@formcontrolname="date"]`));
     await inputDate.sendKeys('19/12/1970');
     await browser.sleep(200);
-    const selectType = await element(
-      by.xpath(`//select[@formcontrolname="performerType"]`)
-    );
+    const selectType = await element(by.xpath(`//select[@formcontrolname="performerType"]`));
     await selectType.click();
     const option = await element(by.xpath(`//option[@value="1: Músico"]`));
     await option.click();
     await browser.sleep(200);
     const button = await element(by.xpath(`//button[text()=" Create "]`));
     await button.click();
+    await browser.wait(element(by.css('.swal2-confirm.swal2-styled')).isPresent(),5000);
+    await browser.sleep(200)
+    await element(by.css('.swal2-confirm.swal2-styled')).click();
     await page.navigateToRoute('performers/list');
     await browser.waitForAngular();
-    const createdPerfomer = element
-      .all(by.xpath(`//p[text()="Banda Test"]`))
-      .count();
+    await browser.wait(element(by.xpath(`//p[text()="Banda Test"]`)).isDisplayed(),5000)
+    const createdPerfomer = await element.all(by.xpath(`//p[text()="Banda Test"]`)).count();
+    await browser.sleep(200)
     expect(await createdPerfomer).toBeGreaterThan(0)
   });
 
@@ -108,15 +100,11 @@ describe('workspace-project App', () => {
     await element(by.xpath(`//button[text()=" Ver detalles "]`)).click();
     expect(await browser.getCurrentUrl()).toContain('musician' || 'band');
     await browser.sleep(200);
-    const buttonAdd = await element(
-      by.xpath(`//button[@data-target="#musicianAssociateModal"]`)
-    );
+    const buttonAdd = await element(by.xpath(`//button[@data-target="#musicianAssociateModal"]`));
     await browser.sleep(200);
     await buttonAdd.click();
     await browser.sleep(200);
-    const selectType = await element(
-      by.xpath(`//select[@formcontrolname="band"]`)
-    );
+    const selectType = await element(by.xpath(`//select[@formcontrolname="band"]`));
     await selectType.click();
     const option = await element(by.xpath(`//option[@value="1: 101"]`));
     await option.click();

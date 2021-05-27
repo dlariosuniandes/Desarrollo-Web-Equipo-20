@@ -42,7 +42,6 @@
   margin-bottom: 5%;
   overflow: hidden;
   text-overflow: ellipsis;
-  overflow: hidden;
   max-height: 36px;
 }
 
@@ -79,9 +78,6 @@
   width: 50%;
   background-color: teal !important;
   border-color: teal !important;
-}
-
-.btn-primary{
   color: rgb(255, 255, 255) !important;
 }
 

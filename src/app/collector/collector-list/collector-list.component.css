@@ -1,6 +1,6 @@
 
 .card-header :nth-of-type(n+1) {
-  background-color: #9fb3bd;;
+  background-color: #9fb3bd;
   color: #000066;
 
   border-radius: 4px;
