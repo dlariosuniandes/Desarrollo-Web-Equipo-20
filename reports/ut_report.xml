@@ -1,121 +1,139 @@
 <testExecutions version="1">
-  <file path="src/app/album/album-track-create/album-track-create.component.spec.ts">
-    <testCase name="AlbumTrackCreateComponent should create" duration="246"/>
-    <testCase name="AlbumTrackCreateComponent verifica que el formulario se cree correctamente" duration="9"/>
-    <testCase name="AlbumTrackCreateComponent verifica que al escribir en un input, la función get de éste retorne lo escrito" duration="9"/>
-    <testCase name="AlbumTrackCreateComponent Muestra la clase wrong input cuando dicha entrada no es valida" duration="7"/>
-    <testCase name="AlbumTrackCreateComponent Cancelar acciona la función emitCancelEvent" duration="7"/>
-  </file>
-  <file path="src/app/album/album-list/album-list.component.spec.ts">
-    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="27"/>
-    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum " duration="11"/>
-    <testCase name="AlbumListComponent should create" duration="7"/>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="9"/>
-    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="10"/>
-    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="9"/>
-    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum y se envie por parametro la posición del arreglo" duration="10"/>
-    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="7"/>
-  </file>
-  <file path="src/app/album/album-detail/album-detail.component.spec.ts">
-    <testCase name="AlbumDetailComponent Verifica que se pinte el detalle del album en el html" duration="14"/>
-    <testCase name="AlbumDetailComponent should create" duration="7"/>
-    <testCase name="AlbumDetailComponent Verifica que al dar click en el boton de back, se active la funcion backList" duration="15"/>
-    <testCase name="AlbumDetailComponent Verifica que al inicializar el componente la variable albumI sea instancia de album" duration="6"/>
-    <testCase name="AlbumDetailComponent Verifica que las funciones subServiceAlbum y obtenerIdRuta sean llamadas al inicializar el componente" duration="7"/>
-  </file>
-  <file path="src/app/collector/collector-album/collector-album.component.spec.ts">
-    <testCase name="CollectorAlbumComponent should create" duration="10"/>
-  </file>
-  <file path="src/app/album/album-create/album-create.component.spec.ts">
-    <testCase name="AlbumCreateComponent Cancelar acciona la función emitCancelEvent" duration="16"/>
-    <testCase name="AlbumCreateComponent verifica que al escribir en un input, la función get de éste retorne lo escrito" duration="17"/>
-    <testCase name="AlbumCreateComponent should create" duration="13"/>
-    <testCase name="AlbumCreateComponent verifica el correcto funcionamiento de validarFecha" duration="14"/>
-    <testCase name="AlbumCreateComponent Muestra la clase wrong input cuando dicha entrada no es valida" duration="16"/>
-    <testCase name="AlbumCreateComponent verifica que el formulario se cree correctamente" duration="12"/>
-  </file>
   <file path="src/app/perfomer/detail/detail.component.spec.ts">
-    <testCase name="DetailComponent should render date" duration="14"/>
-    <testCase name="DetailComponent should render description" duration="7"/>
-    <testCase name="DetailComponent should render list albums" duration="6"/>
-    <testCase name="DetailComponent should return date for perfomer either is Musician or Band" duration="5"/>
-    <testCase name="DetailComponent should create" duration="5"/>
-    <testCase name="DetailComponent should return formatted date" duration="5"/>
-    <testCase name="DetailComponent should render component container" duration="5"/>
-    <testCase name="DetailComponent should render artistName" duration="5"/>
-  </file>
-  <file path="src/app/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should create" duration="10"/>
-  </file>
-  <file path="src/app/perfomer/perfomer.service.spec.ts">
-    <testCase name="ArtistsService should return 10 musicians" duration="2"/>
-    <testCase name="ArtistsService should create service" duration="1"/>
-    <testCase name="ArtistsService should return a band detail" duration="1"/>
-    <testCase name="ArtistsService should return a musician detail" duration="1"/>
-    <testCase name="ArtistsService should return 10 bands" duration="2"/>
-  </file>
-  <file path="src/app/perfomer/create/create.component.spec.ts">
-    <testCase name="CreateComponent should create" duration="12"/>
-  </file>
-  <file path="src/app/collector/collector-detail/collector-detail.component.spec.ts">
-    <testCase name="CollectorDetailComponent should create" duration="12"/>
-    <testCase name="CollectorDetailComponent acciona navegar album" duration="13"/>
-  </file>
-  <file path="src/app/perfomer/list/list.component.spec.ts">
-    <testCase name="ListComponent should have a band card" duration="6"/>
-    <testCase name="ListComponent should have a title tag for bands" duration="6"/>
-    <testCase name="ListComponent should have a musician card" duration="5"/>
-    <testCase name="ListComponent should create" duration="6"/>
-    <testCase name="ListComponent should return formatted date" duration="5"/>
-    <testCase name="ListComponent should have a title musician" duration="7"/>
-  </file>
-  <file path="src/app/album/album.service.spec.ts">
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId se hace con el link correctamente" duration="4"/>
-    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="1"/>
-    <testCase name="AlbumService Se deberia crear el servicio" duration="1"/>
-    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="4"/>
-    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="1"/>
-    <testCase name="AlbumService La funcion obtenerAlbumId retorna un obesvable" duration="1"/>
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId retorna el album deseado" duration="1"/>
-    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="1"/>
+    <testCase name="DetailComponent expect toggle function to change flag" duration="253"/>
+    <testCase name="DetailComponent test onChange with musician instance" duration="11"/>
+    <testCase name="DetailComponent should test reload component function" duration="7"/>
+    <testCase name="DetailComponent constructor should set backUrl" duration="8"/>
+    <testCase name="DetailComponent expect default route when theres no backurl" duration="8"/>
+    <testCase name="DetailComponent expect backurl to be called with onBackfunction" duration="6"/>
+    <testCase name="DetailComponent expect on select to call a navigate by URL" duration="7"/>
+    <testCase name="DetailComponent should render artistName" duration="24"/>
+    <testCase name="DetailComponent test onChange with band instance" duration="8"/>
+    <testCase name="DetailComponent should render component container" duration="30"/>
+    <testCase name="DetailComponent should render description" duration="8"/>
+    <testCase name="DetailComponent should render date" duration="35"/>
+    <testCase name="DetailComponent should return formatted date" duration="33"/>
+    <testCase name="DetailComponent should return date for perfomer either is Musician or Band" duration="8"/>
+    <testCase name="DetailComponent should render list albums" duration="27"/>
+    <testCase name="DetailComponent should create" duration="9"/>
   </file>
   <file path="src/app/collector/collector-create/collector-create.component.spec.ts">
-    <testCase name="CollectorCreateComponent Cancela la creación de un coleccionista se acciona al presionar el boton cancelar" duration="8"/>
-    <testCase name="CollectorCreateComponent should create" duration="9"/>
-    <testCase name="CollectorCreateComponent se acciona la función crear coleccionista al llenar los campos y dar click en crear" duration="9"/>
+    <testCase name="CollectorCreateComponent se acciona la función crear coleccionista al llenar los campos y dar click en crear" duration="51"/>
+    <testCase name="CollectorCreateComponent should create" duration="81"/>
+    <testCase name="CollectorCreateComponent Cancela la creación de un coleccionista se acciona al presionar el boton cancelar" duration="11"/>
   </file>
-  <file path="src/app/footer/footer.component.spec.ts">
-    <testCase name="FooterComponent should create" duration="8"/>
+  <file path="src/app/collector/collector-album/collector-album.component.spec.ts">
+    <testCase name="CollectorAlbumComponent should create" duration="32"/>
+  </file>
+  <file path="src/app/perfomer/list/list.component.spec.ts">
+    <testCase name="ListComponent should have a title tag for bands" duration="30"/>
+    <testCase name="ListComponent should have a band card" duration="11"/>
+    <testCase name="ListComponent should have a title musician" duration="11"/>
+    <testCase name="ListComponent expect onSelect to navigate to band detail" duration="7"/>
+    <testCase name="ListComponent should have a musician card" duration="9"/>
+    <testCase name="ListComponent expect onSelect to navigate to musician detail" duration="8"/>
+    <testCase name="ListComponent should test reload component function" duration="12"/>
+    <testCase name="ListComponent should create" duration="28"/>
+    <testCase name="ListComponent should return formatted date" duration="10"/>
+    <testCase name="ListComponent expect toggle function to change flag" duration="11"/>
+  </file>
+  <file path="src/app/collector/collector-detail/collector-detail.component.spec.ts">
+    <testCase name="CollectorDetailComponent verifica que al iniciar el componente se invoque la función getCollectorAlbums" duration="36"/>
+    <testCase name="CollectorDetailComponent Verifica que se accione navegarArtista para un collectorsLength = 1" duration="49"/>
+    <testCase name="CollectorDetailComponent Verifica que se accione navegar album para un collectorsLength = 10" duration="15"/>
+    <testCase name="CollectorDetailComponent Verifica que se accione navegar album para un collectorsLength = 1" duration="17"/>
+    <testCase name="CollectorDetailComponent Verifica que se accione navegarArtista para un collectorsLength = 10" duration="18"/>
+    <testCase name="CollectorDetailComponent should create" duration="42"/>
+  </file>
+  <file path="src/app/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="15"/>
+  </file>
+  <file path="src/app/perfomer/perfomer.service.spec.ts">
+    <testCase name="ArtistsService should return 10 musicians" duration="7"/>
+    <testCase name="ArtistsService should create service" duration="2"/>
+    <testCase name="ArtistsService should return a musician detail" duration="3"/>
+    <testCase name="ArtistsService should return 10 bands" duration="4"/>
+    <testCase name="ArtistsService should return a band detail" duration="3"/>
+  </file>
+  <file path="src/app/album/album-track-create/album-track-create.component.spec.ts">
+    <testCase name="AlbumTrackCreateComponent should create" duration="12"/>
+    <testCase name="AlbumTrackCreateComponent Cancelar acciona la función emitCancelEvent" duration="11"/>
+    <testCase name="AlbumTrackCreateComponent Muestra la clase wrong input cuando dicha entrada no es valida" duration="12"/>
+    <testCase name="AlbumTrackCreateComponent verifica que al escribir en un input, la función get de éste retorne lo escrito" duration="22"/>
+    <testCase name="AlbumTrackCreateComponent verifica que el formulario se cree correctamente" duration="9"/>
+  </file>
+  <file path="src/app/album/album-list/album-list.component.spec.ts">
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum y se envie por parametro la posición del arreglo" duration="55"/>
+    <testCase name="AlbumListComponent verifica que al dar click en el botón de detalle  de alguna card se accione la función detallarAlbum " duration="14"/>
+    <testCase name="AlbumListComponent verifica que al llamar ngOnInit se haga llamado a la función starSub y defina la variables sub" duration="12"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="9"/>
+    <testCase name="AlbumListComponent Verifica que al hacerse la subscripciòn, la variable album retorne el arraymock de albums" duration="33"/>
+    <testCase name="AlbumListComponent verifica que se muestren tantas cartas en el HTML como tamaño del arrayMock " duration="34"/>
+    <testCase name="AlbumListComponent should create" duration="9"/>
+    <testCase name="AlbumListComponent verifica que la función startSub retorne un elemento de tipo subscription" duration="35"/>
   </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should have as title 'front'" duration="10"/>
-    <testCase name="AppComponent should create the app" duration="6"/>
-  </file>
-  <file path="src/app/album/album-detail/album-detail.component.spec.ts">
-    <testCase name="AlbumDetailComponent reload component shoould navigate using current url" duration="12"/>
-    <testCase name="AlbumDetailComponent expect to get artist string if theres more than 1 artist on the array" duration="16"/>
-    <testCase name="AlbumDetailComponent expect to get artist string if theres only 1 artist on the array" duration="61"/>
-    <testCase name="AlbumDetailComponent should navigate to band if band instance is given" duration="6"/>
-    <testCase name="AlbumDetailComponent expect backList to navigate back if it has a backUrl" duration="6"/>
-    <testCase name="AlbumDetailComponent expect to get artist string if theres more than 1 artist on the array" duration="5"/>
-    <testCase name="AlbumDetailComponent expect backList to navigate back if it has a backUrl" duration="9"/>
-    <testCase name="AlbumDetailComponent Verifica que al dar click en el boton de back, se active la funcion backList" duration="37"/>
-    <testCase name="AlbumDetailComponent Verifica que al inicializar el componente la variable albumI sea instancia de album" duration="34"/>
-    <testCase name="AlbumDetailComponent Verifica que se pinte el detalle del album en el html" duration="14"/>
-    <testCase name="AlbumDetailComponent Verifica que las funciones subServiceAlbum y obtenerIdRuta sean llamadas al inicializar el componente" duration="162"/>
-    <testCase name="AlbumDetailComponent should create" duration="89"/>
-    <testCase name="AlbumDetailComponent change creating tag should toggle flag" duration="191"/>
-    <testCase name="AlbumDetailComponent should navigate to musician if musician instance is given" duration="26"/>
-  </file>
-  <file path="src/app/perfomer/associate-musician-band/associate-musician-band.component.spec.ts">
-    <testCase name="AssociateMusicianBandComponent should create" duration="9"/>
+    <testCase name="AppComponent should create the app" duration="39"/>
+    <testCase name="AppComponent should have as title 'front'" duration="8"/>
   </file>
   <file path="src/app/collector/collector-list/collector-list.component.spec.ts">
-    <testCase name="CollectorListComponent should create" duration="8"/>
-    <testCase name="CollectorListComponent Should have an .collectorName element with name " duration="12"/>
-    <testCase name="CollectorListComponent should capture button index" duration="7"/>
+    <testCase name="CollectorListComponent should create" duration="12"/>
+    <testCase name="CollectorListComponent should capture button index" duration="14"/>
+    <testCase name="CollectorListComponent Should have an .collectorName element with name " duration="16"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="AlbumService la subscripcion retorna el arreglo mock de albumes" duration="6"/>
+    <testCase name="AlbumService existe un atributo de tipo HTTP" duration="2"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbums se hace con el link correctamente" duration="3"/>
+    <testCase name="AlbumService Se deberia crear el servicio" duration="2"/>
+    <testCase name="AlbumService la funcion obtenerAlbums retorna un observable" duration="4"/>
+    <testCase name="AlbumService La funcion obtenerAlbumId retorna un obesvable" duration="2"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId se hace con el link correctamente" duration="5"/>
+    <testCase name="AlbumService la subscripcion al observable que retorna obtenerAlbumId retorna el album deseado" duration="3"/>
+  </file>
+  <file path="src/app/perfomer/associate-musician-band/associate-musician-band.component.spec.ts">
+    <testCase name="AssociateMusicianBandComponent should cancel association" duration="42"/>
+    <testCase name="AssociateMusicianBandComponent should create" duration="34"/>
+    <testCase name="AssociateMusicianBandComponent expect getBandlist function to subscribe to observable" duration="22"/>
+    <testCase name="AssociateMusicianBandComponent function should call method associate musician" duration="11"/>
+  </file>
+  <file path="src/app/perfomer/create/create.component.spec.ts">
+    <testCase name="CreateComponent should create" duration="37"/>
+    <testCase name="CreateComponent expect cancel event function to emit event and reset form" duration="14"/>
+    <testCase name="CreateComponent should call create musician when perfomer form is filled with musician type" duration="16"/>
+    <testCase name="CreateComponent should call create band when perfomer form is filled with  " duration="13"/>
+  </file>
+  <file path="src/app/footer/footer.component.spec.ts">
+    <testCase name="FooterComponent should create" duration="5"/>
+  </file>
+  <file path="src/app/collector/collector.service.spec.ts">
+    <testCase name="Service: Collector getPost() should return 2 records" duration="2"/>
   </file>
   <file path="src/app/collector/collectorAlbum.service.spec.ts">
     <testCase name="Service: CollectorAlbum getPost() should return 2 records" duration="2"/>
+  </file>
+  <file path="src/app/album/album-detail/album-detail.component.spec.ts">
+    <testCase name="AlbumDetailComponent change creating tag should toggle flag" duration="15"/>
+    <testCase name="AlbumDetailComponent reload component shoould navigate using current url" duration="6"/>
+    <testCase name="AlbumDetailComponent should navigate to band if band instance is given" duration="9"/>
+    <testCase name="AlbumDetailComponent should create" duration="26"/>
+    <testCase name="AlbumDetailComponent should navigate to musician if musician instance is given" duration="7"/>
+    <testCase name="AlbumDetailComponent expect to get artist string if theres more than 1 artist on the array" duration="28"/>
+    <testCase name="AlbumDetailComponent expect to get artist string if theres only 1 artist on the array" duration="35"/>
+    <testCase name="AlbumDetailComponent expect to get artist string if theres more than 1 artist on the array" duration="8"/>
+    <testCase name="AlbumDetailComponent Verifica que se pinte el detalle del album en el html" duration="70"/>
+    <testCase name="AlbumDetailComponent expect backList to navigate back if it has a backUrl" duration="9"/>
+    <testCase name="AlbumDetailComponent Verifica que al inicializar el componente la variable albumI sea instancia de album" duration="25"/>
+    <testCase name="AlbumDetailComponent expect backList to navigate back if it has a backUrl" duration="8"/>
+    <testCase name="AlbumDetailComponent Verifica que al dar click en el boton de back, se active la funcion backList" duration="21"/>
+    <testCase name="AlbumDetailComponent Verifica que las funciones subServiceAlbum y obtenerIdRuta sean llamadas al inicializar el componente" duration="36"/>
+  </file>
+  <file path="src/app/album/album-create/album-create.component.spec.ts">
+    <testCase name="AlbumCreateComponent verifica que al escribir en un input, la función get de éste retorne lo escrito" duration="41"/>
+    <testCase name="AlbumCreateComponent verifica que el formulario se cree correctamente" duration="52"/>
+    <testCase name="AlbumCreateComponent verifica el correcto funcionamiento de validarFecha" duration="15"/>
+    <testCase name="AlbumCreateComponent Cancelar acciona la función emitCancelEvent" duration="14"/>
+    <testCase name="AlbumCreateComponent Muestra la clase wrong input cuando dicha entrada no es valida" duration="24"/>
+    <testCase name="AlbumCreateComponent should create" duration="31"/>
   </file>
 </testExecutions>
