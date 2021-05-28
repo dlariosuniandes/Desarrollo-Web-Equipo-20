@@ -1,22 +1,23 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, fakeAsync, TestBed, tick, inject } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { async, ComponentFixture,TestBed} from '@angular/core/testing';
+
 import { DebugElement } from '@angular/core';
 
 import { CollectorDetailComponent } from './collector-detail.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule} from '@angular/common/http/testing';
 import { Album } from '../../album/album';
 import { CollectorAlbum } from '../collectorAlbum';
-import faker from "faker";
+import faker from 'faker';
 import { Collector } from '../collector';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 import { Band } from 'src/app/perfomer/band';
 import { Musician } from 'src/app/perfomer/musician';
 import { CollectorAlbumService } from '../collectorAlbum.service';
+import { of } from 'rxjs';
 
-describe('CollectorDetailComponent',() => {
+
+describe('CollectorDetailComponent', () => {
   let component: CollectorDetailComponent;
   let fixture: ComponentFixture<CollectorDetailComponent>;
   let mockCollectorAlbum:CollectorAlbum[]=[];
@@ -30,11 +31,23 @@ describe('CollectorDetailComponent',() => {
       let mockAlbum = new Album(faker.datatype.number({'min': 100, 'max': 300}),faker.name.firstName(),faker.image.imageUrl(),faker.date.past(),faker.lorem.text(),faker.datatype.number({'min':0,'max':3}),faker.datatype.number({'min':0,'max':4}))
       mockCollectorAlbum.push(new CollectorAlbum(faker.datatype.number({min:100,max:300}),faker.datatype.number(),faker.name.firstName(),mockAlbum))
     }
-  }
+  };
+
+  const albumResponse: CollectorAlbum[] = [
+    new CollectorAlbum(
+      faker.datatype.number({ min: 100, max: 300 }),
+      faker.name.firstName(),
+      faker.image.imageUrl(),
+      faker.date.past(),
+      faker.lorem.text(),
+    ),
+  ];
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CollectorDetailComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      providers: [CollectorAlbumService]
     })
     .compileComponents();
 
@@ -45,10 +58,8 @@ describe('CollectorDetailComponent',() => {
     fixture = TestBed.createComponent(CollectorDetailComponent);
     component = fixture.componentInstance;
     router = TestBed.inject(Router)
-    service = TestBed.inject(CollectorAlbumService)
     crearCollectorAlbum();
-    component.collectorDetail =  new Collector
-    (
+    component.collectorDetail = new Collector(
       faker.datatype.number(),
       faker.name.findName(),
       faker.phone.phoneNumber(),
@@ -58,7 +69,6 @@ describe('CollectorDetailComponent',() => {
     fixture.detectChanges();
     debElement = fixture.debugElement;
     htmlMock = debElement.nativeElement;
-
   });
 
   it('should create', () => {
@@ -146,10 +156,22 @@ describe('CollectorDetailComponent',() => {
     expect(spyFunc).toHaveBeenCalledWith(component.collectorDetail.darId())
   })
 
-  // it('verifica que la funciòn getCollectorAlbums devuelva un elemento de la instancia collectorAlbum',()=>
-  // {
-  //   spyOn(service,'getCollectorAlbums').and.returnValue()
-  // })
+  it('verifica que la función getCollectorAlbums devuelva la cantidad de collector albums enviada por parametro',()=>
+  {
+    service = TestBed.inject(CollectorAlbumService) as jasmine.SpyObj<CollectorAlbumService>
+    spyOn(service,'getCollectorAlbums').and.returnValue(of(mockCollectorAlbum.slice(0,4)));
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component.collectorAlbums.length).toBe(4)
+  })
 
+  it('verifica que la función getCollectorAlbums devuelva la cantidad de collector albums enviada por parametro',()=>
+  {
+    service = TestBed.inject(CollectorAlbumService) as jasmine.SpyObj<CollectorAlbumService>
+    spyOn(service,'getCollectorAlbums').and.returnValue(of(mockCollectorAlbum.slice(0,4)));
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component.collectorAlbums.length).toBe(4)
+  })
 
 });

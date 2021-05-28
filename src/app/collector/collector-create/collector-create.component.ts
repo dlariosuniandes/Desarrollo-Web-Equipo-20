@@ -63,7 +63,6 @@ export class CollectorCreateComponent implements OnInit {
 
 
   cancelCreation() {
-    console.log("Cancelando ...");
     this.collectorForm.reset();
     this.router.navigateByUrl('collectors/list');
   }

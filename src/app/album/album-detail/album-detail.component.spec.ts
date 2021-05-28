@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 
 import { AlbumDetailComponent } from './album-detail.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -11,6 +11,9 @@ import { Band } from '../../perfomer/band';
 import { Musician } from '../../perfomer/musician';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import Swal, { SweetAlertResult } from 'sweetalert2';
+import { AlbumService } from '../album.service';
+import { of } from 'rxjs';
 
 describe('AlbumDetailComponent', () => {
   let component: AlbumDetailComponent;
@@ -266,4 +269,36 @@ describe('AlbumDetailComponent', () => {
     component.reloadComponent()
     expect(router.navigate).toHaveBeenCalled()
   })
+
+  it('verifica el correcto funcionamiento de la accion eliminarTrack',fakeAsync(()=>
+  {
+    let service = TestBed.inject(AlbumService) as jasmine.SpyObj<AlbumService>
+    let result:SweetAlertResult=
+    {
+      isConfirmed: true,
+      isDenied:false,
+      isDismissed:false
+    }
+    let spyFire = spyOn(Swal,'fire').and.resolveTo(result)
+    let spyServ = spyOn(service,'eliminarTrack').and.returnValue(of({resp:true}))
+    component.accionEliminarTrack(albumMock.darTracks()[0].darId())
+    fixture.detectChanges()
+    expect(spyFire).toHaveBeenCalledTimes(1)
+  }))
+
+  it('verifica el correcto funcionamiento de la acción eliminarAlbum',fakeAsync(()=>
+  {
+    let service = TestBed.inject(AlbumService) as jasmine.SpyObj<AlbumService>
+    let result:SweetAlertResult=
+    {
+      isConfirmed: true,
+      isDenied:false,
+      isDismissed:false
+    }
+    let spyFire = spyOn(Swal,'fire').and.resolveTo(result)
+    let spyServ = spyOn(service,'eliminarAlbum').and.returnValue(of({resp:true}))
+    component.accionEliminarAlbum()
+    fixture.detectChanges()
+    expect(spyFire).toHaveBeenCalledTimes(1)
+  }))
 });
