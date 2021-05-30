@@ -45,14 +45,6 @@ export class CollectorCreateComponent implements OnInit {
             }
           }
         )
-      },
-    error =>
-      {
-        Swal.fire({
-          icon: 'error',
-          text: 'El coleccionista no fue añadido!.'
-          })
-        console.log(error)
       }
      );
     //------------------------------------------------------------------

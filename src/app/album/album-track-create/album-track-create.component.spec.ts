@@ -1,9 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AlbumTrackCreateComponent } from './album-track-create.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DebugElement } from '@angular/core';
+import Swal, { SweetAlertResult } from 'sweetalert2';
+import { AlbumService } from '../album.service';
+import { of } from 'rxjs';
 
 describe('AlbumTrackCreateComponent', () => {
   let component: AlbumTrackCreateComponent;
@@ -69,4 +72,25 @@ describe('AlbumTrackCreateComponent', () => {
     fixture.detectChanges();
     fixture.whenStable().then(()=>expect(component.nombreTrack.value).toEqual('Hola Querola'));
   })
+
+  it('verifica la funcion crearTrack',fakeAsync(()=>
+  {
+    let service = TestBed.inject(AlbumService) as jasmine.SpyObj<AlbumService>
+    spyOn(service,'crearTrack').and.returnValue(of({resp:true}))
+    let response:SweetAlertResult =
+    {
+      isConfirmed:true,
+      isDenied: false,
+      isDismissed: false
+    }
+
+    const loadingSpy = spyOn(Swal,'showLoading');
+    spyOn(Swal,'fire').and.resolveTo(response)
+    const finishCreationSpy = spyOn(component.finishCreation,'emit')
+    component.nombreTrack.setValue('Modern Love');
+    component.duracionTrack.setValue('4:35');
+    fixture.detectChanges();
+    component.crearTrack();
+    expect(loadingSpy).toHaveBeenCalled();
+  }))
 });

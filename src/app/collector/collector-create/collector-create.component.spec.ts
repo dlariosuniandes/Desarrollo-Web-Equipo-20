@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import faker from "faker";
@@ -12,8 +12,9 @@ import { Collector } from '../collector';
 import { Band } from 'src/app/perfomer/band';
 import { CollectorAlbum } from '../collectorAlbum';
 import { CollectorService } from '../collector.service';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import {Router } from '@angular/router';
+import { of } from 'rxjs';
+import Swal, { SweetAlertResult } from 'sweetalert2';
 
 describe('CollectorCreateComponent', () => {
   let component: CollectorCreateComponent;
@@ -21,7 +22,7 @@ describe('CollectorCreateComponent', () => {
   let debElement: DebugElement
   let htmlMock: HTMLElement
   let collectorService: jasmine.SpyObj<CollectorService>;
-  let router: jasmine.SpyObj<Router>;
+  let router
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -37,13 +38,18 @@ describe('CollectorCreateComponent', () => {
     fixture.detectChanges();
     debElement = fixture.debugElement;
     htmlMock = debElement.nativeElement;
-    collectorService = TestBed.get(CollectorService);
-    spyOn(collectorService, 'createCollector').and.returnValue({
-      subscribe: () => new Observable<any>(),
-    } as any)
-    router = TestBed.get(Router);
+    collectorService = TestBed.inject(CollectorService) as jasmine.SpyObj<CollectorService>;
+
+    router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
     spyOn(router,'navigateByUrl')
     spyOn(component.collectorForm,'reset')
+    let response:SweetAlertResult =
+    {
+      isConfirmed:true,
+      isDenied: false,
+      isDismissed: false
+    }
+    spyOn(Swal,'fire').and.resolveTo(response)
   });
 
   it('should create', () => {
@@ -77,7 +83,14 @@ describe('CollectorCreateComponent', () => {
     expect(espia.calls.count()).toEqual(1);
   })
 
-  it('expect createCollector function to subscribe to observable', () => {
+  it('expect cancelCreation to reseltForm and navigate to collectors list', ()=> {
+    component.cancelCreation()
+    expect(component.collectorForm.reset).toHaveBeenCalled()
+    expect(router.navigateByUrl).toHaveBeenCalledWith('collectors/list')
+  })
+
+  it('verifica el correcto funcionamiento de la función createCollector',fakeAsync(()=>
+  {
     const mockCollector = new Collector(
       faker.datatype.number(),
       faker.name.findName(),
@@ -87,13 +100,10 @@ describe('CollectorCreateComponent', () => {
       [new Band(faker.date.past(),faker.name.firstName(),faker.lorem.text(),faker.datatype.number(),faker.image.imageUrl())],
       [new CollectorAlbum(faker.datatype.number(),faker.datatype.number(),faker.lorem.text())]
     )
-    component.createCollector(mockCollector)
-    expect(collectorService.createCollector).toHaveBeenCalled()
-  })
+    let service = spyOn(collectorService,'createCollector').and.returnValue(of(mockCollector))
 
-  it('expect cancelCreation to reseltForm and navigate to collectors list', ()=> {
-    component.cancelCreation()
-    expect(component.collectorForm.reset).toHaveBeenCalled()
-    expect(router.navigateByUrl).toHaveBeenCalledWith('collectors/list')
-  })
+    component.createCollector(mockCollector)
+
+    expect(service).toHaveBeenCalled();
+  }))
 });

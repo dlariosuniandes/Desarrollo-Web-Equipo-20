@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture,TestBed} from '@angular/core/testing';
+import { async, ComponentFixture,fakeAsync,TestBed} from '@angular/core/testing';
 
 import { DebugElement } from '@angular/core';
 
@@ -15,6 +15,8 @@ import { Band } from 'src/app/perfomer/band';
 import { Musician } from 'src/app/perfomer/musician';
 import { CollectorAlbumService } from '../collectorAlbum.service';
 import { of } from 'rxjs';
+import { CollectorService } from '../collector.service';
+import Swal, { SweetAlertResult } from 'sweetalert2';
 
 
 describe('CollectorDetailComponent', () => {
@@ -173,5 +175,24 @@ describe('CollectorDetailComponent', () => {
     fixture.detectChanges();
     expect(component.collectorAlbums.length).toBe(4)
   })
+
+  it('Verifica que la función borrarColeccionista funcione correctamente',fakeAsync(()=>
+  {
+    let service = TestBed.inject(CollectorService) as jasmine.SpyObj<CollectorService>
+    let router = TestBed.inject(Router) as jasmine.SpyObj<Router>
+    let routerSpy = spyOn(router,'navigateByUrl')
+    spyOn(service,'deleteCollector').and.returnValue(of({response:true}))
+    let response:SweetAlertResult =
+    {
+      isConfirmed:true,
+      isDenied: false,
+      isDismissed: false
+    }
+    spyOn(Swal,'fire').and.resolveTo(response)
+
+    component.borrarColeccionista(component.collectorDetail.darId())
+
+    expect(Swal.fire).toHaveBeenCalled()
+  }))
 
 });

@@ -1,12 +1,13 @@
-import { HttpClientModule, HttpResponse } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable, scheduled } from 'rxjs';
-import Swal, { SweetAlertCustomClass } from 'sweetalert2';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Observable, of} from 'rxjs';
+import Swal, { SweetAlertResult } from 'sweetalert2';
 import { PerformerService } from '../perfomer.service';
 
 import { CreateComponent } from './create.component';
+import faker from 'faker';
 
 describe('CreateComponent', () => {
   let component: CreateComponent;
@@ -29,22 +30,23 @@ describe('CreateComponent', () => {
     fixture.detectChanges();
     debElement = fixture.debugElement;
     htmlMock = debElement.nativeElement;
-    performerService = TestBed.get(PerformerService);
-    spyOn(performerService, 'createBand').and.returnValue({
-      subscribe: () => new Observable<any>(),
-    } as any)
-    spyOn(performerService, 'createMusician').and.returnValue({
-      subscribe: () => new Observable<any>(),
-    } as any)
+    performerService = TestBed.inject(PerformerService) as jasmine.SpyObj<PerformerService>;
     spyOn(component.performerForm, 'reset')
-    spyOn(Swal, 'fire')
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call create band when perfomer form is filled with  ', async () => {
+  it('should call create band when perfomer form is filled with  ', fakeAsync(() => {
+    let service = spyOn(performerService,'createBand').and.returnValue(of({response:true}))
+    let response:SweetAlertResult =
+    {
+      isConfirmed:true,
+      isDenied: false,
+      isDismissed: false
+    }
+    spyOn(Swal,'fire').and.resolveTo(response)
     component.performerForm.setValue({
       performerType: 'Banda',
       name: 'name',
@@ -53,14 +55,19 @@ describe('CreateComponent', () => {
       date: new Date(),
     });
     component.crearPerformer();
-    expect(performerService.createBand).toHaveBeenCalled();
-    performerService.createBand({}).subscribe((test) => {
-      expect(Swal.fire).toHaveBeenCalled()
-    })
-  });
+    expect(service).toHaveBeenCalled();
+  }));
 
 
-  it('should call create musician when perfomer form is filled with musician type', async () => {
+  it('should call create musician when perfomer form is filled with musician type',  fakeAsync(() => {
+    let service = spyOn(performerService,'createMusician').and.returnValue(of({response:true}))
+    let response:SweetAlertResult =
+    {
+      isConfirmed:true,
+      isDenied: false,
+      isDismissed: false
+    }
+    spyOn(Swal,'fire').and.resolveTo(response)
     component.performerForm.setValue({
       performerType: 'Músico',
       name: 'name',
@@ -68,18 +75,15 @@ describe('CreateComponent', () => {
       description: 'test',
       date: new Date(),
     });
-    await component.crearPerformer();
-    expect(performerService.createMusician).toHaveBeenCalled();
-
-    performerService.createMusician({}).subscribe((test) => {
-      expect(Swal.fire).toHaveBeenCalled()
-    })
-  });
+    component.crearPerformer();
+    expect(service).toHaveBeenCalled();
+  }));
 
 
   it('expect cancel event function to emit event and reset form', async () => {
     component.cancelCrearPerformer()
     expect(component.performerForm.reset).toHaveBeenCalled();
   });
+
 
 });
