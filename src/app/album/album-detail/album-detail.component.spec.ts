@@ -269,7 +269,7 @@ describe('AlbumDetailComponent', () => {
     component.reloadComponent()
     expect(router.navigate).toHaveBeenCalled()
   })
-
+  
   it('verifica el correcto funcionamiento de la accion eliminarTrack',fakeAsync(()=>
   {
     let service = TestBed.inject(AlbumService) as jasmine.SpyObj<AlbumService>
