@@ -31,7 +31,6 @@ export class AssociateMusicianBandComponent implements OnInit {
   }
 
   async associateMusician() {
-    console.log(this.currentMusician);
     const musicianId = this.currentMusician.id;
     const bandId = this.associateMusicianForm.get('band').value;
     this.performerService.associateMusician(bandId, musicianId).subscribe(

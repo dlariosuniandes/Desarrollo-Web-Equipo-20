@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import faker from 'faker'
 import { Album, Track } from '../album';
 import { AppRoutingModule } from '../../app-routing.module';
+import { Router } from '@angular/router';
 
 describe('AlbumListComponent', () => {
   let component: AlbumListComponent;
@@ -17,6 +18,7 @@ describe('AlbumListComponent', () => {
   let htmlElement: HTMLElement;
   let arrayMock: Array<Album>
   let arrayTrackMock: Array<Track>
+  let router:Router;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AlbumListComponent],
@@ -123,5 +125,25 @@ describe('AlbumListComponent', () => {
     fixture.detectChanges();
     htmlElement.querySelector(`#buttonAlbum${4}`).parentNode.querySelector('button').click();
     expect(spy.calls.first().args[0]).toBe(4)
+  })
+
+  it('Verifica el correcto funcionamiento de la funcion detallar Album',()=>
+  {
+    component.albums = arrayMock;
+    fixture.detectChanges();
+    router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
+    let routerSpy = spyOn(router,'navigateByUrl')
+    component.detallarAlbum(2)
+    fixture.detectChanges();
+    expect(routerSpy).toHaveBeenCalledWith(`/albums/${arrayMock[2].darId()}`)
+  })
+
+  it('Verifica el correcto funcionamiento de la funcion reloadComponent',()=>
+  {
+    router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
+    let routerSpy = spyOn(router,'navigate')
+    component.reloadComponent();
+    fixture.detectChanges()
+    expect(routerSpy).toHaveBeenCalled();
   })
 });

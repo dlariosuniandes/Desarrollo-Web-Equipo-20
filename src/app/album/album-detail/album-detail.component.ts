@@ -171,8 +171,9 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
         {
           Swal.showLoading()
           this.albumService.eliminarTrack(this.idAlbum,id).subscribe(
-            track=>
+            rta=>
             {
+              console.log(rta)
               Swal.fire(
                 {
                   icon:'success',
@@ -186,10 +187,6 @@ export class AlbumDetailComponent implements OnInit, OnDestroy {
                 }
               )
             },
-            error=>
-            {
-              
-            }
           )
         }
       }

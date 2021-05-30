@@ -56,7 +56,6 @@ describe('AlbumCreateComponent', () => {
   {
     const dateControl = new FormControl(['05/19/2050'])
     let retornoFuncion = component.validarFecha(dateControl)
-    console.log(retornoFuncion);
     expect(retornoFuncion['response']).toBeTrue()
   })
 
@@ -65,7 +64,7 @@ describe('AlbumCreateComponent', () => {
     expect(component.createAlbumForm).toBeTruthy()
   })
 
-  it('verifica que al escribir en un input, la función get de éste retorne lo escrito',()=>
+  it('verifica que al escribir en un input, la función get de éste retorne lo escrito',async ()=>
   {
     const e:Event = document.createEvent('Event');
     e.initEvent('input', false, false);
